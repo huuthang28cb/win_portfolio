@@ -1,0 +1,22 @@
+[
+  {
+    "name": "HealthTech & Big Data",
+    "slug": "health-big-data",
+    "description": "Biometric telemetry ingestion, wearable device IoT sync, and time-series pipelines."
+  },
+  {
+    "name": "Security & OIDC Identity",
+    "slug": "security-oidc",
+    "description": "Central Identity Provider (IdP) architecture, Single Sign-On (SSO), and OAuth 2.0 PKCE."
+  },
+  {
+    "name": "Applied AI & Automation",
+    "slug": "applied-ai",
+    "description": "Enterprise RAG support agents, automated speech-to-text (Whisper AI), and neural speech synthesis (Kokoro TTS)."
+  },
+  {
+    "name": "WebApps & Tooling",
+    "slug": "webapps-tools",
+    "description": "High-performance full-stack web applications, statistical dashboards, and analytics portals."
+  }
+]

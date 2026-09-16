@@ -1,0 +1,132 @@
+{
+  "title": "Enterprise Big Data Health Telemetry & Wearables Sync Platform",
+  "slug": "health-sync-platform",
+  "featured": true,
+  "status": "In Production",
+  "year": 2026,
+  "client": "Digital HealthTech Product Company",
+  "teamSize": 6,
+  "role": "Backend Architect & Data Lead",
+  "duration": "12 months",
+  "category": "Big Data & Health IoT",
+  "type": "Enterprise Core Platform",
+  "thumbnail": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Real-time biometric data ingestion and analytics system, automatically synchronizing with Huawei Health, Google Fit, Google Health Connect, and Apple HealthKit for hundreds of thousands of users.",
+  "tags": [
+    "PHP",
+    "Laravel",
+    "Python",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "Huawei Health API",
+    "Google Health Connect",
+    "TimescaleDB"
+  ],
+  "links": {
+    "website": "https://health-platform-demo.vercel.app",
+    "github": "https://github.com/win-dev/health-telemetry-engine",
+    "demo": "https://health-platform-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "Acts as the central data backbone for digital health products, continuously collecting, decoding, normalizing, and analyzing biometric telemetry from smart wearables.",
+    "background": "Each smart wearable ecosystem (Huawei, Google, Apple) employs distinct data structures, measurement metrics, and synchronization cycles. The absence of a unified telemetry architecture resulted in delayed syncs and data inconsistencies for medical professionals."
+  },
+  "challenge": {
+    "title": "Massive Event Ingestion Volume & Mission-Critical Reliability",
+    "problem": "Processing tens of millions of continuous heart rate and activity data points daily, adhering to strict medical privacy standards while preventing database bottlenecks.",
+    "bottlenecks": [
+      "Traffic spikes during morning synchronization windows and post-workout hours.",
+      "PostgreSQL table bloat when storing hundreds of millions of raw telemetry event records.",
+      "Ensuring idempotent event processing against duplicate webhook deliveries."
+    ]
+  },
+  "solution": {
+    "title": "Tiered Ingestion Pipeline with PostgreSQL Partitioning & Redis Buffer",
+    "approach": "Deployed an asynchronous queue worker architecture on PHP/Laravel and Python, buffering raw events via Redis and archiving into partitioned PostgreSQL time-series tables.",
+    "keyInnovations": [
+      "Unified Health Telemetry Schema translating Huawei, Google Fit, and Health Connect payloads into a standardized relational format.",
+      "Time-range database partitioning maintaining complex longitudinal trend queries under 30ms.",
+      "Automated biometric statistical anomaly detection flagging irregular heart rates within 3 seconds."
+    ]
+  },
+  "architecture": {
+    "overview": "Low-latency event-driven architecture safeguarding primary database instances.",
+    "layers": [
+      {
+        "layer": "Ingestion Gateway & Webhooks",
+        "tech": "PHP / Laravel, REST APIs, OAuth2 Token Management",
+        "detail": "Secures third-party connections and orchestrates refresh token lifecycles with Huawei Health and Google Cloud."
+      },
+      {
+        "layer": "Queue & Normalization Workers",
+        "tech": "Redis Queue, Python Workers, Celery",
+        "detail": "Decompresses payloads, deduplicates events, and aggregates metrics (Sleep Stages, Daily Active Calories)."
+      },
+      {
+        "layer": "Health Data Store",
+        "tech": "PostgreSQL, Timescale Partitioning, Docker",
+        "detail": "Time-series storage optimized with BRIN and B-Tree indexes for fast range scans across historical user records."
+      },
+      {
+        "layer": "Analytics WebApps & Clinical Portal",
+        "tech": "ReactJS, Next.js, Chart.js, Tailwind CSS",
+        "detail": "Interactive dashboards rendering 24/7 physiological telemetry trends for users and clinical advisors."
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "Multi-Ecosystem Wearable Synchronization",
+      "description": "Seamless single-consent linking with Huawei Health Kit, Google Fit API, Google Health Connect, and Apple HealthKit.",
+      "technicalHighlights": [
+        "Automated background token refreshes eliminating authorization drops.",
+        "Historical backfill syncing when users onboard or upgrade smart devices."
+      ]
+    },
+    {
+      "title": "Deep Biometric Analytics Dashboards",
+      "description": "Visualizing 24/7 heart rate variability, REM/Deep sleep cycles, and daily caloric burn with interactive charts.",
+      "technicalHighlights": [
+        "Concurrent query aggregation trimming dashboard load times from 2.4s to 180ms.",
+        "Custom range filters with automated clinical PDF report exports."
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Biometric Records Ingested Daily",
+      "value": "25,000,000+",
+      "change": "+340% throughput"
+    },
+    {
+      "label": "Analytics Query Response Time",
+      "value": "< 30ms",
+      "change": "8x faster"
+    },
+    {
+      "label": "Data Delivery Reliability SLA",
+      "value": "99.98%",
+      "change": "Zero data loss"
+    }
+  ],
+  "visuals": [
+    {
+      "title": "Telemetry Pipeline Architecture",
+      "description": "System flow from wearable sensors to normalized PostgreSQL time-series tables.",
+      "type": "architecture",
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "title": "Biometric Trend Analysis Dashboard",
+      "description": "High-density multi-metric telemetry charts built with Next.js and Chart.js.",
+      "type": "screenshot",
+      "url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "Partitioning time-series tables in PostgreSQL combined with Redis buffering handles massive IoT telemetry without needing specialized NoSQL clusters.",
+    "Abstracting third-party health APIs into a unified internal schema isolates business logic from vendor breaking changes."
+  ]
+}

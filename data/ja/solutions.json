@@ -1,0 +1,38 @@
+[
+  {
+    "id": "health-wearable-pipeline",
+    "title": "クロスプラットフォーム ウェアラブル・生体データ連携パイプライン",
+    "category": "データエンジニアリング & IoT統合",
+    "overview": "Huawei Health、Google Fit、Google Health Connect、Apple HealthKitからバイオメトリクスデータを自動収集・正規化する分散パイプラインを構築。",
+    "highlights": [
+      "心拍数、血中酸素濃度、睡眠サイクル、歩数、消費カロリーなど20種類以上の生体指標を統一スキーマへと自動変換。",
+      "端末側のバッテリー消費を抑える適応型ポーリングとリアルタイムWebhook受信機構の最適化。",
+      "PostgreSQLの時系列パーティショニング設計により、グラフ表示クエリの応答時間30ms未満を維持。"
+    ],
+    "techStack": ["PHP/Laravel", "Python", "PostgreSQL", "Redis", "Huawei Health API", "Google Health Connect"]
+  },
+  {
+    "id": "enterprise-oidc-sso",
+    "title": "企業標準 OpenID Connect / OAuth 2.0 統合認証基盤",
+    "category": "セキュリティ & 認証認可",
+    "overview": "全社Web/モバイルアプリ群に向け、安全なシングルサインオン（SSO）と権限管理を提供するRFC準拠のIdentity Provider（IdP）を構築。",
+    "highlights": [
+      "SPAおよびモバイル向けPKCE付き認可コードフロー、サービス間連携向けクライアントクレデンシャルフローの厳格な実装。",
+      "集中型セッション管理、即時トークン失効（Token Revocation）、RSA256暗号鍵の自動ローテーション機構。",
+      "マルチテナント対応のロールベース（RBAC）および属性ベース（ABAC）アクセス制御。"
+    ],
+    "techStack": ["OpenID Connect", "OAuth 2.0", "JWT / RSA256", "PHP", "Laravel Passport", "PostgreSQL"]
+  },
+  {
+    "id": "ai-multimedia-rag",
+    "title": "AIマルチメディア自動化 & 企業向けCSカスタマーサポートAgent",
+    "category": "応用AI & 業務自動化",
+    "overview": "Whisper AIによる高精度音声文字起こし、Kokoro TTSによる自然な多言語音声合成、およびRAG技術を活用した自動問い合わせ対応Agentを構築。",
+    "highlights": [
+      "ミリ秒単位の単語タイムスタンプ抽出（Whisper）と感情豊かな音声生成（Kokoro TTS）を組み合わせた動画自動吹替システム。",
+      "社内ドキュメント・ナレッジベースと連携し、正確な回答を生成するRAGベースのAIカスタマーサポート機能。",
+      "セマンティックキャッシュとプロンプトエンジニアリングによるAPIコスト45%削減と応答高速化。"
+    ],
+    "techStack": ["Python", "Whisper AI", "Kokoro TTS", "FFmpeg", "OpenAI API", "Vector Database", "RAG"]
+  }
+]

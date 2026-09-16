@@ -1,0 +1,22 @@
+[
+  {
+    "category": "バックエンド & データベース工学",
+    "skills": ["PHP", "Laravel", "Python", "PostgreSQL", "Redis", "MySQL", "Eloquent ORM", "SQLAlchemy", "クエリチューニング", "テーブルパーティショニング"]
+  },
+  {
+    "category": "フロントエンド & Webアーキテクチャ",
+    "skills": ["ReactJS", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript (ES6+)", "状態管理設計", "レスポンシブUI/UX", "RESTful / GraphQL"]
+  },
+  {
+    "category": "応用AI & メディア処理システム",
+    "skills": ["プロンプトエンジニアリング", "Whisper AI (音声認識)", "Kokoro TTS (音声合成)", "RAGシステム", "OpenAI API", "ベクトル検索"]
+  },
+  {
+    "category": "DevOps、セキュリティ & IoT統合",
+    "skills": ["Docker", "Docker Compose", "OpenID Connect (OIDC)", "OAuth 2.0 SSO", "Huawei Health API", "Google Health Connect", "Linux Server", "Git / CI-CD"]
+  },
+  {
+    "category": "語学力 & シニア専門能力",
+    "skills": ["ビジネスレベル英語", "システムアーキテクチャ設計", "海外API仕様書の読解・実装", "自律的課題解決力", "Agile / Scrum"]
+  }
+]

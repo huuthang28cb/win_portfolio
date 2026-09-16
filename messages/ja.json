@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "experience": "経歴",
+    "works": "プロジェクト",
+    "solutions": "ソリューション",
+    "credentials": "資格・学歴",
+    "publications": "ソリューション",
+    "awards": "資格・学歴",
+    "skills": "スキル",
+    "contact": "お問い合わせ",
+    "lang_mode": "言語モード"
+  },
+  "sections": {
+    "experience_title": "職務経歴 & 学歴",
+    "projects_title": "主要プロジェクト & 事例紹介",
+    "solutions": "中核ソリューション & アーキテクチャ",
+    "solutionsSubtitle": "大規模生体データパイプライン、統合認証基盤、および商用AI自動化システムの実装実績",
+    "credentials": "資格 & 専門学歴",
+    "credentialsSubtitle": "正規工学学士号、ビジネス英語運用能力、および各種専門技術認定",
+    "publications_title": "中核ソリューション & アーキテクチャ",
+    "awards_title": "資格 & 専門学歴",
+    "skills_title": "技術スキル & 専門領域",
+    "view_all_projects": "すべてのプロジェクトを見る",
+    "view_case_study": "詳細ケーススタディ"
+  },
+  "hero": {
+    "email_label": "メール",
+    "resume": "履歴書・職務経歴書",
+    "scholar": "Google Scholar",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "wechat": "WeChat"
+  },
+  "project": {
+    "back": "プロジェクト一覧に戻る",
+    "visit": "デモ / サイトを訪問",
+    "source": "ソースコードを見る",
+    "overview": "プロジェクト概要",
+    "challenge": "技術的課題",
+    "solution": "アーキテクチャ解決策",
+    "architecture": "システム設計",
+    "features": "主要機能",
+    "metrics": "実績数値 & 効果",
+    "gallery": "UI・システム構成図",
+    "takeaways": "技術的知見・学び",
+    "client": "クライアント / プロダクト",
+    "role": "担当役割",
+    "duration": "開発期間",
+    "team": "チーム規模",
+    "category": "カテゴリ",
+    "status": "ステータス",
+    "tech": "主要技術スタック"
+  },
+  "works": {
+    "title": "全プロジェクトポートフォリオ",
+    "desc": "ヘルスケア生体データ連携基盤、エンタープライズOIDC認証サーバー、応用AIプロダクト、および高パフォーマンスWebアプリの実績一覧。",
+    "all": "すべて",
+    "filter_label": "カテゴリ絞り込み:"
+  },
+  "contact": {
+    "title": "お問い合わせ & 技術相談",
+    "subtitle": "シニアエンジニアポジション、バックエンド設計、AI統合、またはプロダクト開発に関するご相談を歓迎します。",
+    "availability": "新しいプロジェクトやポジションを募集中",
+    "form_name": "お名前",
+    "form_email": "メールアドレス",
+    "form_subject": "件名 / お問い合わせ内容",
+    "form_message": "メッセージ本文...",
+    "form_submit": "メッセージを送信"
+  },
+  "footer": {
+    "rights": "All rights reserved by",
+    "tagline": "卓越したパフォーマンスと高信頼性を追求したエンジニアリング。",
+    "top": "ページトップへ"
+  }
+}

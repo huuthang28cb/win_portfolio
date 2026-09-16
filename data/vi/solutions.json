@@ -1,0 +1,38 @@
+[
+  {
+    "id": "health-wearable-pipeline",
+    "title": "Pipeline Đồng bộ Dữ liệu Thiết bị Đeo & Sức khỏe Đa nền tảng",
+    "category": "Data Engineering & IoT Integration",
+    "overview": "Thiết kế kiến trúc hấp thụ và chuẩn hóa dữ liệu sinh trắc học hàng ngày từ hệ sinh thái Huawei Health, Google Fit, Google Health Connect và Apple HealthKit.",
+    "highlights": [
+      "Xử lý chuẩn hóa hơn 20 loại chỉ số sức khỏe khác nhau (nhịp tim, nồng độ oxy SpO2, chu kỳ giấc ngủ, số bước chân, calo tiêu thụ) về định dạng thống nhất.",
+      "Tối ưu hóa cơ chế Webhook và cơ chế Polling phân tầng để cập nhật dữ liệu tự động mà không làm cạn pin thiết bị đeo.",
+      "Lưu trữ dữ liệu chuỗi thời gian (Time-series) trên PostgreSQL phân vùng, đảm bảo tốc độ truy vấn biểu đồ xu hướng luôn dưới 30ms."
+    ],
+    "techStack": ["PHP/Laravel", "Python", "PostgreSQL", "Redis", "Huawei Health API", "Google Health Connect"]
+  },
+  {
+    "id": "enterprise-oidc-sso",
+    "title": "Hệ thống Định danh Tập trung OIDC / OAuth2 Chuẩn Doanh nghiệp",
+    "category": "Security & Identity Management",
+    "overview": "Xây dựng Identity Provider (IdP) chuẩn OpenID Connect và OAuth 2.0 phục vụ đăng nhập một lần (Single Sign-On - SSO) an toàn cho toàn bộ hệ sinh thái sản phẩm.",
+    "highlights": [
+      "Hỗ trợ các luồng xác thực bảo mật cao cấp: Authorization Code Flow with PKCE cho SPA/Mobile Apps và Client Credentials Flow cho Service-to-Service.",
+      "Quản lý phiên đăng nhập tập trung, cơ chế thu hồi token tức thời (Instant Token Revocation) và xoay vòng khóa bất đối xứng RSA (Key Rotation).",
+      "Tích hợp hệ thống phân quyền theo vai trò (Role-Based Access Control - RBAC) và theo thuộc tính (ABAC) phân cấp nhiều cấp độ."
+    ],
+    "techStack": ["OpenID Connect", "OAuth 2.0", "JWT / RSA256", "PHP", "Laravel Passport", "PostgreSQL"]
+  },
+  {
+    "id": "ai-multimedia-rag",
+    "title": "Hệ thống Tự động hóa AI Audio/Video & Trợ lý CSKH Doanh nghiệp",
+    "category": "Applied AI & Automation",
+    "overview": "Triển khai các giải pháp AI thực chiến phục vụ doanh nghiệp: tự động chuyển đổi giọng nói thành phụ đề (Whisper AI), lồng tiếng tự nhiên (Kokoro TTS) và chatbot CSKH thông minh.",
+    "highlights": [
+      "Xây dựng pipeline xử lý video tự động: bóc băng phụ đề đa ngôn ngữ theo mili-giây với Whisper và sinh giọng đọc cảm xúc với Kokoro TTS.",
+      "Phát triển chatbot AI CSKH sử dụng kỹ thuật RAG (Retrieval-Augmented Generation) kết hợp cơ sở tri thức tài liệu nội bộ doanh nghiệp.",
+      "Tối ưu hóa chi phí token và tốc độ phản hồi qua cơ chế Semantic Caching và Prompt Engineering chuẩn mực."
+    ],
+    "techStack": ["Python", "Whisper AI", "Kokoro TTS", "FFmpeg", "OpenAI API", "Vector Database", "RAG"]
+  }
+]

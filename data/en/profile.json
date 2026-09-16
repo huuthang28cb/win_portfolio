@@ -1,0 +1,16 @@
+{
+  "name": "Win Nguyen",
+  "nativeName": "Nguyễn Thắng",
+  "avatar": "/avatar.png",
+  "headline": "Senior Full Stack Engineer (Backend Specialist & AI Systems)",
+  "bio": "Senior Full Stack Engineer with strong backend roots and 6+ years of experience. Currently driving product engineering at a Digital Health & Wellness enterprise—specializing in high-volume health telemetry data pipelines, third-party wearable integrations (Huawei Health, Google Fit, Google Health Connect), enterprise OIDC/OAuth2 identity platforms, and pragmatic AI service integrations.",
+  "email": "thang.nguyen@example.com",
+  "location": "Ho Chi Minh City, Vietnam",
+  "links": {
+    "github": "https://github.com/win-dev",
+    "linkedin": "https://linkedin.com",
+    "resume": "/resume.pdf",
+    "wechat": "win_developer",
+    "twitter": "https://twitter.com"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "works": "Projects",
+    "solutions": "Solutions",
+    "credentials": "Credentials",
+    "publications": "Solutions",
+    "awards": "Credentials",
+    "skills": "Skills",
+    "contact": "Contact",
+    "lang_mode": "LANGUAGE MODE"
+  },
+  "sections": {
+    "experience_title": "Professional Experience & Education",
+    "projects_title": "Featured Projects & Case Studies",
+    "solutions": "Architecture & Core Solutions",
+    "solutionsSubtitle": "Production telemetry data pipelines, enterprise identity providers, and applied AI systems",
+    "credentials": "Certifications & Professional Credentials",
+    "credentialsSubtitle": "Formal academic degree, professional English proficiency, and technical credentials",
+    "publications_title": "Architecture & Core Solutions",
+    "awards_title": "Certifications & Professional Credentials",
+    "skills_title": "Technical Skills & Competencies",
+    "view_all_projects": "View all projects",
+    "view_case_study": "View Case Study"
+  },
+  "hero": {
+    "email_label": "Email",
+    "resume": "Resume",
+    "scholar": "Google Scholar",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "wechat": "WeChat"
+  },
+  "project": {
+    "back": "Back to all projects",
+    "visit": "Visit Website / Live Demo",
+    "source": "View Source Code",
+    "overview": "Project Overview",
+    "challenge": "Technical Challenge",
+    "solution": "Architectural Solution",
+    "architecture": "System Architecture",
+    "features": "Core Features",
+    "metrics": "Key Metrics & Impact",
+    "gallery": "Visual Gallery",
+    "takeaways": "Key Engineering Takeaways",
+    "client": "Client / Product",
+    "role": "Role",
+    "duration": "Duration",
+    "team": "Team Size",
+    "category": "Category",
+    "status": "Status",
+    "tech": "Core Technologies"
+  },
+  "works": {
+    "title": "Comprehensive Project Portfolio",
+    "desc": "A curated collection of health telemetry pipelines, enterprise OIDC identity providers, applied AI products, and high-performance web applications.",
+    "all": "All",
+    "filter_label": "Filter by:"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Open for senior engineering roles, technical architecture consulting, and product collaborations.",
+    "availability": "Available for new opportunities",
+    "form_name": "Your Name",
+    "form_email": "Your Email",
+    "form_subject": "Subject / Inquiry",
+    "form_message": "Message content...",
+    "form_submit": "Send Message"
+  },
+  "footer": {
+    "rights": "All rights reserved by",
+    "tagline": "Architected & Engineered for Peak Performance and Reliability.",
+    "top": "Back to Top"
+  }
+}

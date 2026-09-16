@@ -1,0 +1,132 @@
+{
+  "title": "Enterprise Omnichannel AI Customer Support Agent (RAG Platform)",
+  "slug": "ai-customer-service",
+  "featured": true,
+  "status": "In Production",
+  "year": 2026,
+  "client": "Enterprise SMBs & E-Commerce Brands",
+  "teamSize": 2,
+  "role": "Full Stack & AI Engineer",
+  "duration": "6 months",
+  "category": "Artificial Intelligence & RAG",
+  "type": "AI SaaS & Business Automation",
+  "thumbnail": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "24/7 intelligent customer support agent powered by Retrieval-Augmented Generation (RAG), syncing knowledge from corporate documents and website portals with seamless Web Widget, Zalo, and Messenger integrations.",
+  "tags": [
+    "Python",
+    "FastAPI",
+    "Next.js",
+    "ReactJS",
+    "PostgreSQL",
+    "pgvector",
+    "LangChain",
+    "OpenAI API",
+    "Docker"
+  ],
+  "links": {
+    "website": "https://ai-cskh-demo.vercel.app",
+    "github": "https://github.com/win-dev/ai-customer-support-agent",
+    "demo": "https://ai-cskh-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "An omnichannel AI customer care platform designed to resolve up to 80% of repetitive customer inquiries autonomously, referencing verified company policy documents with zero hallucinations.",
+    "background": "Small-and-medium enterprises suffer from overwhelmed support queues during surge hours. Night-shift staffing is expensive, while legacy rule-based chatbots fail to understand conversational nuances."
+  },
+  "challenge": {
+    "title": "Zero-Hallucination Precision & Token Cost Optimization",
+    "problem": "Handling natural, colloquial customer queries containing abbreviations and typos while locating the exact clause across hundreds of document pages within 1.5 seconds.",
+    "bottlenecks": [
+      "Escalating LLM token usage costs when feeding raw document excerpts into every prompt.",
+      "Model hallucination fabricating invalid promotional policies outside allowed boundaries.",
+      "High query-to-answer latency without concurrent vector retrieval and streaming synthesis."
+    ]
+  },
+  "solution": {
+    "title": "Hybrid RAG Pipeline with Semantic Caching & PostgreSQL pgvector",
+    "approach": "Integrated vector storage natively within PostgreSQL via `pgvector`, combining BM25 keyword matching with dense embeddings and Redis-backed semantic caching.",
+    "keyInnovations": [
+      "Hierarchical Chunking preserving tabular layout and structured product attribute matrices.",
+      "Strict Guardrail filters preventing prompt injection exploits and off-policy disclosures.",
+      "Semantic Caching eliminating up to 55% of costly LLM inference calls for frequent inquiries."
+    ]
+  },
+  "architecture": {
+    "overview": "High-throughput asynchronous RAG architecture orchestrated with Docker and Next.js.",
+    "layers": [
+      {
+        "layer": "Omnichannel Ingestion Gateway",
+        "tech": "Next.js Web Widget, Zalo OA Webhooks, Facebook Messenger API",
+        "detail": "Lightweight embeddable chat widget integrated with a single line of JavaScript code."
+      },
+      {
+        "layer": "Agent Orchestration & Intent Engine",
+        "tech": "Python, FastAPI, LangChain, Async Worker",
+        "detail": "Classifies customer intent, routes domain queries through RAG, or triggers human agent handoff."
+      },
+      {
+        "layer": "Vector Knowledge Base",
+        "tech": "PostgreSQL, pgvector, Redis Semantic Cache",
+        "detail": "Houses 1536-dimensional embeddings with HNSW indexing for sub-10ms nearest neighbor queries."
+      },
+      {
+        "layer": "Corporate Management Console",
+        "tech": "ReactJS, Next.js Dashboard, Chart.js",
+        "detail": "Self-service document upload portal (PDF, Word, FAQ URLs) with live conversation analytics."
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "Automated Document Ingestion & Vectorization",
+      "description": "Upload product catalogues or paste website URLs to ingest and build searchable knowledge vectors in under 2 minutes.",
+      "technicalHighlights": [
+        "Advanced tabular text extraction from complex multi-page PDF documents.",
+        "Instant document updates with zero model fine-tuning required."
+      ]
+    },
+    {
+      "title": "Seamless Human Handover with AI Summaries",
+      "description": "Escalates frustrated customers or complex complaints to live support representatives with a 3-line AI briefing.",
+      "technicalHighlights": [
+        "Real-time sentiment scoring flagging escalation signals.",
+        "Automated conversational context summarization saving minutes of onboarding time."
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Automated Resolution Rate",
+      "value": "78%",
+      "change": "Resolved without human intervention"
+    },
+    {
+      "label": "Average Response Time",
+      "value": "1.2s",
+      "change": "90% faster than legacy bots"
+    },
+    {
+      "label": "Support Cost Reduction",
+      "value": "60%",
+      "change": "Lower night/weekend staffing expense"
+    }
+  ],
+  "visuals": [
+    {
+      "title": "Hybrid Search RAG Architecture Flow",
+      "description": "Workflow from customer query through Guardrails, pgvector search, and synthesized response.",
+      "type": "architecture",
+      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+    },
+    {
+      "title": "Knowledge Base Management Console",
+      "description": "Administrative UI for uploading manuals, testing prompts, and auditing conversations.",
+      "type": "screenshot",
+      "url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "Leveraging pgvector within PostgreSQL eliminates the operational complexity of managing standalone vector database clusters.",
+    "Hierarchical document chunking combined with strict guardrails is essential for production-grade zero-hallucination support agents."
+  ]
+}

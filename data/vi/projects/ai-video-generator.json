@@ -1,0 +1,146 @@
+{
+  "title": "Visionary - Nền tảng Biên tập & Tạo Video AI Tự động",
+  "slug": "ai-video-generator",
+  "featured": true,
+  "status": "Đã triển khai & Vận hành",
+  "year": 2025,
+  "client": "Creative Media Labs & Doanh nghiệp Quảng cáo",
+  "teamSize": 4,
+  "role": "Kiến trúc sư Trí tuệ Nhân tạo & Kỹ thuật Video",
+  "duration": "5 tháng",
+  "category": "Trí tuệ Nhân tạo & Xử lý Media",
+  "type": "Nền tảng SaaS Doanh nghiệp",
+  "thumbnail": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Hệ thống tự động chuyển đổi kịch bản văn bản thành video chất lượng điện ảnh 4K với trình dựng phi tuyến tính trên trình duyệt và tăng tốc phần cứng WebCodecs.",
+  "tags": [
+    "Next.js 15",
+    "Python",
+    "WebCodecs API",
+    "FFmpeg WASM",
+    "Diffusion Models",
+    "CUDA",
+    "Tailwind CSS"
+  ],
+  "links": {
+    "website": "https://visionary-video-demo.vercel.app",
+    "github": "https://github.com/win-dev/ai-video-synthesis",
+    "demo": "https://visionary-video-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "Visionary là nền tảng AI Video Studio hoàn chỉnh cho phép các đội ngũ sáng tạo nội dung tự động tạo cảnh quay, ghép phụ đề động, phối âm thanh và xuất video chuẩn quảng cáo chỉ trong chưa đầy 60 giây.",
+    "background": "Quy trình dựng video truyền thống đòi hỏi từ 2 đến 4 ngày làm việc cho mỗi video 60 giây (từ lên ý tưởng, cắt ghép khung hình, căn chỉnh voiceover đến render file nặng trên máy trạm). Nhu cầu sản xuất nội dung ngắn (Shorts/Reels/TikTok) đòi hỏi tốc độ tạo nội dung theo phút."
+  },
+  "challenge": {
+    "title": "Nút thắt về Băng thông Render & Độ đồng bộ Âm - Hình",
+    "problem": "Xử lý việc render video đa lớp (video track, audio track, subtitle track, visual effects) trực tiếp trên trình duyệt mà không làm đơ giật giao diện, đồng thời tối ưu hóa chi phí GPU khi chạy mô hình sinh ảnh/video quy mô lớn.",
+    "bottlenecks": [
+      "Trình duyệt bị quá tải bộ nhớ và tràn RAM (OOM Crash) khi giải mã các tệp video độ phân giải cao bằng thẻ `<video>` thông thường.",
+      "Độ trễ render phụ đề động và hiệu ứng chuyển cảnh trên máy chủ đám mây quá tốn kém tài nguyên GPU.",
+      "Sự lệch pha thời gian (drift) giữa giọng đọc AI sinh ra (TTS) và thời lượng hiển thị hình ảnh."
+    ]
+  },
+  "solution": {
+    "title": "Kiến trúc Hybrid Browser Engine với WebCodecs & Worker Render",
+    "approach": "Kết hợp sức mạnh phần cứng máy khách qua WebCodecs API và WebAssembly FFmpeg để biên tập theo thời gian thực (Zero-Server-Cost Previews), song song với cụm GPU đám mây tối ưu hóa hạt nhân khuếch tán (Diffusion Pipeline) phục vụ render đầu ra 4K.",
+    "keyInnovations": [
+      "Ứng dụng WebCodecs giải mã khung hình video bằng phần cứng GPU máy tính người dùng (Hardware-accelerated VideoDecoder), đạt tốc độ xem trước 60 FPS mượt mà.",
+      "Thuật toán căn chỉnh nhịp điệu tự động (Beat-sync Audio Alignment) phân tích bước sóng âm thanh để khớp khoảnh khắc chuyển cảnh theo mili-giây.",
+      "Cơ chế đệm khung hình phân mảnh (Chunked Frame Caching) cho phép tua dòng thời gian tức thì không cần tải lại video."
+    ]
+  },
+  "architecture": {
+    "overview": "Kiến trúc phối hợp giữa Trình biên tập máy khách (Client NLE Engine) và Cụm sinh mô hình phân tán (Distributed Inference Cluster).",
+    "layers": [
+      {
+        "layer": "Tầng Biên tập Máy khách (Client NLE)",
+        "tech": "Next.js 15, WebCodecs API, Web Audio API, Canvas WebGL",
+        "detail": "Trình dựng video phi tuyến tính (NLE) chạy trực tiếp trên trình duyệt, xử lý timeline đa track, căn chỉnh phụ đề và áp dụng bộ lọc màu LUT theo thời gian thực."
+      },
+      {
+        "layer": "Tầng Đồng bộ & Tạo kịch bản (Scripting & NLP)",
+        "tech": "Python, LLM Prompt Chains, Phoneme Extraction",
+        "detail": "Phân tích kịch bản chữ thành các phân đoạn cảnh (Storyboarding), tự động trích xuất từ khóa thị giác và ước tính thời lượng khung hình."
+      },
+      {
+        "layer": "Tầng Sinh Media & GPU Inference",
+        "tech": "PyTorch, CUDA, Stable Video Diffusion, Whisper, vLLM",
+        "detail": "Cụm GPU phân tán sinh hình ảnh, chuyển động và giọng đọc thuyết minh đa ngôn ngữ có cảm xúc."
+      },
+      {
+        "layer": "Tầng Xuất Video (Encoding & Export Pipeline)",
+        "tech": "FFmpeg WASM (Client) & C++ Hardware NVENC (Cloud)",
+        "detail": "Cho phép xuất nhanh bản xem thử 1080p ngay tại trình duyệt hoặc kết xuất bản gốc 4K ProRes trên máy chủ."
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "Trình Dựng Video Phi Tuyến Tính (NLE) trên Trình Duyệt",
+      "description": "Giao diện kéo thả timeline hỗ trợ nhiều lớp video, âm thanh, lớp phủ đồ họa và phụ đề động với khả năng cắt ghép tức thời.",
+      "technicalHighlights": [
+        "Sử dụng WebCodecs VideoDecoder và VideoFrame API để trích xuất từng khung hình trực tiếp vào WebGL Canvas.",
+        "Bộ đệm âm thanh Web Audio API xử lý nén tiếng, khử ồn và tự động hạ âm lượng nhạc nền khi có giọng đọc."
+      ]
+    },
+    {
+      "title": "Tự động Chuyển Đổi Kịch Bản thành Phân Cảnh (Auto Storyboarding)",
+      "description": "Chỉ cần dán văn bản bài viết hoặc kịch bản, AI tự động tách câu, chọn phong cách hình ảnh điện ảnh và phối hợp cảnh quay phù hợp.",
+      "technicalHighlights": [
+        "Tích hợp thuật toán semantic chunking phân chia cảnh theo nhịp ngữ nghĩa tự nhiên.",
+        "Sinh giọng đọc AI tự nhiên với đầy đủ ngữ điệu và đồng bộ khẩu hình (Lip-sync)."
+      ]
+    },
+    {
+      "title": "Hiệu Ứng Phụ Đề Động Karaoke và Chữ Nghệ Thuật",
+      "description": "Tự động trích xuất mốc thời gian từng từ (Word-level timestamps) và tạo hiệu ứng chữ nhảy, đổi màu theo đúng giọng đọc đang phát.",
+      "technicalHighlights": [
+        "Sử dụng mô hình Whisper trích xuất thời gian chính xác đến từng mili-giây.",
+        "Render phụ đề bằng Canvas vector 60 FPS không tiêu tốn tài nguyên GPU máy chủ."
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Thời gian sản xuất video hoàn chỉnh",
+      "value": "< 45 giây",
+      "change": "Nhanh hơn 80x"
+    },
+    {
+      "label": "Số lượng video đã kết xuất",
+      "value": "15,000+",
+      "change": "Tháng thử nghiệm"
+    },
+    {
+      "label": "Chi phí hạ tầng máy chủ giảm",
+      "value": "68%",
+      "change": "Nhờ WebCodecs"
+    },
+    {
+      "label": "Tỷ lệ giữ chân người xem video",
+      "value": "+42%",
+      "change": "Nhờ nhịp phụ đề"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "Giao diện Studio Biên tập Timeline",
+      "caption": "Trình dựng video trực quan trên trình duyệt hỗ trợ xem trước khung hình thời gian thực với WebCodecs.",
+      "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "title": "Phân Tách Kịch Bản và Sinh Cảnh Tự Động",
+      "caption": "AI phân tích văn bản kịch bản để tạo bố cục phân đoạn và hình ảnh tương ứng.",
+      "image": "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "title": "Bộ Công Cụ Phụ Đề Động & Bảng Màu Điện Ảnh",
+      "caption": "Tùy biến typography, hiệu ứng chữ chuyển động và bộ lọc màu chuyên nghiệp.",
+      "image": "https://images.unsplash.com/photo-1574717024553-78858a742142?q=80&w=2070&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "Việc đưa các tác vụ giải mã video và xử lý âm thanh về phía client qua WebCodecs giúp tiết kiệm chi phí máy chủ hạ tầng tới 68%.",
+    "Độ chính xác về mốc thời gian (timestamp synchronization) giữa âm thanh và hình ảnh là yếu tố quan trọng nhất quyết định tính chuyên nghiệp của video AI."
+  ]
+}

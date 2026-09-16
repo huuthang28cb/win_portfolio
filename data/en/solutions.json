@@ -1,0 +1,38 @@
+[
+  {
+    "id": "health-wearable-pipeline",
+    "title": "Cross-Platform Wearable & Health Telemetry Pipeline",
+    "category": "Data Engineering & IoT Integration",
+    "overview": "Architected an automated ingestion and normalization pipeline synchronizing daily biometrics from Huawei Health, Google Fit, Google Health Connect, and Apple HealthKit.",
+    "highlights": [
+      "Standardized 20+ disparate biometric metric streams (heart rate, SpO2, sleep hypnograms, steps, active calories) into a unified relational schema.",
+      "Optimized event webhook ingestion and adaptive backoff polling schemes to conserve wearable device battery life.",
+      "Engineered partitioned PostgreSQL time-series tables ensuring historical trend query times remain consistently sub-30ms."
+    ],
+    "techStack": ["PHP/Laravel", "Python", "PostgreSQL", "Redis", "Huawei Health API", "Google Health Connect"]
+  },
+  {
+    "id": "enterprise-oidc-sso",
+    "title": "Enterprise OpenID Connect & OAuth 2.0 Identity Platform",
+    "category": "Security & Identity Management",
+    "overview": "Built an RFC-compliant Identity Provider (IdP) providing seamless Single Sign-On (SSO) and fine-grained access control across all corporate web and mobile applications.",
+    "highlights": [
+      "Implemented strict security flows: Authorization Code Flow with PKCE for single-page and mobile apps, and Client Credentials Flow for microservices.",
+      "Centralized session management with instantaneous token revocation and automated RSA256 cryptographic key rotation.",
+      "Configured multi-tenant Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC) permissions."
+    ],
+    "techStack": ["OpenID Connect", "OAuth 2.0", "JWT / RSA256", "PHP", "Laravel Passport", "PostgreSQL"]
+  },
+  {
+    "id": "ai-multimedia-rag",
+    "title": "AI Multimedia Automation & Enterprise Customer Support Agents",
+    "category": "Applied AI & Automation",
+    "overview": "Engineered production AI workflows: automated speech-to-subtitles via Whisper AI, lifelike neural voiceovers with Kokoro TTS, and RAG-powered customer service agents.",
+    "highlights": [
+      "Automated multi-lingual video dubbing: millisecond-accurate word timestamps with Whisper AI and expressive speech synthesis using Kokoro TTS.",
+      "Developed an enterprise customer support agent using Retrieval-Augmented Generation (RAG) grounded in proprietary company knowledge bases.",
+      "Reduced API token expenditures and latency by 45% utilizing semantic caching and structured prompt design."
+    ],
+    "techStack": ["Python", "Whisper AI", "Kokoro TTS", "FFmpeg", "OpenAI API", "Vector Database", "RAG"]
+  }
+]

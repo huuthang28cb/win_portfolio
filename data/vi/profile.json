@@ -1,0 +1,16 @@
+{
+  "name": "Nguyễn Thắng",
+  "nativeName": "Win Nguyen",
+  "avatar": "/avatar.png",
+  "headline": "Senior Full Stack Engineer (Backend Specialist & AI Systems)",
+  "bio": "Kỹ sư Full Stack xuất thân từ Backend với hơn 6 năm kinh nghiệm thực chiến. Hiện đang phát triển nền tảng công nghệ sức khỏe (Digital HealthTech), chuyên sâu về xử lý dữ liệu lớn sinh trắc học, kết nối hệ sinh thái thiết bị đeo thông minh (Huawei Health, Google Fit, Google Health Connect), xây dựng hệ thống định danh OIDC chuẩn doanh nghiệp và tích hợp các giải pháp AI tự động hóa.",
+  "email": "thang.nguyen@example.com",
+  "location": "TP. Hồ Chí Minh, Việt Nam",
+  "links": {
+    "github": "https://github.com/win-dev",
+    "linkedin": "https://linkedin.com",
+    "resume": "/resume.pdf",
+    "wechat": "win_developer",
+    "twitter": "https://twitter.com"
+  }
+}

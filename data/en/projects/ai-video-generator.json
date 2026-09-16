@@ -1,0 +1,146 @@
+{
+  "title": "Visionary - Autonomous AI Video Production Studio",
+  "slug": "ai-video-generator",
+  "featured": true,
+  "status": "Production Deployed",
+  "year": 2025,
+  "client": "Creative Media Labs & Ad Agencies",
+  "teamSize": 4,
+  "role": "AI & Video Systems Architect",
+  "duration": "5 Months",
+  "category": "Artificial Intelligence & Media Processing",
+  "type": "Enterprise SaaS Platform",
+  "thumbnail": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "End-to-end AI video synthesis platform converting text scripts into 4K cinematic commercials featuring browser-based non-linear editing accelerated by WebCodecs.",
+  "tags": [
+    "Next.js 15",
+    "Python",
+    "WebCodecs API",
+    "FFmpeg WASM",
+    "Diffusion Models",
+    "CUDA",
+    "Tailwind CSS"
+  ],
+  "links": {
+    "website": "https://visionary-video-demo.vercel.app",
+    "github": "https://github.com/win-dev/ai-video-synthesis",
+    "demo": "https://visionary-video-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "Visionary is a comprehensive AI Video Studio empowering creators to generate scenes, dynamic subtitles, audio soundscapes, and production-grade video in under 60 seconds.",
+    "background": "Traditional video production took 2 to 4 days for a 60-second clip (ideation, clip splicing, voiceover matching, and heavy workstation rendering). Short-form media demands minutes-level turnaround."
+  },
+  "challenge": {
+    "title": "Browser Render Bottlenecks & Audio-Visual Synchronization",
+    "problem": "Handling multi-track real-time rendering (video, audio, dynamic subtitles, transitions) directly inside modern browsers without UI stutter, while minimizing GPU cloud rendering costs.",
+    "bottlenecks": [
+      "Standard HTML5 `<video>` tags suffered severe memory leaks and crashes on high-bitrate media.",
+      "Cloud-side rendering for draft video previews was prohibitively expensive.",
+      "Cumulative timing drift between generated AI voiceovers and scene transition markers."
+    ]
+  },
+  "solution": {
+    "title": "Hybrid In-Browser NLE Engine via WebCodecs & Worker Pipelines",
+    "approach": "Coupled local client hardware acceleration using WebCodecs and WebAssembly FFmpeg for instant zero-server-cost previews with distributed GPU clusters for final 4K masters.",
+    "keyInnovations": [
+      "Direct GPU hardware frame decoding via WebCodecs VideoDecoder, delivering fluid 60 FPS previews.",
+      "Beat-sync audio alignment algorithm matching scene transitions to musical cadence down to the millisecond.",
+      "Chunked frame caching mechanism allowing instant non-linear timeline scrubbing without stream rebuffering."
+    ]
+  },
+  "architecture": {
+    "overview": "A hybrid client-server topology splitting real-time editing from heavy distributed generative inference.",
+    "layers": [
+      {
+        "layer": "Client NLE Engine",
+        "tech": "Next.js 15, WebCodecs API, Web Audio API, Canvas WebGL",
+        "detail": "Runs an in-browser non-linear editing suite managing multi-track compositing and real-time color grading."
+      },
+      {
+        "layer": "Storyboarding & Scripting Engine",
+        "tech": "Python, LLM Prompt Chains, Phoneme Extraction",
+        "detail": "Parses scripts into cohesive storyboard scenes, extracts visual prompts, and estimates shot durations."
+      },
+      {
+        "layer": "Generative Media & GPU Cluster",
+        "tech": "PyTorch, CUDA, Stable Video Diffusion, Whisper, vLLM",
+        "detail": "Distributed GPU pool synthesizing visuals, scene transitions, and expressive multi-lingual voice tracks."
+      },
+      {
+        "layer": "Encoding & Export Pipeline",
+        "tech": "FFmpeg WASM (Client) & C++ NVENC (Cloud)",
+        "detail": "Exports rapid 1080p client-side drafts or renders master 4K ProRes deliverables in the cloud."
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "Browser-Based Non-Linear Video Editor (NLE)",
+      "description": "Multi-track timeline supporting seamless trimming, overlay transitions, audio ducking, and real-time canvas preview.",
+      "technicalHighlights": [
+        "WebCodecs VideoDecoder extracts raw frames directly into WebGL textures.",
+        "Web Audio API handles automated speech compression and background music ducking."
+      ]
+    },
+    {
+      "title": "Autonomous Script-to-Storyboard Synthesis",
+      "description": "Transforms plain text articles or ad scripts into cinematic visual scenes with contextual camera movement.",
+      "technicalHighlights": [
+        "Semantic chunking algorithm detecting natural narrative pacing.",
+        "Lifelike multi-character speech synthesis with synchronized lip movement."
+      ]
+    },
+    {
+      "title": "Dynamic Word-Synced Karaoke Subtitles",
+      "description": "Renders kinetic word-by-word animated typography with customizable highlight gradients matching speech cadence.",
+      "technicalHighlights": [
+        "Whisper millisecond-precision phoneme timestamp extraction.",
+        "Hardware-rendered 60 FPS vector subtitles avoiding server GPU overhead."
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Production Turnaround",
+      "value": "< 45 seconds",
+      "change": "80x Faster"
+    },
+    {
+      "label": "Rendered Videos",
+      "value": "15,000+",
+      "change": "Beta Month"
+    },
+    {
+      "label": "Cloud Infrastructure Cost",
+      "value": "-68%",
+      "change": "Via WebCodecs"
+    },
+    {
+      "label": "Audience Retention Rate",
+      "value": "+42%",
+      "change": "Kinetic Subs"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "Browser NLE Timeline Studio",
+      "caption": "Intuitive video editor with real-time multi-track preview powered by WebCodecs.",
+      "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "title": "Autonomous Script Breakdown",
+      "caption": "AI script parser generating storyboard layouts and corresponding cinematic visuals.",
+      "image": "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "title": "Kinetic Typography & Color Grading",
+      "caption": "Customizable animated subtitle presets and cinematic color lookup tables (LUTs).",
+      "image": "https://images.unsplash.com/photo-1574717024553-78858a742142?q=80&w=2070&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "Offloading video decoding and audio mixing to the client through WebCodecs saves up to 68% in cloud infrastructure costs.",
+    "Tight millisecond synchronization between synthesized voiceovers and visual cuts is the primary differentiator for high-retention AI videos."
+  ]
+}

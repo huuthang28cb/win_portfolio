@@ -1,0 +1,47 @@
+[
+  {
+    "id": "healthtech-product",
+    "organization": "デジタルヘルスケア プラットフォーム",
+    "role": "シニアフルスタック & AIシステムエンジニア",
+    "period": "2022 - 現在",
+    "location": "ベトナム・ホーチミン市",
+    "type": "work",
+    "description": "数十万人規模のアクティブユーザーを抱える企業向けヘルスケアプロダクトにおいて、バックエンド基盤、生体データ処理、およびAIサービスの開発を主導。",
+    "highlights": [
+      "主要ウェアラブル機器（Huawei Health、Google Fit、Google Health Connect、Apple HealthKit）からのリアルタイムデータ連携パイプラインを構築。",
+      "全Web/モバイルアプリのシングルサインオン（SSO）を統括する企業標準のOIDC（OpenID Connect / OAuth2）認証基盤を設計・実装。",
+      "心拍数、睡眠段階、活動量など1日あたり数千万件規模のバイオメトリクスデータを効率処理するため、PostgreSQLの時系列パーティショニングを最適化。",
+      "医療従事者およびユーザー向けの定期ヘルスケアレポート自動生成AIマイクロサービスを統合。"
+    ],
+    "techStack": ["PHP", "Laravel", "Python", "ReactJS", "Next.js", "PostgreSQL", "Docker", "Redis", "OIDC"]
+  },
+  {
+    "id": "enterprise-backend",
+    "organization": "Nexus Software Solutions",
+    "role": "バックエンド & フルスタックエンジニア",
+    "period": "2019 - 2022",
+    "location": "ベトナム・ホーチミン市",
+    "type": "work",
+    "description": "企業向けスケーラブルWeb API、決済ゲートウェイ連携、およびデータ管理Webアプリケーションの開発に従事。",
+    "highlights": [
+      "PHP/Laravel および Python を用いた堅牢なRESTful/GraphQL APIの設計。",
+      "PostgreSQLのクエリ最適化とインデックスチューニングにより、集計レポートの生成時間を70%削減。",
+      "Docker による開発・本番環境のコンテナ化およびCI/CDパイプラインの構築。"
+    ],
+    "techStack": ["PHP", "Laravel", "Python", "PostgreSQL", "Docker", "ReactJS", "Redis", "GitLab CI"]
+  },
+  {
+    "id": "university-it",
+    "organization": "ベトナム国家大学 工科大学 (VNU)",
+    "role": "情報技術学士（ソフトウェア工学専攻）",
+    "period": "2015 - 2019",
+    "location": "ベトナム・ホーチミン市",
+    "type": "education",
+    "description": "データ構造とアルゴリズム、リレーショナルデータベース設計、オブジェクト指向プログラミングの強固な基礎を習得。",
+    "highlights": [
+      "卒業研究：サービス指向分散Webアプリケーションアーキテクチャの設計と実装。",
+      "プログラミングコミュニティおよびOSS研究活動に参加。"
+    ],
+    "techStack": ["Software Architecture", "Database Design", "OOP", "Linux", "Data Structures"]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "healthtech-product",
+    "organization": "Digital HealthTech Platform",
+    "role": "Kỹ sư Full Stack Cao cấp (Senior Full Stack & AI Systems)",
+    "period": "2022 - Hiện tại",
+    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "type": "work",
+    "description": "Chịu trách nhiệm phát triển hạ tầng backend, xử lý dữ liệu lớn sinh trắc học và tích hợp các dịch vụ AI cho nền tảng chăm sóc sức khỏe doanh nghiệp quy mô hàng trăm nghìn người dùng tích cực.",
+    "highlights": [
+      "Thiết kế pipeline thu thập và chuẩn hóa dữ liệu sức khỏe từ các thiết bị đeo thông minh (Wearables) hàng đầu: Huawei Health, Google Fit, Google Health Connect và Apple HealthKit.",
+      "Xây dựng hệ thống định danh tập trung OIDC (OpenID Connect / OAuth2 SSO) chuẩn hóa quy trình xác thực và phân quyền cho toàn bộ hệ sinh thái Web & Mobile Apps.",
+      "Tối ưu hóa cơ sở dữ liệu PostgreSQL phân vùng theo thời gian (Timescale Partitioning) phục vụ lưu trữ và phân tích hàng chục triệu bản ghi nhịp tim, giấc ngủ và chỉ số calo mỗi ngày.",
+      "Tích hợp các dịch vụ AI xử lý ngôn ngữ tự nhiên và phân tích dữ liệu, tự động xuất báo cáo thống kê sức khỏe định kỳ cho bác sĩ và người dùng."
+    ],
+    "techStack": ["PHP", "Laravel", "Python", "ReactJS", "Next.js", "PostgreSQL", "Docker", "Redis", "OIDC"]
+  },
+  {
+    "id": "enterprise-backend",
+    "organization": "Nexus Software Solutions",
+    "role": "Kỹ sư Backend & Full Stack (Backend Heavy)",
+    "period": "2019 - 2022",
+    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "type": "work",
+    "description": "Xây dựng các hệ thống dịch vụ backend, cổng thanh toán và web application quản trị dữ liệu quy mô lớn cho các đối tác doanh nghiệp.",
+    "highlights": [
+      "Thiết kế RESTful & GraphQL API chuẩn hóa bằng PHP/Laravel và Python với kiến trúc Repository/Service Pattern rõ ràng.",
+      "Tối ưu hóa chỉ mục và truy vấn cơ sở dữ liệu PostgreSQL phức tạp, giảm 70% thời gian xử lý các báo cáo thống kê định kỳ.",
+      "Thiết lập môi trường container hóa toàn diện với Docker và Docker Compose, chuẩn hóa quy trình deploy tự động qua CI/CD."
+    ],
+    "techStack": ["PHP", "Laravel", "Python", "PostgreSQL", "Docker", "ReactJS", "Redis", "GitLab CI"]
+  },
+  {
+    "id": "university-it",
+    "organization": "Đại học Bách Khoa / Đại học CNTT (VNU)",
+    "role": "Cử nhân Công nghệ Thông tin (B.S. in Information Technology)",
+    "period": "2015 - 2019",
+    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "type": "education",
+    "description": "Tốt nghiệp Chuyên ngành Kỹ thuật Phần mềm và Mạng Máy tính. Nền tảng vững chắc về Cấu trúc dữ liệu & Giải thuật, Thiết kế Cơ sở dữ liệu và Lập trình Hướng đối tượng.",
+    "highlights": [
+      "Đồ án tốt nghiệp: Xây dựng hệ sinh thái Web Application phân tán hướng dịch vụ (Microservices).",
+      "Thành viên tích cực câu lạc bộ Lập trình và nghiên cứu nguồn mở."
+    ],
+    "techStack": ["Software Architecture", "Database Design", "OOP", "Linux", "Data Structures"]
+  }
+]

@@ -1,0 +1,132 @@
+{
+  "title": "Hệ thống AI CSKH Thông minh cho Doanh nghiệp (Enterprise RAG Agent)",
+  "slug": "ai-customer-service",
+  "featured": true,
+  "status": "Đang vận hành thực tế",
+  "year": 2026,
+  "client": "Doanh nghiệp & E-commerce SMBs",
+  "teamSize": 2,
+  "role": "Full Stack & AI Engineer",
+  "duration": "6 tháng",
+  "category": "Trí tuệ Nhân tạo & RAG",
+  "type": "Nền tảng AI SaaS & Tự động hóa",
+  "thumbnail": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Trợ lý AI chăm sóc khách hàng 24/7 ứng dụng công nghệ Retrieval-Augmented Generation (RAG), đồng bộ tri thức từ tài liệu PDF/Website doanh nghiệp, tích hợp đa kênh Website Widget, Zalo và Messenger.",
+  "tags": [
+    "Python",
+    "FastAPI",
+    "Next.js",
+    "ReactJS",
+    "PostgreSQL",
+    "pgvector",
+    "LangChain",
+    "OpenAI API",
+    "Docker"
+  ],
+  "links": {
+    "website": "https://ai-cskh-demo.vercel.app",
+    "github": "https://github.com/win-dev/ai-customer-support-agent",
+    "demo": "https://ai-cskh-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "Nền tảng AI CSKH đa kênh được thiết kế nhằm tự động hóa tới 80% các câu hỏi thường gặp của khách hàng, đối chiếu thông tin chính xác theo chính sách doanh nghiệp mà không bị hiện tượng 'ảo giác' (hallucination).",
+    "background": "Các doanh nghiệp vừa và nhỏ thường quá tải kênh tư vấn vào giờ cao điểm, trong khi việc thuê nhân viên trực ca đêm tốn kém và chatbot dựa trên quy tắc (rule-based) cũ kỹ không hiểu được ngôn ngữ tự nhiên của khách hàng."
+  },
+  "challenge": {
+    "title": "Đảm bảo Độ Chính xác Tuyệt đối & Tối ưu Chi phí Token",
+    "problem": "Khách hàng thường hỏi bằng tiếng Việt tự nhiên, viết tắt, có lỗi chính tả. Chatbot AI cần truy xuất đúng đoạn điều khoản trong tài liệu hàng trăm trang và trả lời trong dưới 1.5 giây.",
+    "bottlenecks": [
+      "Chi phí API mô hình ngôn ngữ lớn (LLM) tăng cao nếu đưa toàn bộ ngữ cảnh vào mọi câu hỏi.",
+      "Hiện tượng LLM tự bịa ra thông tin khuyến mãi sai lệch hoặc trả lời ngoài phạm vi cho phép.",
+      "Độ trễ phản hồi quá cao nếu luồng truy xuất vector và sinh nội dung không được tối ưu song song."
+    ]
+  },
+  "solution": {
+    "title": "Kiến trúc RAG Kết hợp Hybrid Search, Semantic Caching & pgvector",
+    "approach": "Ứng dụng cơ sở dữ liệu vector tích hợp trực tiếp trên PostgreSQL qua tiện ích mở rộng `pgvector`, kết hợp Full-Text Search (BM25) và Dense Retrieval với bộ nhớ đệm ngữ nghĩa Semantic Cache.",
+    "keyInnovations": [
+      "Kỹ thuật Phân đoạn tài liệu thông minh (Hierarchical Chunking) giữ trọn vẹn ngữ cảnh bảng biểu và danh sách sản phẩm.",
+      "Bộ lọc Guardrails kiểm duyệt an toàn ngăn chặn người dùng Prompt Injection hoặc đánh lừa chatbot nói sai chính sách.",
+      "Semantic Cache giảm tới 55% cuộc gọi API tốn phí đối với các câu hỏi tương đồng ngữ nghĩa."
+    ]
+  },
+  "architecture": {
+    "overview": "Kiến trúc RAG tốc độ cao, triển khai hoàn chỉnh bằng Docker và Next.js.",
+    "layers": [
+      {
+        "layer": "Tầng Tiếp nhận Khách hàng Đa kênh",
+        "tech": "Next.js Web Widget, Webhook Zalo OA, Facebook Messenger API",
+        "detail": "Giao diện trò chuyện thời gian thực dạng bong bóng chat nhúng vào website bằng một dòng mã JavaScript."
+      },
+      {
+        "layer": "Tầng Điều phối AI Agent (Orchestration)",
+        "tech": "Python, FastAPI, LangChain, Async Worker",
+        "detail": "Phân tích ý định người dùng (Intent Classification), routing câu hỏi vào RAG hoặc chuyển giao nhân viên tư vấn."
+      },
+      {
+        "layer": "Tầng Cơ sở Dữ liệu Tri thức & Vector",
+        "tech": "PostgreSQL, pgvector, Redis Semantic Cache",
+        "detail": "Lưu trữ vector embedding 1536 chiều của toàn bộ tài liệu doanh nghiệp và chỉ mục HNSW cho tốc độ tìm kiếm dưới 10ms."
+      },
+      {
+        "layer": "Tầng Cổng Quản lý Dành cho Doanh nghiệp",
+        "tech": "ReactJS, Next.js Dashboard, Chart.js",
+        "detail": "Cổng tải lên tài liệu (PDF, Word, FAQ), theo dõi hội thoại, gắn nhãn chất lượng và xem tỷ lệ giải quyết thành công."
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "Tự Động Nạp & Đồng Bộ Tài Liệu Doanh Nghiệp",
+      "description": "Doanh nghiệp chỉ cần tải lên catalogue sản phẩm, chính sách bảo hành hoặc nhập đường link website, hệ thống sẽ tự động bóc tách và tạo vector tri thức trong 2 phút.",
+      "technicalHighlights": [
+        "Hỗ trợ trích xuất văn bản từ tài liệu PDF có bảng biểu phức tạp.",
+        "Cập nhật nội dung tức thời không cần huấn luyện lại (No Fine-tuning required)."
+      ]
+    },
+    {
+      "title": "Chuyển Giao Nhân Viên Người Thật (Human Handover) Liền Mạch",
+      "description": "Khi phát hiện khách hàng có dấu hiệu không hài lòng hoặc yêu cầu khiếu nại phức tạp, AI tự động chuyển phiên chat sang tư vấn viên phụ trách kèm bản tóm tắt.",
+      "technicalHighlights": [
+        "Đánh giá cảm xúc người dùng (Sentiment Analysis) theo thời gian thực.",
+        "Tự động tạo bản tóm tắt ngữ cảnh 3 dòng giúp nhân viên nắm bắt vấn đề ngay lập tức."
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Tỷ Lệ Tự Động Hóa CSKH Thành Công",
+      "value": "78%",
+      "change": "Khách hàng không cần gặp nhân viên"
+    },
+    {
+      "label": "Thời Gian Phản Hồi Trung Bình",
+      "value": "1.2 giây",
+      "change": "Nhanh hơn 90% so với chatbot cũ"
+    },
+    {
+      "label": "Tiết Kiệm Chi Phí Vận Hành",
+      "value": "60%",
+      "change": "Giảm tải ca trực đêm & cuối tuần"
+    }
+  ],
+  "visuals": [
+    {
+      "title": "Sơ đồ Luồng Xử lý RAG Hybrid Search",
+      "description": "Quy trình từ câu hỏi khách hàng qua bộ lọc Guardrails, truy xuất pgvector đến tổng hợp câu trả lời.",
+      "type": "architecture",
+      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+    },
+    {
+      "title": "Bảng Điều Khiển Quản Trị Tri Thức Doanh Nghiệp",
+      "description": "Giao diện quản lý nguồn tài liệu, kiểm thử câu hỏi trực tiếp và thống kê hội thoại.",
+      "type": "screenshot",
+      "url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "Việc áp dụng pgvector trực tiếp trên PostgreSQL giúp đơn giản hóa hạ tầng, loại bỏ sự phức tạp khi phải vận hành cụm vector database tách rời.",
+    "Bộ lọc Guardrails và kỹ thuật phân đoạn tài liệu phân tầng là chìa khóa để loại bỏ hoàn toàn hiện tượng ảo giác của AI trong nghiệp vụ CSKH."
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "title": "企業向けオムニチャネルAIカスタマーサポートAgent (RAG基盤)",
+  "slug": "ai-customer-service",
+  "featured": true,
+  "status": "本番稼働中",
+  "year": 2026,
+  "client": "中小企業 & Eコマース事業者",
+  "teamSize": 2,
+  "role": "フルスタック & AIエンジニア",
+  "duration": "6ヶ月",
+  "category": "人工知能 & RAG",
+  "type": "AI SaaS & 業務自動化",
+  "thumbnail": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Retrieval-Augmented Generation (RAG)技術を活用した24時間対応のAI問い合わせ対応Agent。社内PDF規約やWebサイトと連携し、Webウィジェット、Zalo、Messengerを統合。",
+  "tags": [
+    "Python",
+    "FastAPI",
+    "Next.js",
+    "ReactJS",
+    "PostgreSQL",
+    "pgvector",
+    "LangChain",
+    "OpenAI API",
+    "Docker"
+  ],
+  "links": {
+    "website": "https://ai-cskh-demo.vercel.app",
+    "github": "https://github.com/win-dev/ai-customer-support-agent",
+    "demo": "https://ai-cskh-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "オムニチャネル対応のAIカスタマーサポートプラットフォーム。企業の公式ドキュメントを参照し、ハルシネーション（嘘の回答）を起こさずによくある問い合わせの最大80%を自動解決します。",
+    "background": "中小企業では夜間や混雑時の一次対応リソース不足が深刻であり、従来型のルールベースボットでは自然言語の文脈や曖昧な質問に対応できない課題がありました。"
+  },
+  "challenge": {
+    "title": "ハルシネーションの完全排除とAPIトークン費用の最小化",
+    "problem": "誤字脱字や略語を含む自然な口語表現から、数百ページに及ぶ規約・マニュアルの該当箇所を1.5秒以内に正確に特定し回答すること。",
+    "bottlenecks": [
+      "全ての文脈をそのままLLMに渡すことによるAPI利用料の急激な高騰。",
+      "モデルが勝手に架空の割引制度を捏造（ハルシネーション）するリスクの防止。",
+      "ベクトル検索と回答生成パイプラインの逐次処理によるレイテンシの増大。"
+    ]
+  },
+  "solution": {
+    "title": "PostgreSQL pgvectorとセマンティックキャッシュによるハイブリッドRAG構成",
+    "approach": "PostgreSQLの拡張機能`pgvector`でベクトルDBを統合し、BM25キーワード検索と密ベクトル検索のハイブリッド検索およびセマンティックキャッシュを構築。",
+    "keyInnovations": [
+      "表組や箇条書きのコンテキストを崩さない階層型チャンキング（Hierarchical Chunking）。",
+      "プロンプトインジェクション攻撃や規約外発言を遮断する厳格なガードレール機能。",
+      "類似した頻出質問のAPI呼び出しを最大55%削減するセマンティックキャッシュ。"
+    ]
+  },
+  "architecture": {
+    "overview": "DockerとNext.jsで構築された高スループット非同期RAGパイプライン。",
+    "layers": [
+      {
+        "layer": "オムニチャネル受付ゲートウェイ",
+        "tech": "Next.js Web Widget, Zalo OA Webhooks, Facebook Messenger API",
+        "detail": "1行のJavaScriptタグでWebサイトに導入可能な軽量チャットウィジェット。"
+      },
+      {
+        "layer": "AI Agent オーケストレーション層",
+        "tech": "Python, FastAPI, LangChain, Async Worker",
+        "detail": "ユーザーの意図分類（Intent Classification）、RAG処理へのルーティング、有人オペレーターへのエスカレーション判定。"
+      },
+      {
+        "layer": "ナレッジベクトルDB層",
+        "tech": "PostgreSQL, pgvector, Redis Semantic Cache",
+        "detail": "1536次元の埋め込みベクトルとHNSWインデックスによる10ms未満の類似度検索。"
+      },
+      {
+        "layer": "企業管理者コンソール",
+        "tech": "ReactJS, Next.js Dashboard, Chart.js",
+        "detail": "PDF・Word・URL等のナレッジ管理、会話ログの品質監査、自動解決率の統計ダッシュボード。"
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "社内ドキュメントの自動取り込み & ベクトル化",
+      "description": "製品カタログやFAQのPDFをドラッグ＆ドロップするだけで、約2分で検索可能なナレッジベースを構築。",
+      "technicalHighlights": [
+        "複雑な表組を含むPDFからの高精度テキスト抽出。",
+        "モデルの再学習（ファインチューニング）不要の即時データ更新。"
+      ]
+    },
+    {
+      "title": "AIサマリー付きシームレス有人引き継ぎ",
+      "description": "複雑なクレームや顧客の不満シグナルを検知すると、AIが3行で会話要約を作成して有人サポートへ即座に転送。",
+      "technicalHighlights": [
+        "リアルタイムの感情分析（Sentiment Analysis）による自動検知。",
+        "要約テキストによりオペレーターの状況把握時間を大幅短縮。"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "問い合わせ自動解決率",
+      "value": "78%",
+      "change": "オペレーター不要で完結"
+    },
+    {
+      "label": "平均応答速度",
+      "value": "1.2秒",
+      "change": "従来比90%高速化"
+    },
+    {
+      "label": "サポート運用コスト削減",
+      "value": "60%",
+      "change": "夜間・休日シフトの負担削減"
+    }
+  ],
+  "visuals": [
+    {
+      "title": "ハイブリッド検索RAGアーキテクチャ図",
+      "description": "質問受付からGuardrailsチェック、pgvector検索、回答生成に至るシステムフロー。",
+      "type": "architecture",
+      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+    },
+    {
+      "title": "企業ナレッジベース管理画面",
+      "description": "アップロードした資料の管理、テスト質問シミュレーター、および会話統計画面。",
+      "type": "screenshot",
+      "url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "PostgreSQL上のpgvectorを活用することで、別系統のVector DBクラスタを運用するインフラの複雑さを大幅に削減できた。",
+    "階層型ドキュメント分割と厳格なガードレール設計こそが、商用サポートにおけるハルシネーションゼロを実現する核心である。"
+  ]
+}

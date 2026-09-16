@@ -1,33 +1,185 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@source "./app";
+@source "./components";
+@source "./data";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@theme {
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #1e293b;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --popover: #ffffff;
+    --popover-foreground: #0f172a;
+    --primary: #0284c7;
+    --primary-foreground: #ffffff;
+    --secondary: #f8fafc;
+    --secondary-foreground: #0f172a;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --accent: #e0f2fe;
+    --accent-foreground: #0369a1;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #0284c7;
+  }
+
+  .dark {
+    --background: #090d16;
+    --foreground: #f1f5f9;
+    --card: #0f172a;
+    --card-foreground: #f8fafc;
+    --popover: #0f172a;
+    --popover-foreground: #f8fafc;
+    --primary: #38bdf8;
+    --primary-foreground: #090d16;
+    --secondary: #162033;
+    --secondary-foreground: #f1f5f9;
+    --muted: #111827;
+    --muted-foreground: #94a3b8;
+    --accent: #1e293b;
+    --accent-foreground: #38bdf8;
+    --destructive: #f87171;
+    --destructive-foreground: #090d16;
+    --border: #1e293b;
+    --input: #1e293b;
+    --ring: #38bdf8;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background: #bae6fd;
+    color: #0369a1;
+  }
+}
+
+/* Academic section heading matching reference image (with subtle cyan accent underlay) */
+.academic-heading {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-foreground);
+  margin-bottom: 1.75rem;
+}
+
+.academic-heading-accent {
+  position: relative;
+  display: inline-block;
+}
+
+.academic-heading-accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 100%;
+  height: 8px;
+  background: rgba(14, 165, 233, 0.3);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.dark .academic-heading-accent::after {
+  background: rgba(56, 189, 248, 0.25);
+}
+
+/* Academic link style */
+.academic-link {
+  color: #0284c7;
+  text-decoration: none;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+
+.academic-link:hover {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+.dark .academic-link {
+  color: #38bdf8;
+}
+
+.dark .academic-link:hover {
+  color: #7dd3fc;
+}
+
+/* Subtle fade in animation */
+@utility blur-fade-in {
+  animation: blur-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes blur-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

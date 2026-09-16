@@ -1,0 +1,118 @@
+{
+  "title": "WindPrompt - Curated AI Prompt Engineering Library",
+  "slug": "windprompt",
+  "featured": true,
+  "status": "Live & Actively Maintained",
+  "year": 2025,
+  "client": "Personal Project",
+  "teamSize": 1,
+  "role": "Creator & Full Stack Engineer",
+  "duration": "Ongoing Project",
+  "category": "Artificial Intelligence & Developer Tools",
+  "type": "Online Web Platform",
+  "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
+  "shortDescription": "Production AI prompt repository tailored for software engineers, marketers, and product builders with real-time dynamic templating and sub-second retrieval.",
+  "tags": [
+    "Next.js 15",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "PostgreSQL",
+    "OpenAI API",
+    "Vercel"
+  ],
+  "links": {
+    "website": "https://windprompt.com/",
+    "github": "https://github.com/win-dev/windprompt",
+    "demo": "https://windprompt.com/"
+  },
+  "overview": {
+    "summary": "WindPrompt (https://windprompt.com/) is a curated collection of battle-tested prompts structured to extract peak performance from modern LLMs with zero friction.",
+    "background": "Engineers and professionals waste substantial time and API tokens iterating on suboptimal prompt structures without standardized variable interpolation."
+  },
+  "challenge": {
+    "title": "Sub-Second Search & Interactive Dynamic Variable Insertion",
+    "problem": "Delivering instant contextual prompt exploration with inline variable replacement and seamless clipboard synchronization across desktop and mobile.",
+    "bottlenecks": [
+      "Categorizing hundreds of prompts across multiple professional workflows without visual clutter.",
+      "Parsing nested dynamic template tags in real time without triggering layout recalculations.",
+      "Maintaining perfect Core Web Vitals and organic search indexability."
+    ]
+  },
+  "solution": {
+    "title": "Edge Serverless Architecture & Real-Time Variable Interpolation",
+    "approach": "Constructed with Next.js 15 and edge caching on Vercel backed by PostgreSQL, ensuring sub-10ms query times and an intuitive UI.",
+    "keyInnovations": [
+      "Dynamic AST variable parser identifying `{{variable}}` placeholders into interactive form fields.",
+      "High-contrast minimalist interface supporting responsive light and dark themes.",
+      "Comprehensive taxonomy: Engineering, Product Strategy, Content Writing, and Automation."
+    ]
+  },
+  "architecture": {
+    "overview": "A modern lightweight WebApp architecture optimized for speed and interactivity.",
+    "layers": [
+      {
+        "layer": "User Interface Layer",
+        "tech": "Next.js 15, React 19, Tailwind CSS",
+        "detail": "Responsive client interface with instant category filtering, smart search, and 1-click clipboard actions."
+      },
+      {
+        "layer": "Logic & Templating Engine",
+        "tech": "TypeScript, Template Parser API",
+        "detail": "Extracts variables, validates placeholder inputs, and compiles finalized prompt payloads."
+      },
+      {
+        "layer": "Data & Persistence Layer",
+        "tech": "PostgreSQL, Prisma ORM, Redis Cache",
+        "detail": "Stores prompt libraries, favorites, usage metrics, and community ratings."
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "Curated Multi-Domain Prompt Collection",
+      "description": "Hundreds of standardized templates for engineers (Code Refactoring, Bug Investigation, Architecture Analysis), Marketers, and Writers.",
+      "technicalHighlights": [
+        "Granular tagging and hierarchical category taxonomy.",
+        "One-click copy containing compiled variable inputs."
+      ]
+    },
+    {
+      "title": "Interactive Variable Fill-in Forms",
+      "description": "Users input context into clean form inputs, automatically populating the prompt template in real time.",
+      "technicalHighlights": [
+        "Lightweight parsing regex preserving markdown code block formatting.",
+        "Recent prompt history cached in browser LocalStorage."
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Page Load Speed (LCP)",
+      "value": "< 0.8s",
+      "change": "Lighthouse 98"
+    },
+    {
+      "label": "Curated Prompts",
+      "value": "500+",
+      "change": "Weekly Updates"
+    },
+    {
+      "label": "Monthly Active Users",
+      "value": "10,000+",
+      "change": "Organic Growth"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "WindPrompt Library Interface",
+      "caption": "Explore curated prompts and dynamic placeholder injection live at windprompt.com.",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "Minimizing user interaction steps from discovery to execution is paramount for utility tools.",
+    "Standardized prompts drastically increase developer velocity when collaborating with AI assistants."
+  ]
+}

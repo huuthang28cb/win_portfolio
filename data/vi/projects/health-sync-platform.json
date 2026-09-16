@@ -1,0 +1,130 @@
+{
+  "title": "Nền tảng Xử lý Dữ liệu Sức khỏe Lớn & Đồng bộ Thiết bị Đeo",
+  "slug": "health-sync-platform",
+  "featured": true,
+  "status": "Đang vận hành thực tế",
+  "year": 2026,
+  "client": "Digital HealthTech Product Company",
+  "teamSize": 6,
+  "role": "Kiến trúc sư Backend & Data Lead",
+  "duration": "12 tháng",
+  "category": "Dữ liệu Lớn & IoT Sức khỏe",
+  "type": "Nền tảng Sản phẩm Doanh nghiệp",
+  "thumbnail": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Hệ thống hấp thụ và phân tích dữ liệu sinh trắc học thời gian thực, đồng bộ tự động với Huawei Health, Google Fit, Google Health Connect và Apple HealthKit cho hàng trăm nghìn người dùng.",
+  "tags": [
+    "PHP",
+    "Laravel",
+    "Python",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "Huawei Health API",
+    "Google Health Connect",
+    "TimescaleDB"
+  ],
+  "links": {
+    "website": "https://health-platform-demo.vercel.app",
+    "github": "https://github.com/win-dev/health-telemetry-engine",
+    "demo": "https://health-platform-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "Nền tảng đóng vai trò lõi dữ liệu (Data Core) cho sản phẩm công nghệ y tế và sức khỏe số, chịu trách nhiệm thu thập, giải mã, chuẩn hóa và phân tích xu hướng sinh trắc học liên tục từ các thiết bị thông minh.",
+    "background": "Mỗi hãng sản xuất thiết bị đeo (Huawei, Google, Apple) có định dạng dữ liệu, đơn vị đo và chu kỳ đồng bộ hoàn toàn khác nhau. Việc thiếu hạ tầng chuẩn hóa gây trễ dữ liệu và cản trở đội ngũ y bác sĩ đưa ra chẩn đoán chính xác."
+  },
+  "challenge": {
+    "title": "Xử lý Lưu lượng Sự kiện Khổng lồ & Độ Tin cậy Tuyệt đối",
+    "problem": "Thu thập hàng chục triệu điểm dữ liệu nhịp tim và bước đi mỗi ngày, đồng thời đảm bảo bảo mật dữ liệu y tế nghiêm ngặt (chuẩn HIPAA) và không làm quá tải cơ sở dữ liệu quan hệ.",
+    "bottlenecks": [
+      "Lưu lượng tăng đột biến vào các khung giờ người dùng đồng bộ dữ liệu buổi sáng và sau giờ tập luyện thể thao.",
+      "PostgreSQL bị phình to bảng dữ liệu (Table Bloat) khi lưu trữ hàng trăm triệu bản ghi log sinh trắc học.",
+      "Cần cơ chế Webhook nhận diện và chống ghi đè dữ liệu trùng lặp (Idempotent Event Processing)."
+    ]
+  },
+  "solution": {
+    "title": "Kiến trúc Ingestion Phân tầng với PostgreSQL Partitioning & Redis Buffer",
+    "approach": "Ứng dụng mô hình Queue Worker bất đồng bộ trên PHP/Laravel và Python, đệm tạm thời tại Redis và lưu trữ phân vùng theo tháng trên PostgreSQL kết hợp Timescale.",
+    "keyInnovations": [
+      "Bộ adapter chuẩn hóa dữ liệu thống nhất (Unified Health Telemetry Schema) chuyển đổi định dạng Huawei, Google Fit và Health Connect về một chuẩn duy nhất.",
+      "Phân vùng bảng dữ liệu PostgreSQL theo mốc thời gian (Time-range Partitioning), duy trì tốc độ truy vấn biểu đồ dưới 30ms.",
+      "Công cụ thống kê phân tích số liệu sức khỏe tự động, cảnh báo nhịp tim bất thường chỉ trong 3 giây."
+    ]
+  },
+  "architecture": {
+    "overview": "Mô hình kiến trúc hướng sự kiện độ trễ thấp bảo vệ cơ sở dữ liệu chính.",
+    "layers": [
+      {
+        "layer": "Tầng Tiếp nhận & Webhook (Ingestion Gateway)",
+        "tech": "PHP / Laravel, REST APIs, OAuth2 Token Management",
+        "detail": "Quản lý kết nối an toàn, duy trì refresh token OAuth2 với máy chủ Huawei Health và Google Cloud."
+      },
+      {
+        "layer": "Tầng Hàng đợi & Xử lý Chuẩn hóa (Workers)",
+        "tech": "Redis Queue, Python Workers, Celery",
+        "detail": "Giải nén payload, lọc trùng lặp và tính toán các chỉ số sức khỏe tổng hợp (Sleep Stages, Daily Active Minutes)."
+      },
+      {
+        "layer": "Tầng Cơ sở dữ liệu Sức khỏe (Data Store)",
+        "tech": "PostgreSQL, Timescale Partitioning, Docker",
+        "detail": "Lưu trữ dữ liệu chuỗi thời gian được tối ưu hóa chỉ mục BRIN và B-Tree cho các truy vấn khoảng thời gian dài."
+      },
+      {
+        "layer": "Tầng Ứng dụng & Báo cáo (WebApps & Portal)",
+        "tech": "ReactJS, Next.js, Chart.js, Tailwind CSS",
+        "detail": "Giao diện dashboard hiển thị biểu đồ phân tích xu hướng sức khỏe trực quan cho người dùng và chuyên gia y tế."
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "Tích hợp Đa Hệ Sinh Thái Thiết Bị Đeo Thông Minh",
+      "description": "Kết nối tự động với Huawei Health Kit, Google Fit API, Google Health Connect và Apple HealthKit chỉ bằng một lần ủy quyền.",
+      "technicalHighlights": [
+        "Cơ chế tự động làm mới access token không làm gián đoạn luồng đồng bộ.",
+        "Khả năng đồng bộ bù dữ liệu lịch sử (Historical Data Backfill) khi người dùng đổi thiết bị mới."
+      ]
+    },
+    {
+      "title": "Bảng Điều Khiển Thống Kê Sức Khỏe Chuyên Sâu",
+      "description": "Trực quan hóa diễn biến nhịp tim 24/7, chất lượng giấc ngủ REM/Deep và mức độ vận động với đồ thị tương tác cao.",
+      "technicalHighlights": [
+        "Truy vấn tổng hợp song song giảm thời gian tải biểu đồ từ 2.4 giây xuống 180ms.",
+        "Bộ lọc theo ngày, tuần, tháng và năm hỗ trợ xuất file PDF báo cáo y tế chuẩn xác."
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Bản ghi Sinh trắc học Xử lý Mỗi Ngày",
+      "value": "25,000,000+",
+      "change": "Ổn định 100%"
+    },
+    {
+      "label": "Tốc độ Truy vấn Biểu đồ P95",
+      "value": "< 28ms",
+      "change": "Nhanh hơn 12x"
+    },
+    {
+      "label": "Tỷ lệ Đồng bộ Thành công",
+      "value": "99.98%",
+      "change": "Kháng lỗi mạng"
+    },
+    {
+      "label": "Người dùng Đang Sử dụng",
+      "value": "150,000+",
+      "change": "Doanh nghiệp"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "Bảng Điều Khiển Giám Sát Sức Khỏe Tập Trung",
+      "caption": "Màn hình tổng hợp các chỉ số nhịp tim, số bước chân và chu kỳ giấc ngủ theo thời gian thực.",
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "Việc phân vùng bảng PostgreSQL theo thời gian và ứng dụng chỉ mục BRIN là giải pháp tối ưu nhất cho dữ liệu chuỗi thời gian IoT sức khỏe.",
+    "Cơ chế kiểm soát token và xử lý phân tầng giúp hệ thống vận hành bền bỉ trước mọi sự cố gián đoạn từ phía API bên thứ ba."
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "experience": "Kinh nghiệm",
+    "works": "Dự án",
+    "solutions": "Giải pháp",
+    "credentials": "Bằng cấp & Chứng chỉ",
+    "publications": "Giải pháp",
+    "awards": "Chứng chỉ",
+    "skills": "Kỹ năng",
+    "contact": "Liên hệ",
+    "lang_mode": "CHẾ ĐỘ NGÔN NGỮ"
+  },
+  "sections": {
+    "experience_title": "Kinh nghiệm & Quá trình Công tác",
+    "projects_title": "Dự án Tiêu biểu",
+    "solutions": "Kiến trúc & Giải pháp Tiêu biểu",
+    "solutionsSubtitle": "Các giải pháp hạ tầng lớn, dữ liệu sinh trắc học sức khỏe, định danh OIDC và hệ thống AI thực chiến",
+    "credentials": "Chứng chỉ & Bằng cấp Chuyên môn",
+    "credentialsSubtitle": "Nền tảng đào tạo chính quy, năng lực tiếng Anh chuyên nghiệp và chứng nhận kỹ thuật thực chiến",
+    "publications_title": "Kiến trúc & Giải pháp Tiêu biểu",
+    "awards_title": "Chứng chỉ & Bằng cấp Chuyên môn",
+    "skills_title": "Kỹ năng & Chuyên môn Kỹ thuật",
+    "view_all_projects": "Xem tất cả dự án",
+    "view_case_study": "Chi tiết Case Study"
+  },
+  "hero": {
+    "email_label": "Hòm thư",
+    "resume": "Hồ sơ CV",
+    "scholar": "Google Scholar",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "wechat": "WeChat"
+  },
+  "project": {
+    "back": "Quay lại danh sách dự án",
+    "visit": "Truy cập Website / Demo",
+    "source": "Xem mã nguồn",
+    "overview": "Tổng quan Dự án",
+    "challenge": "Thách thức Kỹ thuật",
+    "solution": "Giải pháp Kiến trúc",
+    "architecture": "Kiến trúc Hệ thống",
+    "features": "Tính năng Trọng tâm",
+    "metrics": "Chỉ số & Kết quả Đạt được",
+    "gallery": "Giao diện & Trực quan",
+    "takeaways": "Đúc kết & Bài học Kỹ thuật",
+    "client": "Tổ chức / Khách hàng",
+    "role": "Vai trò",
+    "duration": "Thời gian",
+    "team": "Quy mô nhóm",
+    "category": "Danh mục",
+    "status": "Trạng thái",
+    "tech": "Công nghệ Cốt lõi"
+  },
+  "works": {
+    "title": "Danh mục Dự án Toàn diện",
+    "desc": "Tập hợp các hệ thống xử lý dữ liệu lớn về sức khỏe, hạ tầng định danh OIDC, sản phẩm AI đa phương tiện và webapp hiệu năng cao.",
+    "all": "Tất cả",
+    "filter_label": "Phân loại:"
+  },
+  "contact": {
+    "title": "Liên hệ & Hợp tác",
+    "subtitle": "Trao đổi về cơ hội hợp tác kỹ thuật, kiến trúc backend, giải pháp AI hoặc phát triển sản phẩm.",
+    "availability": "Sẵn sàng đón nhận cơ hội mới",
+    "form_name": "Họ và tên của bạn",
+    "form_email": "Địa chỉ Email",
+    "form_subject": "Chủ đề / Mục đích liên hệ",
+    "form_message": "Nội dung tin nhắn...",
+    "form_submit": "Gửi tin nhắn ngay"
+  },
+  "footer": {
+    "rights": "Bản quyền thuộc về",
+    "tagline": "Thiết kế & Tối ưu hóa vì Hiệu năng & Giá trị Thực tiễn.",
+    "top": "Lên đầu trang"
+  }
+}

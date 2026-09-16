@@ -1,0 +1,22 @@
+[
+  {
+    "name": "HealthTech & ビッグデータ",
+    "slug": "health-big-data",
+    "description": "ウェアラブルIoT生体データパイプラインおよび時系列データベース設計。"
+  },
+  {
+    "name": "セキュリティ & OIDC統合認証",
+    "slug": "security-oidc",
+    "description": "Identity Provider (IdP) 認証基盤、シングルサインオン (SSO)、OAuth 2.0 PKCE設計。"
+  },
+  {
+    "name": "応用AI & 業務自動化",
+    "slug": "applied-ai",
+    "description": "企業向けRAGサポートAgent、Whisper音声文字起こし、Kokoro TTS自然音声合成。"
+  },
+  {
+    "name": "WebApps & 開発ツール",
+    "slug": "webapps-tools",
+    "description": "高パフォーマンスFull Stack Webアプリケーション、統計ダッシュボードポータル。"
+  }
+]

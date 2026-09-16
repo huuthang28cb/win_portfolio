@@ -1,0 +1,118 @@
+{
+  "title": "WindPrompt - 開発者・クリエイター向け厳選AIプロンプト集",
+  "slug": "windprompt",
+  "featured": true,
+  "status": "本番運用中",
+  "year": 2025,
+  "client": "個人開発プロジェクト",
+  "teamSize": 1,
+  "role": "作者 & フルスタックエンジニア",
+  "duration": "継続的開発・改善中",
+  "category": "人工知能 & 開発者ツール",
+  "type": "オンラインWebプラットフォーム",
+  "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
+  "shortDescription": "エンジニア、マーケター、プロダクトビルダー向けに最適化された高品質AIプロンプトライブラリ。動的変数入力と超高速検索を提供。",
+  "tags": [
+    "Next.js 15",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "PostgreSQL",
+    "OpenAI API",
+    "Vercel"
+  ],
+  "links": {
+    "website": "https://windprompt.com/",
+    "github": "https://github.com/win-dev/windprompt",
+    "demo": "https://windprompt.com/"
+  },
+  "overview": {
+    "summary": "WindPrompt（https://windprompt.com/）は、大規模言語モデル（LLM）の真の性能を引き出すために体系化されたプロフェッショナル向けプロンプト集です。",
+    "background": "多くのエンジニアがプロンプトの調整に時間を浪費し、AIの回答精度が安定しないという課題を解消するために開発されました。"
+  },
+  "challenge": {
+    "title": "1秒未満の高速検索と対話型動的パラメータ入力の両立",
+    "problem": "多分野にわたる膨大なプロンプトを整理し、ブラウザ上でリアルタイムに変数を代入して即座にコピーできる快適なUXの実現。",
+    "bottlenecks": [
+      "カテゴリ、職種、目的ごとの直感的な階層分類の設計。",
+      "ネストされたテンプレート構文を高速パースしフォームを動的生成する処理。",
+      "モバイル環境における高速表示とSEOスコアの維持。"
+    ]
+  },
+  "solution": {
+    "title": "Vercel Edgeサーバーレス基盤と動的テンプレートエンジン",
+    "approach": "Next.js 15 App RouterとPostgreSQLを組み合わせ、キャッシュ最適化により10ms以下の検索レスポンスを実現。",
+    "keyInnovations": [
+      "`{{variable}}`構文を自動検出し、直感的な入力フィールドを動的生成するパーサー。",
+      "ダーク・ライト両モードに対応した洗練されたミニマルUI。",
+      "開発（コードレビュー、リファクタリング）、マーケティング、業務自動化に特化した体系化。"
+    ]
+  },
+  "architecture": {
+    "overview": "高速性と使いやすさに特化した軽量モダンWebアーキテクチャ。",
+    "layers": [
+      {
+        "layer": "ユーザーインターフェース層",
+        "tech": "Next.js 15, React 19, Tailwind CSS",
+        "detail": "カテゴリ絞り込み、リアルタイム検索、1クリックコピーに対応したフロントエンド。"
+      },
+      {
+        "layer": "テンプレート処理ロジック層",
+        "tech": "TypeScript, Template Parser API",
+        "detail": "変数の抽出、バリデーション、および最終プロンプトの合成処理を実行。"
+      },
+      {
+        "layer": "データ永続化層",
+        "tech": "PostgreSQL, Prisma ORM, Redis Cache",
+        "detail": "プロンプトデータ、お気に入り、利用統計をセキュアに管理。"
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "専門分野別の厳選プロンプトライブラリ",
+      "description": "エンジニア向け（デバッグ、設計レビュー、テストコード生成）からビジネス文書まで幅広く網羅。",
+      "technicalHighlights": [
+        "詳細なタグ付けと直感的なカテゴリナビゲーション。",
+        "代入済み変数を反映した1クリッククリップボードコピー。"
+      ]
+    },
+    {
+      "title": "対話型変数入力フォーム機能",
+      "description": "画面上の入力欄に文字を入れるだけで、プロンプト全文がリアルタイムに完成。",
+      "technicalHighlights": [
+        "マークダウンの書式崩れを防ぐ軽量正規表現パースエンジン。",
+        "直近の入力履歴をLocalStorageに自動保存。"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "ページ表示速度 (LCP)",
+      "value": "< 0.8秒",
+      "change": "Lighthouse 98点"
+    },
+    {
+      "label": "掲載プロンプト数",
+      "value": "500件+",
+      "change": "毎週継続更新"
+    },
+    {
+      "label": "月間アクティブユーザー",
+      "value": "10,000人+",
+      "change": "自然流入成長"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "WindPrompt ライブラリ画面",
+      "caption": "windprompt.com にて公開中のプロンプト検索および動的変数代入インターフェース。",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "優れたユーティリティツールは、発見からコピーまでの操作ステップを最小化することが最も重要である。",
+    "標準化されたプロンプトは、エンジニアとAIの協業生産性を飛躍的に高める。"
+  ]
+}

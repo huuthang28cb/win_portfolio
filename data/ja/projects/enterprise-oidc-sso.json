@@ -1,0 +1,133 @@
+{
+  "title": "企業標準 OpenID Connect (OIDC) & OAuth 2.0 統合認証認可基盤",
+  "slug": "enterprise-oidc-sso",
+  "featured": true,
+  "status": "本番稼働中",
+  "year": 2026,
+  "client": "デジタルヘルスケア プラットフォーム群",
+  "teamSize": 4,
+  "role": "リードバックエンド & セキュリティアーキテクト",
+  "duration": "8ヶ月",
+  "category": "セキュリティ & 認証認可基盤",
+  "type": "企業中核認証インフラ",
+  "thumbnail": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "RFC準拠のOpenID Connect & OAuth 2.0 Identity Provider (IdP)を構築。シングルサインオン（SSO）、PKCE、多要素認証（MFA）、および細粒度のRBAC/ABAC認可を全社Web/モバイルアプリ群に提供。",
+  "tags": [
+    "OpenID Connect",
+    "OAuth 2.0",
+    "PHP",
+    "Laravel",
+    "Next.js",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "JWT",
+    "PKCE"
+  ],
+  "links": {
+    "website": "https://auth-platform-demo.vercel.app",
+    "github": "https://github.com/win-dev/enterprise-oidc-idp",
+    "demo": "https://auth-platform-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "OpenID Connect Core 1.0およびOAuth 2.0 RFC 6749に厳格に準拠した独立した認証認可サーバー（IdP）を構築。社内の統計ツール、管理ポータル、患者向けWebアプリ、およびモバイルアプリの統合ログインゲートウェイとして機能します。",
+    "background": "従来は各プロダクトが個別にユーザーDBを抱えており、認証体験の分断、権限管理の煩雑化、および機微な医療情報漏洩リスクを抱えていました。"
+  },
+  "challenge": {
+    "title": "医療基準の最高レベルセキュリティと高レスポンスの両立",
+    "problem": "Next.js SPA、React Nativeモバイルアプリ、バックエンドAPIなど多様なクライアントを認証遅延なしに単一基盤へ統合すること。",
+    "bottlenecks": [
+      "公衆ネットワーク環境下での認可コード横取り攻撃（Code Interception）リスクの排除。",
+      "不審なアクティビティ検知時の全デバイス即時セッション強制失効（Token Revocation）。",
+      "ピーク時におけるRSA256署名検証と鍵配信の負荷軽減。"
+    ]
+  },
+  "solution": {
+    "title": "PKCE必須化とRedis JWKSキャッシングによる分散IdPアーキテクチャ",
+    "approach": "Laravel Passportをベースに標準OIDC discovery endpoint（`/.well-known/openid-configuration`）を独自実装。非対称鍵暗号RS256署名とRedisによるJWKSメモリキャッシュを採用。",
+    "keyInnovations": [
+      "すべてのパブリッククライアントに対するPKCE（Proof Key for Code Exchange）の完全必須化。",
+      "定期的なゼロダウンタイムRSA暗号鍵ローテーションと、署名付き公開鍵JWKSエンドポイントの自動運用。",
+      "医療従事者・患者・管理者向けRBAC（ロール別）および所属部署別ABAC（属性別）を融合したハイブリッド権限制御。"
+    ]
+  },
+  "architecture": {
+    "overview": "Dockerコンテナによる水平スケーリングに対応した高可用性認証認可クラスター。",
+    "layers": [
+      {
+        "layer": "ログイン画面 & MFA多要素認証UI",
+        "tech": "Next.js, Tailwind CSS, WebAuthn / TOTP MFA",
+        "detail": "ワンタイムパスワード（TOTP）や生体認証に対応したレスポンシブな統一認証ポータル。"
+      },
+      {
+        "layer": "OIDC / OAuth 2.0 プロトコルコア",
+        "tech": "PHP / Laravel, OpenID Connect Provider Core",
+        "detail": "署名付きID Token、JWT Access Token、およびスライディング有効期限付きRefresh Tokenの発行。"
+      },
+      {
+        "layer": "セッション管理 & 即時失効ストア",
+        "tech": "Redis Cluster, In-Memory Blacklist",
+        "detail": "全アクティブセッションを一元監視し、10ms未満での即時失効を実現。"
+      },
+      {
+        "layer": "アイデンティティ & 権限DB",
+        "tech": "PostgreSQL, 暗号化PIIカラム, Docker",
+        "detail": "GDPR/HIPAA基準に準拠した機微個人情報の暗号化保管および柔軟なロールマッピング。"
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "シームレスなシングルサインオン (SSO)",
+      "description": "一度のログインで、社内のすべての健康統計ツール、管理ダッシュボード、提携サービスへ安全にアクセス可能。",
+      "technicalHighlights": [
+        "フロントチャネルおよびバックチャネルでのグローバルログアウト同期。",
+        "国際プライバシー基準に準拠した動的同意画面（OAuth Consent Screen）。"
+      ]
+    },
+    {
+      "title": "クライアント管理 & セキュリティ監査ポータル",
+      "description": "OAuthクライアントの認証情報発行、スコープ権限の割り当て、および異常アクセスのリアルタイム監視画面。",
+      "technicalHighlights": [
+        "Geo-IP異常検知による不審なクレデンシャルスタッフィング攻撃の自動ブロック。",
+        "改ざん不可能なセキュリティ監査ログ（Audit Trail）の永続化。"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "一元管理アクティブアカウント数",
+      "value": "200,000+",
+      "change": "全ユーザー完全移行達成"
+    },
+    {
+      "label": "トークン検証平均レイテンシ",
+      "value": "< 12ms",
+      "change": "Redis JWKSキャッシュにより達成"
+    },
+    {
+      "label": "セキュリティ規格準拠",
+      "value": "RFC 6749 / OIDC",
+      "change": "脆弱性監査ゼロ件"
+    }
+  ],
+  "visuals": [
+    {
+      "title": "OIDC PKCE認可シーケンスフロー",
+      "description": "クライアントアプリとIdPサーバー間の暗号化ハンドシェイク手順。",
+      "type": "architecture",
+      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+    },
+    {
+      "title": "クライアント管理 & セキュリティコンソール",
+      "description": "Client Secretのローテーションやセッション強制切断をGUIで制御可能。",
+      "type": "screenshot",
+      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "RFC仕様に完全準拠したIdPを自前構築することで、非対称暗号鍵管理とPKCE仕様の深い理解が身についた。",
+    "認証基盤を独立したマイクロサービスとして切り離すことで、全社プロダクト群の開発効率とセキュリティ監査性が劇的に向上した。"
+  ]
+}

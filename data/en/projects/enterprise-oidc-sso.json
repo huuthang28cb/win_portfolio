@@ -1,0 +1,133 @@
+{
+  "title": "Enterprise OpenID Connect (OIDC) & OAuth 2.0 Central Identity Provider",
+  "slug": "enterprise-oidc-sso",
+  "featured": true,
+  "status": "In Production",
+  "year": 2026,
+  "client": "Digital Health Platform Ecosystem",
+  "teamSize": 4,
+  "role": "Lead Backend & Security Architect",
+  "duration": "8 months",
+  "category": "Security & Identity Management",
+  "type": "Enterprise Authentication Infrastructure",
+  "thumbnail": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Production RFC-compliant OpenID Connect & OAuth 2.0 Identity Provider (IdP) delivering Single Sign-On (SSO), PKCE, Multi-Factor Authentication (MFA), and fine-grained RBAC/ABAC authorization across all corporate web and mobile applications.",
+  "tags": [
+    "OpenID Connect",
+    "OAuth 2.0",
+    "PHP",
+    "Laravel",
+    "Next.js",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "JWT",
+    "PKCE"
+  ],
+  "links": {
+    "website": "https://auth-platform-demo.vercel.app",
+    "github": "https://github.com/win-dev/enterprise-oidc-idp",
+    "demo": "https://auth-platform-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "Engineered an independent Identity Provider adhering strictly to OpenID Connect Core 1.0 and OAuth 2.0 RFC 6749, serving as the central authentication gateway for all clinical portals, statistical dashboards, and consumer health applications.",
+    "background": "Previously, individual micro-services stored distinct user tables, creating fragmented user experiences, complex permission matrices, and potential security vectors for sensitive medical data."
+  },
+  "challenge": {
+    "title": "Medical-Grade Security Standards & Broad Client Compatibility",
+    "problem": "Unifying diverse clients (Next.js Single Page Applications, React Native mobile apps, backend microservices) under one centralized authentication umbrella with zero authorization latency.",
+    "bottlenecks": [
+      "Authorization Code interception risks on insecure mobile networks.",
+      "Instant multi-device session revocation when security anomalies are detected.",
+      "Optimizing RSA256 cryptographic verification and key distribution at peak loads."
+    ]
+  },
+  "solution": {
+    "title": "Distributed Identity Architecture with PKCE & JWKS Caching",
+    "approach": "Customized Laravel Passport with custom OIDC discovery endpoints (`/.well-known/openid-configuration`), RS256 asymmetric cryptographic signing, and in-memory Redis JWKS caching.",
+    "keyInnovations": [
+      "Enforced Proof Key for Code Exchange (PKCE) with SHA-256 challenges across all public web and mobile clients.",
+      "Automated zero-downtime RSA key rotation with cryptographically signed JSON Web Key Set (JWKS) discovery.",
+      "Hybrid Role-Based (RBAC) and Attribute-Based Access Control (ABAC) securing granular patient record permissions."
+    ]
+  },
+  "architecture": {
+    "overview": "Horizontally scalable containerized identity provider engineered for high availability.",
+    "layers": [
+      {
+        "layer": "Authentication UI & MFA Verification",
+        "tech": "Next.js, Tailwind CSS, WebAuthn / TOTP MFA",
+        "detail": "Responsive authentication UI supporting biometric passes, TOTP authenticators, and trusted device fingerprinting."
+      },
+      {
+        "layer": "OIDC & OAuth 2.0 Protocol Engine",
+        "tech": "PHP / Laravel, OpenID Connect Provider Core",
+        "detail": "Issues cryptographically signed ID Tokens, JWT Bearer Access Tokens, and rotating refresh tokens with sliding expiration."
+      },
+      {
+        "layer": "Session Management & Revocation Store",
+        "tech": "Redis Cluster, In-Memory Blacklist",
+        "detail": "Tracks active device sessions globally with sub-10ms instant revocation capabilities."
+      },
+      {
+        "layer": "Identity & Permissions Database",
+        "tech": "PostgreSQL, Encrypted PII Columns, Docker",
+        "detail": "GDPR/HIPAA-compliant encrypted user credential and role-attribute mapping store."
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "Frictionless Single Sign-On (SSO)",
+      "description": "Enables seamless single-identity login across all statistical tools, clinical dashboards, and partner web services.",
+      "technicalHighlights": [
+        "Front-channel and back-channel global logout synchronization.",
+        "Customizable OAuth consent screen complying with privacy standards."
+      ]
+    },
+    {
+      "title": "Centralized Administration & Audit Portal",
+      "description": "Administrative suite for managing OAuth client credentials, assigning scopes, and inspecting real-time session logs.",
+      "technicalHighlights": [
+        "Geo-IP anomaly detection flagging suspicious credential stuffing attacks.",
+        "Immutable append-only security audit trails."
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Active Managed Identities",
+      "value": "200,000+",
+      "change": "100% migrated"
+    },
+    {
+      "label": "Token Validation Latency",
+      "value": "< 12ms",
+      "change": "Via Redis JWKS Cache"
+    },
+    {
+      "label": "Security Standard Compliance",
+      "value": "RFC 6749 / OIDC",
+      "change": "Zero vulnerability audit"
+    }
+  ],
+  "visuals": [
+    {
+      "title": "OIDC PKCE Authorization Sequence Diagram",
+      "description": "End-to-end cryptographic handshake between client applications and the IdP.",
+      "type": "architecture",
+      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+    },
+    {
+      "title": "Client Management & Security Portal",
+      "description": "Admin console for configuring client secrets, scopes, and revoking compromised sessions.",
+      "type": "screenshot",
+      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "Building an RFC-compliant Identity Provider requires uncompromising mastery of RSA asymmetric encryption and PKCE specifications.",
+    "Decoupling the identity core from domain services radically simplifies compliance audits and multi-app orchestration."
+  ]
+}

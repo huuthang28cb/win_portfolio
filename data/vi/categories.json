@@ -1,0 +1,22 @@
+[
+  {
+    "name": "HealthTech & Big Data",
+    "slug": "health-big-data",
+    "description": "Nền tảng xử lý dữ liệu lớn sinh trắc học sức khỏe và IoT thiết bị đeo thông minh."
+  },
+  {
+    "name": "Bảo mật & Định danh OIDC",
+    "slug": "security-oidc",
+    "description": "Hạ tầng xác thực tập trung Identity Provider, Single Sign-On (SSO) và OAuth 2.0."
+  },
+  {
+    "name": "Trí tuệ Nhân tạo & RAG",
+    "slug": "applied-ai",
+    "description": "Ứng dụng AI thực chiến, hệ thống RAG CSKH doanh nghiệp, Whisper AI và Kokoro TTS."
+  },
+  {
+    "name": "WebApps & Công cụ",
+    "slug": "webapps-tools",
+    "description": "Các nền tảng webapp hiệu năng cao, portal thống kê và công cụ trực quan hóa."
+  }
+]

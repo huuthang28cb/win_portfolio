@@ -1,0 +1,132 @@
+{
+  "title": "大規模ヘルスケアデータ処理基盤 & ウェアラブル同期プラットフォーム",
+  "slug": "health-sync-platform",
+  "featured": true,
+  "status": "本番稼働中",
+  "year": 2026,
+  "client": "Digital HealthTech Product Company",
+  "teamSize": 6,
+  "role": "バックエンドアーキテクト & データリード",
+  "duration": "12ヶ月",
+  "category": "ビッグデータ & ヘルスケアIoT",
+  "type": "企業中核プロダクト基盤",
+  "thumbnail": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Huawei Health、Google Fit、Google Health Connect、Apple HealthKitと自動連携し、数十万人分の生体データをリアルタイム収集・解析する中核データ基盤。",
+  "tags": [
+    "PHP",
+    "Laravel",
+    "Python",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "Huawei Health API",
+    "Google Health Connect",
+    "TimescaleDB"
+  ],
+  "links": {
+    "website": "https://health-platform-demo.vercel.app",
+    "github": "https://github.com/win-dev/health-telemetry-engine",
+    "demo": "https://health-platform-demo.vercel.app"
+  },
+  "overview": {
+    "summary": "デジタルヘルスケアプロダクトのデータコアとして機能し、スマートデバイスから継続的に送信される生体情報の収集、パース、正規化、およびトレンド分析を一手に担います。",
+    "background": "各スマートウォッチベンダー（Huawei、Google、Apple）は異なるデータ構造と計測周期を採用しています。統一されたデータ連携基盤がない状態では、同期遅延や不整合が発生し、正確な健康分析の妨げとなっていました。"
+  },
+  "challenge": {
+    "title": "膨大なイベント流量の処理と絶対的な高可用性",
+    "problem": "毎日数千万件に及ぶ心拍・活動量データをリアルタイムに処理しつつ、厳格な医療データセキュリティ基準を遵守し、データベース負荷を低減すること。",
+    "bottlenecks": [
+      "朝の起床時や運動直後など、特定時間帯に集中する急激な同期アクセススパイク。",
+      "数億件の生ログデータ蓄積に伴うPostgreSQLテーブルの肥大化とインデックス劣化。",
+      "重複Webhook配信に対する冪等性（Idempotency）の担保。"
+    ]
+  },
+  "solution": {
+    "title": "PostgreSQLパーティショニングとRedisバッファによる階層型パイプライン",
+    "approach": "PHP/LaravelおよびPythonによる非同期ワーカーモデルを採用し、Redisによるバッファリングと月次パーティショニングされたPostgreSQL時系列テーブルへの永続化を実現。",
+    "keyInnovations": [
+      "Huawei、Google Fit、Health Connectの独自形式を共通リレーショナルスキーマへ変換する統合アダプター層の構築。",
+      "PostgreSQLのタイムレンジ・パーティショニングによる、30ms未満の高速グラフ集計クエリの維持。",
+      "生体異常値（不整脈傾向など）を3秒以内に自動検知・通知する統計アルゴリズムの実装。"
+    ]
+  },
+  "architecture": {
+    "overview": "プライマリDBを保護する低遅延イベント駆動型アーキテクチャ。",
+    "layers": [
+      {
+        "layer": "インジェスチョン・ゲートウェイ & Webhook",
+        "tech": "PHP / Laravel, REST APIs, OAuth2 Token Management",
+        "detail": "Huawei HealthおよびGoogle Cloudとのセキュアな通信とOAuth2リフレッシュトークンの自動更新を制御。"
+      },
+      {
+        "layer": "キュー & 正規化ワーカー層",
+        "tech": "Redis Queue, Python Workers, Celery",
+        "detail": "ペイロードの解凍、重複排除、および総合健康指標（睡眠ステージ、アクティブ時間）の事前集計を実行。"
+      },
+      {
+        "layer": "ヘルスデータストア",
+        "tech": "PostgreSQL, Timescale Partitioning, Docker",
+        "detail": "BRINおよびB-Treeインデックスを最適化した時系列データストレージにより、長期履歴レンジスキャンを高速化。"
+      },
+      {
+        "layer": "分析Webアプリ & ポータル",
+        "tech": "ReactJS, Next.js, Chart.js, Tailwind CSS",
+        "detail": "ユーザーおよび専門アドバイザー向けに24時間の生理指標推移を直感的に可視化するダッシュボード。"
+      }
+    ]
+  },
+  "features": [
+    {
+      "title": "マルチエコシステム・スマートデバイス連携",
+      "description": "一度の同意でHuawei Health Kit、Google Fit API、Google Health Connect、Apple HealthKitとのシームレスな同期を実現。",
+      "technicalHighlights": [
+        "バックグラウンドでのアクセストークン自動更新による認証切れ防止。",
+        "端末変更時における過去履歴データの差分バックフィル同期。"
+      ]
+    },
+    {
+      "title": "詳細バイオメトリクス分析ダッシュボード",
+      "description": "心拍変動、レム/ノンレム睡眠サイクル、日次消費カロリーをインタラクティブなチャートで可視化。",
+      "technicalHighlights": [
+        "並行集計クエリにより、ダッシュボード表示時間を2.4秒から180msへ短縮。",
+        "任意期間フィルタリングと医療標準PDFレポートの自動出力機能。"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "label": "日次処理バイオメトリクス件数",
+      "value": "25,000,000+",
+      "change": "+340% スループット向上"
+    },
+    {
+      "label": "集計クエリ平均応答時間",
+      "value": "< 30ms",
+      "change": "8倍高速化"
+    },
+    {
+      "label": "データ配信信頼性SLA",
+      "value": "99.98%",
+      "change": "データ欠損ゼロ"
+    }
+  ],
+  "visuals": [
+    {
+      "title": "テレメトリパイプライン全体図",
+      "description": "ウェアラブル端末から正規化PostgreSQL時系列DBまでのデータフロー。",
+      "type": "architecture",
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      "title": "生体データ分析ダッシュボード",
+      "description": "Next.jsとChart.jsで構築された高密度マルチ指標グラフ画面。",
+      "type": "screenshot",
+      "url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop"
+    }
+  ],
+  "takeaways": [
+    "PostgreSQLのパーティショニングとRedisキューの組み合わせにより、専用NoSQLクラスタを導入することなく膨大なIoTデータを安定処理できる。",
+    "サードパーティ製ヘルスAPIを統一内部モデルに抽象化することで、外部仕様変更の影響を最小限に抑えられた。"
+  ]
+}

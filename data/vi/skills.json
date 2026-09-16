@@ -1,0 +1,22 @@
+[
+  {
+    "category": "Backend & Cơ sở dữ liệu (Backend Core)",
+    "skills": ["PHP", "Laravel", "Python", "PostgreSQL", "Redis", "MySQL", "Eloquent ORM", "SQLAlchemy", "Tối ưu hóa Truy vấn", "Phân vùng Dữ liệu Lớn"]
+  },
+  {
+    "category": "Frontend & Kiến trúc Web (Full Stack Web)",
+    "skills": ["ReactJS", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript (ES6+)", "State Management", "Responsive UI/UX", "RESTful / GraphQL"]
+  },
+  {
+    "category": "Trí tuệ Nhân tạo & Xử lý Media (AI & Media Systems)",
+    "skills": ["Prompt Engineering", "Whisper AI (Speech-to-Text)", "Kokoro TTS (Voice Synthesis)", "RAG (Retrieval-Augmented)", "OpenAI API", "Vector Search"]
+  },
+  {
+    "category": "Bảo mật, IoT & Nền tảng (DevOps & Security)",
+    "skills": ["Docker", "Docker Compose", "OpenID Connect (OIDC)", "OAuth 2.0 SSO", "Huawei Health API", "Google Health Connect", "Linux Server", "Git / CI-CD"]
+  },
+  {
+    "category": "Ngoại ngữ & Kỹ năng Senior",
+    "skills": ["Tiếng Anh Chuyên nghiệp (Professional Working)", "Đọc hiểu Tài liệu Kỹ thuật Quốc tế", "Thiết kế Kiến trúc Hệ thống", "Làm việc Độc lập & Đội nhóm", "Agile / Scrum"]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "name": "タイン・グエン",
+  "nativeName": "Win Nguyen",
+  "avatar": "/avatar.png",
+  "headline": "シニアフルスタックエンジニア（バックエンド専門 & AI統合）",
+  "bio": "バックエンド出身のシニアフルスタックエンジニア（実務経験6年以上）。現在はデジタルヘルスケア企業のプロダクト開発を担当し、大規模バイオメトリクスデータの処理、スマートウォッチ・ウェアラブル機器連携（Huawei Health、Google Fit、Google Health Connect等）、企業向けOIDC/OAuth2認証基盤の構築、および実用的なAIサービス統合を主導しています。",
+  "email": "thang.nguyen@example.com",
+  "location": "ベトナム・ホーチミン市",
+  "links": {
+    "github": "https://github.com/win-dev",
+    "linkedin": "https://linkedin.com",
+    "resume": "/resume.pdf",
+    "wechat": "win_developer",
+    "twitter": "https://twitter.com"
+  }
+}
