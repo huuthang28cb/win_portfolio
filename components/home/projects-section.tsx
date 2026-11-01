@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github, ArrowRight } from "lucide-react"
 import { ProjectData } from "@/types"
+import { getAssetUrl } from "@/lib/utils"
 
 export function ProjectsSection({
   projects,
@@ -44,7 +45,7 @@ export function ProjectsSection({
               {/* Image / Thumbnail */}
               <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden bg-muted mb-4 border border-border/50">
                 <Image
-                  src={project.thumbnail}
+                  src={getAssetUrl(project.thumbnail)}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"

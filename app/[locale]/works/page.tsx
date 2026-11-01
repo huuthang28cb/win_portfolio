@@ -4,6 +4,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react"
 
 import { getCategories, getAllProjects } from "@/lib/data"
 import { getDictionary } from "@/lib/i18n"
+import { getAssetUrl } from "@/lib/utils"
 
 export async function generateMetadata({
   params,
@@ -73,7 +74,7 @@ export default async function WorksPage({
               {/* Thumbnail */}
               <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden bg-muted mb-4 border border-border/50">
                 <Image
-                  src={project.thumbnail}
+                  src={getAssetUrl(project.thumbnail)}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"

@@ -24,6 +24,7 @@ import {
 import { getProjectBySlug, getAllProjects } from "@/lib/data"
 import { getDictionary } from "@/lib/i18n"
 import { ProjectData } from "@/types"
+import { getAssetUrl } from "@/lib/utils"
 
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = []
@@ -287,7 +288,7 @@ export default async function ProjectDetailPage({
       {/* Main Cover Image */}
       <div className="my-8 relative aspect-[16/9] w-full rounded-xl overflow-hidden border border-border/70 shadow-sm bg-muted">
         <Image
-          src={project.cover || project.thumbnail}
+          src={getAssetUrl(project.cover || project.thumbnail)}
           alt={project.title}
           fill
           priority
@@ -500,7 +501,7 @@ export default async function ProjectDetailPage({
               <figure key={idx} className="space-y-2">
                 <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden border border-border/70 bg-muted">
                   <Image
-                    src={item.image}
+                    src={getAssetUrl(item.image)}
                     alt={item.title}
                     fill
                     className="object-cover"

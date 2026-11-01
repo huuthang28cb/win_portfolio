@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Mail, GraduationCap, Github, FileText, Linkedin, Facebook, MessageSquare, MapPin } from "lucide-react"
 import { ProfileData } from "@/types"
+import { getAssetUrl } from "@/lib/utils"
 
 export function ProfileHeader({
   profile,
@@ -18,7 +19,7 @@ export function ProfileHeader({
         <div className="flex justify-center md:justify-start">
           <div className="relative w-40 h-48 sm:w-44 sm:h-52 md:w-48 md:h-56 rounded-xl overflow-hidden bg-muted border border-border shadow-sm">
             <Image
-              src={profile.avatar || "/avatar.jpg"}
+              src={getAssetUrl(profile.avatar || "/avatar.jpg")}
               alt={profile.name}
               fill
               priority
@@ -102,7 +103,7 @@ export function ProfileHeader({
                 <>
                   <span className="text-muted-foreground/40">/</span>
                   <a
-                    href={profile.links.resume}
+                    href={getAssetUrl(profile.links.resume)}
                     target="_blank"
                     rel="noreferrer"
                     className="academic-link flex items-center gap-1"
