@@ -5,6 +5,19 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react"
 import { getCategories, getAllProjects } from "@/lib/data"
 import { getDictionary } from "@/lib/i18n"
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const dict = getDictionary(locale)
+  return {
+    title: dict.works?.title || "Dự án",
+    description: dict.works?.desc,
+  }
+}
+
 export default async function WorksPage({
   params,
 }: {

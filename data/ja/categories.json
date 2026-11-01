@@ -2,7 +2,7 @@
   {
     "name": "HealthTech & ビッグデータ",
     "slug": "health-big-data",
-    "description": "ウェアラブルIoT生体データパイプラインおよび時系列データベース設計。"
+    "description": "ウェアラブルIoTヘルスデータパイプラインおよび時系列データベース設計。"
   },
   {
     "name": "セキュリティ & OIDC統合認証",

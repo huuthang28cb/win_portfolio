@@ -1,18 +1,18 @@
 {
-  "title": "Enterprise OpenID Connect (OIDC) & OAuth 2.0 Central Identity Provider",
+  "title": "Enterprise OIDC Centralized Authentication & Access Management",
   "slug": "enterprise-oidc-sso",
   "featured": true,
-  "status": "In Production",
+  "status": "Production System",
   "year": 2026,
-  "client": "Digital Health Platform Ecosystem",
+  "client": "HealthTech & Enterprise Portal Ecosystem (Grandm.vn)",
   "teamSize": 4,
-  "role": "Lead Backend & Security Architect",
-  "duration": "8 months",
+  "role": "Backend & Identity Integration Developer",
+  "duration": "Deployed & Continuously Operated",
   "category": "Security & Identity Management",
-  "type": "Enterprise Authentication Infrastructure",
-  "thumbnail": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "Production RFC-compliant OpenID Connect & OAuth 2.0 Identity Provider (IdP) delivering Single Sign-On (SSO), PKCE, Multi-Factor Authentication (MFA), and fine-grained RBAC/ABAC authorization across all corporate web and mobile applications.",
+  "type": "Enterprise Identity Infrastructure",
+  "thumbnail": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Centralized Identity Provider (IdP) adhering to OpenID Connect and OAuth 2.0 specifications with PKCE support, delivering secure Single Sign-On (SSO) and role-based access control across all corporate webapps, portals, and mobile apps.",
   "tags": [
     "OpenID Connect",
     "OAuth 2.0",
@@ -27,107 +27,112 @@
   ],
   "links": {
     "website": "https://auth-platform-demo.vercel.app",
-    "github": "https://github.com/win-dev/enterprise-oidc-idp",
+    "github": "https://github.com/huuthangvo/enterprise-oidc-idp",
     "demo": "https://auth-platform-demo.vercel.app"
   },
   "overview": {
-    "summary": "Engineered an independent Identity Provider adhering strictly to OpenID Connect Core 1.0 and OAuth 2.0 RFC 6749, serving as the central authentication gateway for all clinical portals, statistical dashboards, and consumer health applications.",
-    "background": "Previously, individual micro-services stored distinct user tables, creating fragmented user experiences, complex permission matrices, and potential security vectors for sensitive medical data."
+    "summary": "Engineered a centralized Identity Provider (IdP) compliant with OpenID Connect Core 1.0 and OAuth 2.0 specifications, acting as the unified authentication gateway for all analytical webapps, management portals, and mobile client apps across the ecosystem.",
+    "background": "Previously, standalone applications managed isolated user databases, requiring repetitive logins and complicating user administration for corporate partners. Centralizing identity unified the user experience and significantly elevated system security."
   },
   "challenge": {
-    "title": "Medical-Grade Security Standards & Broad Client Compatibility",
-    "problem": "Unifying diverse clients (Next.js Single Page Applications, React Native mobile apps, backend microservices) under one centralized authentication umbrella with zero authorization latency.",
+    "title": "Secure Authentication & Seamless Login Experience",
+    "problem": "Integrating heterogeneous clients (Next.js SPAs, React Native mobile apps, backend microservices) into a single centralized identity platform while maintaining rapid, user-friendly authentication flows.",
     "bottlenecks": [
-      "Authorization Code interception risks on insecure mobile networks.",
-      "Instant multi-device session revocation when security anomalies are detected.",
-      "Optimizing RSA256 cryptographic verification and key distribution at peak loads."
+      "Securing authorization codes on mobile applications and Single Page Applications using industry standards.",
+      "Ensuring responsive session revocation when users log out or change passwords.",
+      "Optimizing token verification overhead so backend business APIs stay lightweight and fast."
     ]
   },
   "solution": {
-    "title": "Distributed Identity Architecture with PKCE & JWKS Caching",
-    "approach": "Customized Laravel Passport with custom OIDC discovery endpoints (`/.well-known/openid-configuration`), RS256 asymmetric cryptographic signing, and in-memory Redis JWKS caching.",
+    "title": "Identity Provider Implementation with PKCE & Redis JWKS Key Caching",
+    "approach": "Built with Laravel Passport enhanced with standard OIDC discovery endpoints (`/.well-known/openid-configuration`), utilizing RS256 asymmetric signing and caching JWKS public keys in Redis for high-speed token validations.",
     "keyInnovations": [
-      "Enforced Proof Key for Code Exchange (PKCE) with SHA-256 challenges across all public web and mobile clients.",
-      "Automated zero-downtime RSA key rotation with cryptographically signed JSON Web Key Set (JWKS) discovery.",
-      "Hybrid Role-Based (RBAC) and Attribute-Based Access Control (ABAC) securing granular patient record permissions."
+      "Enforced PKCE (Proof Key for Code Exchange) flow across all public web SPAs and mobile applications.",
+      "Automated periodic RSA key pair rotations published via signed JWKS endpoints.",
+      "Flexible Role-Based Access Control (RBAC) accommodating organization admins, medical staff, and end users."
     ]
   },
   "architecture": {
-    "overview": "Horizontally scalable containerized identity provider engineered for high availability.",
+    "overview": "Clean, secure, and extensible centralized identity architecture.",
     "layers": [
       {
-        "layer": "Authentication UI & MFA Verification",
-        "tech": "Next.js, Tailwind CSS, WebAuthn / TOTP MFA",
-        "detail": "Responsive authentication UI supporting biometric passes, TOTP authenticators, and trusted device fingerprinting."
+        "layer": "User-Friendly Authentication UI",
+        "tech": "Next.js, Tailwind CSS, Responsive Design",
+        "detail": "Clean, responsive sign-in interface supporting device remembering and seamless navigation."
       },
       {
-        "layer": "OIDC & OAuth 2.0 Protocol Engine",
+        "layer": "Core OIDC / OAuth2 Protocol Tier",
         "tech": "PHP / Laravel, OpenID Connect Provider Core",
-        "detail": "Issues cryptographically signed ID Tokens, JWT Bearer Access Tokens, and rotating refresh tokens with sliding expiration."
+        "detail": "Issues ID Tokens, Access Tokens (JWT Bearer), and Refresh Tokens with secure expiration handling."
       },
       {
-        "layer": "Session Management & Revocation Store",
-        "tech": "Redis Cluster, In-Memory Blacklist",
-        "detail": "Tracks active device sessions globally with sub-10ms instant revocation capabilities."
+        "layer": "Session Management & High-Speed Buffer",
+        "tech": "Redis Cache, In-memory Token Store",
+        "detail": "Maintains active session states and facilitates rapid token revocation when needed."
       },
       {
-        "layer": "Identity & Permissions Database",
-        "tech": "PostgreSQL, Encrypted PII Columns, Docker",
-        "detail": "GDPR/HIPAA-compliant encrypted user credential and role-attribute mapping store."
+        "layer": "User Identity & Credential Store",
+        "tech": "PostgreSQL, MySQL, Docker",
+        "detail": "Safeguards account credentials with industry-standard bcrypt hashing and organizational role mappings."
       }
     ]
   },
   "features": [
     {
-      "title": "Frictionless Single Sign-On (SSO)",
-      "description": "Enables seamless single-identity login across all statistical tools, clinical dashboards, and partner web services.",
+      "title": "Seamless Single Sign-On (SSO)",
+      "description": "Users sign in once at the central identity portal to securely navigate across reporting webapps, wellness portals, and mobile apps.",
       "technicalHighlights": [
-        "Front-channel and back-channel global logout synchronization.",
-        "Customizable OAuth consent screen complying with privacy standards."
+        "Synchronized logout coordination across linked client applications.",
+        "Clear, transparent consent screens specifying requested access scopes."
       ]
     },
     {
-      "title": "Centralized Administration & Audit Portal",
-      "description": "Administrative suite for managing OAuth client credentials, assigning scopes, and inspecting real-time session logs.",
+      "title": "Corporate Account & Permission Management",
+      "description": "Provides organization managers with tools to manage team members, assign operational roles, and review access activity.",
       "technicalHighlights": [
-        "Geo-IP anomaly detection flagging suspicious credential stuffing attacks.",
-        "Immutable append-only security audit trails."
+        "Account activation status controls and secure password recovery mechanisms.",
+        "System audit logs tracking access events for administrative review."
       ]
     }
   ],
   "metrics": [
     {
-      "label": "Active Managed Identities",
-      "value": "200,000+",
-      "change": "100% migrated"
+      "label": "Managed User Identities",
+      "value": "50,000+",
+      "change": "Platform-wide SSO"
     },
     {
-      "label": "Token Validation Latency",
-      "value": "< 12ms",
-      "change": "Via Redis JWKS Cache"
+      "label": "SSO Authentication Latency",
+      "value": "< 100ms",
+      "change": "Redis JWKS caching"
     },
     {
-      "label": "Security Standard Compliance",
-      "value": "RFC 6749 / OIDC",
-      "change": "Zero vulnerability audit"
+      "label": "Connected Apps & Portals",
+      "value": "5+ Clients",
+      "change": "Web, Mobile & B2B Portals"
+    },
+    {
+      "label": "Security & Identity Standard",
+      "value": "OIDC / OAuth 2.0",
+      "change": "RFC Standard Compliant"
     }
   ],
   "visuals": [
     {
-      "title": "OIDC PKCE Authorization Sequence Diagram",
-      "description": "End-to-end cryptographic handshake between client applications and the IdP.",
+      "title": "Intuitive Authentication Experience",
+      "caption": "Clean, secure login interface designed for enterprise and end-user convenience.",
       "type": "architecture",
-      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+      "url": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      "title": "Client Management & Security Portal",
-      "description": "Admin console for configuring client secrets, scopes, and revoking compromised sessions.",
+      "title": "Corporate Role & Session Administration",
+      "caption": "Management interface overseeing active sessions and organization access roles.",
       "type": "screenshot",
-      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop"
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
     }
   ],
   "takeaways": [
-    "Building an RFC-compliant Identity Provider requires uncompromising mastery of RSA asymmetric encryption and PKCE specifications.",
-    "Decoupling the identity core from domain services radically simplifies compliance audits and multi-app orchestration."
+    "Adopting the OpenID Connect standard establishes a reliable foundation across all applications within the corporate ecosystem.",
+    "Caching public verification keys (JWKS) via Redis ensures verification queries execute swiftly without bottlenecking the database."
   ]
 }

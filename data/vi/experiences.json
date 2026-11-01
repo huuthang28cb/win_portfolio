@@ -1,47 +1,35 @@
 [
   {
-    "id": "healthtech-product",
-    "organization": "Digital HealthTech Platform",
-    "role": "Kỹ sư Full Stack Cao cấp (Senior Full Stack & AI Systems)",
+    "id": "healthtech-grandm",
+    "organization": "Grandm.vn (Digital HealthTech Platform)",
+    "role": "Lập trình viên Full Stack (Thế mạnh Backend)",
     "period": "2022 - Hiện tại",
-    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "location": "Nha Trang, Khánh Hòa, Việt Nam",
     "type": "work",
-    "description": "Chịu trách nhiệm phát triển hạ tầng backend, xử lý dữ liệu lớn sinh trắc học và tích hợp các dịch vụ AI cho nền tảng chăm sóc sức khỏe doanh nghiệp quy mô hàng trăm nghìn người dùng tích cực.",
+    "description": "Tham gia phát triển toàn diện nền tảng công nghệ sức khỏe Digital HealthTech. Đảm nhiệm xây dựng hạ tầng backend, pipeline thu thập dữ liệu lớn từ thiết bị đeo thông minh, hệ thống định danh OIDC chuẩn doanh nghiệp, phát triển portal quản lý doanh nghiệp và tích hợp các module AI hỗ trợ tự động hóa.",
     "highlights": [
-      "Thiết kế pipeline thu thập và chuẩn hóa dữ liệu sức khỏe từ các thiết bị đeo thông minh (Wearables) hàng đầu: Huawei Health, Google Fit, Google Health Connect và Apple HealthKit.",
-      "Xây dựng hệ thống định danh tập trung OIDC (OpenID Connect / OAuth2 SSO) chuẩn hóa quy trình xác thực và phân quyền cho toàn bộ hệ sinh thái Web & Mobile Apps.",
-      "Tối ưu hóa cơ sở dữ liệu PostgreSQL phân vùng theo thời gian (Timescale Partitioning) phục vụ lưu trữ và phân tích hàng chục triệu bản ghi nhịp tim, giấc ngủ và chỉ số calo mỗi ngày.",
-      "Tích hợp các dịch vụ AI xử lý ngôn ngữ tự nhiên và phân tích dữ liệu, tự động xuất báo cáo thống kê sức khỏe định kỳ cho bác sĩ và người dùng."
+      "Xây dựng pipeline tiếp nhận, xử lý và chuẩn hóa luồng dữ liệu sức khỏe thời gian thực (nhịp tim, số bước chân, giấc ngủ, SpO2, calo tiêu thụ) từ các hệ sinh thái thiết bị đeo thông minh: Huawei Health, Google Fit, Google Health Connect và Apple HealthKit.",
+      "Ứng dụng Redis Queue và các background worker xử lý hàng triệu bản ghi dữ liệu telemetry mỗi ngày một cách ổn định, giải quyết triệt để tình trạng nghẽn tải.",
+      "Thiết kế cơ sở dữ liệu kết hợp PostgreSQL (lưu trữ chuỗi thời gian time-series có phân vùng bảng) và MySQL (lưu trữ nghiệp vụ doanh nghiệp), tối ưu hóa chỉ mục và bộ nhớ đệm Redis giúp API dashboard phản hồi dưới 50ms.",
+      "Xây dựng hệ thống định danh tập trung (Identity Provider) theo chuẩn OpenID Connect và OAuth 2.0 (Authorization Code với PKCE), hỗ trợ Single Sign-On (SSO) an toàn cho toàn bộ Web, Mobile App và hệ thống portal doanh nghiệp.",
+      "Phát triển các cổng thông tin doanh nghiệp (B2B Health Portal) và trang quản trị hệ thống (Admin Portal) bằng Next.js và ReactJS, cung cấp biểu đồ trực quan và công cụ quản trị dữ liệu sức khỏe nhân sự.",
+      "Tích hợp các giải pháp AI và mô hình ngôn ngữ lớn (LLM) hỗ trợ tự động tổng hợp dữ liệu sức khỏe, sinh báo cáo định kỳ cho chuyên gia y tế và trả lời tự động cho người dùng.",
+      "Thiết lập quy trình CI/CD tự động bằng Jenkins và đóng gói môi trường dịch vụ với Docker, chuẩn hóa quy trình kiểm thử và phát hành phiên bản mới an toàn, nhanh chóng."
     ],
-    "techStack": ["PHP", "Laravel", "Python", "ReactJS", "Next.js", "PostgreSQL", "Docker", "Redis", "OIDC"]
+    "techStack": ["PHP", "Laravel", "Python", "Node.js", "Next.js", "ReactJS", "PostgreSQL", "MySQL", "Redis", "Jenkins", "Docker", "OIDC"]
   },
   {
-    "id": "enterprise-backend",
-    "organization": "Nexus Software Solutions",
-    "role": "Kỹ sư Backend & Full Stack (Backend Heavy)",
+    "id": "university-ntu",
+    "organization": "Đại học Nha Trang (Nha Trang University - NTU)",
+    "role": "Cử nhân Công nghệ Thông tin",
     "period": "2019 - 2022",
-    "location": "TP. Hồ Chí Minh, Việt Nam",
-    "type": "work",
-    "description": "Xây dựng các hệ thống dịch vụ backend, cổng thanh toán và web application quản trị dữ liệu quy mô lớn cho các đối tác doanh nghiệp.",
-    "highlights": [
-      "Thiết kế RESTful & GraphQL API chuẩn hóa bằng PHP/Laravel và Python với kiến trúc Repository/Service Pattern rõ ràng.",
-      "Tối ưu hóa chỉ mục và truy vấn cơ sở dữ liệu PostgreSQL phức tạp, giảm 70% thời gian xử lý các báo cáo thống kê định kỳ.",
-      "Thiết lập môi trường container hóa toàn diện với Docker và Docker Compose, chuẩn hóa quy trình deploy tự động qua CI/CD."
-    ],
-    "techStack": ["PHP", "Laravel", "Python", "PostgreSQL", "Docker", "ReactJS", "Redis", "GitLab CI"]
-  },
-  {
-    "id": "university-it",
-    "organization": "Đại học Bách Khoa / Đại học CNTT (VNU)",
-    "role": "Cử nhân Công nghệ Thông tin (B.S. in Information Technology)",
-    "period": "2015 - 2019",
-    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "location": "Nha Trang, Khánh Hòa, Việt Nam",
     "type": "education",
-    "description": "Tốt nghiệp Chuyên ngành Kỹ thuật Phần mềm và Mạng Máy tính. Nền tảng vững chắc về Cấu trúc dữ liệu & Giải thuật, Thiết kế Cơ sở dữ liệu và Lập trình Hướng đối tượng.",
+    "description": "Tốt nghiệp hệ chính quy chuyên ngành Công nghệ Thông tin. Tiếp thu nền tảng vững chắc về Khoa học Máy tính, Cấu trúc Dữ liệu & Giải thuật, Thiết kế Cơ sở Dữ liệu Quan hệ (SQL), Lập trình Hướng đối tượng (OOP) và Mạng máy tính.",
     "highlights": [
-      "Đồ án tốt nghiệp: Xây dựng hệ sinh thái Web Application phân tán hướng dịch vụ (Microservices).",
-      "Thành viên tích cực câu lạc bộ Lập trình và nghiên cứu nguồn mở."
+      "Chủ động nghiên cứu và phát triển các đồ án phần mềm web thực tế ứng dụng PHP, Laravel, Node.js và MySQL; xây dựng các hệ thống quản trị dữ liệu chuẩn mực.",
+      "Hoàn thành chương trình cử nhân đúng thời hạn với các đồ án đạt kết quả tốt, rèn luyện tư duy lập trình bài bản và năng lực tự học độc lập."
     ],
-    "techStack": ["Software Architecture", "Database Design", "OOP", "Linux", "Data Structures"]
+    "techStack": ["Computer Science", "Algorithms", "Database Design", "OOP", "PHP", "Laravel", "MySQL", "JavaScript", "Linux"]
   }
 ]

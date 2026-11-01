@@ -13,8 +13,13 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "WIN | Portfolio",
-  description: "Senior Frontend Engineer & Designer Portfolio",
+  title: "Võ Hữu Thắng | Lập trình viên Full Stack",
+  description:
+    "Hồ sơ năng lực của Võ Hữu Thắng (huuthangvo) - Lập trình viên Full Stack xuất thân Backend với 4 năm kinh nghiệm phát triển nền tảng công nghệ sức khỏe, xử lý dữ liệu lớn, định danh OIDC và giải pháp AI.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({

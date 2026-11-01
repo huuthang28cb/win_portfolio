@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Mail, GraduationCap, Github, FileText, Linkedin, MessageSquare, MapPin } from "lucide-react"
+import { Mail, GraduationCap, Github, FileText, Linkedin, Facebook, MessageSquare, MapPin } from "lucide-react"
 import { ProfileData } from "@/types"
 
 export function ProfileHeader({
@@ -18,7 +18,7 @@ export function ProfileHeader({
         <div className="flex justify-center md:justify-start">
           <div className="relative w-40 h-48 sm:w-44 sm:h-52 md:w-48 md:h-56 rounded-xl overflow-hidden bg-muted border border-border shadow-sm">
             <Image
-              src={profile.avatar || "/avatar.png"}
+              src={profile.avatar || "/avatar.jpg"}
               alt={profile.name}
               fill
               priority
@@ -124,6 +124,21 @@ export function ProfileHeader({
                   >
                     <Linkedin className="h-3.5 w-3.5" />
                     <span>{dict.hero?.linkedin || "LinkedIn"}</span>
+                  </a>
+                </>
+              )}
+
+              {profile.links.facebook && (
+                <>
+                  <span className="text-muted-foreground/40">/</span>
+                  <a
+                    href={profile.links.facebook.startsWith("http") ? profile.links.facebook : `https://facebook.com/${profile.links.facebook}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="academic-link flex items-center gap-1"
+                  >
+                    <Facebook className="h-3.5 w-3.5" />
+                    <span>Facebook</span>
                   </a>
                 </>
               )}

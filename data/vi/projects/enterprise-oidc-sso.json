@@ -4,15 +4,15 @@
   "featured": true,
   "status": "Đang vận hành thực tế",
   "year": 2026,
-  "client": "Hệ sinh thái Nền tảng Y tế & Sức khỏe",
+  "client": "Nền tảng HealthTech & Cổng Doanh nghiệp (Grandm.vn)",
   "teamSize": 4,
-  "role": "Lead Backend & Kiến trúc sư Bảo mật",
-  "duration": "8 tháng",
+  "role": "Lập trình viên Backend & Tích hợp Định danh",
+  "duration": "Triển khai & Vận hành liên tục",
   "category": "Bảo mật & Quản lý Định danh",
   "type": "Hạ tầng Xác thực Doanh nghiệp",
-  "thumbnail": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "Hệ thống Identity Provider (IdP) chuẩn RFC OpenID Connect & OAuth 2.0, hỗ trợ Single Sign-On (SSO), PKCE, bảo mật đa yếu tố MFA và phân quyền RBAC/ABAC trên toàn bộ hệ thống webapp & mobile apps.",
+  "thumbnail": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "Hệ thống máy chủ định danh tập trung (Identity Provider) chuẩn OpenID Connect và OAuth 2.0 (hỗ trợ PKCE), đảm nhiệm đăng nhập một lần (SSO) an toàn và phân quyền phân cấp cho toàn bộ hệ sinh thái Web, App và Portal doanh nghiệp.",
   "tags": [
     "OpenID Connect",
     "OAuth 2.0",
@@ -27,107 +27,110 @@
   ],
   "links": {
     "website": "https://auth-platform-demo.vercel.app",
-    "github": "https://github.com/win-dev/enterprise-oidc-idp",
+    "github": "https://github.com/huuthangvo/enterprise-oidc-idp",
     "demo": "https://auth-platform-demo.vercel.app"
   },
   "overview": {
-    "summary": "Xây dựng máy chủ định danh (IdP) độc lập tuân thủ nghiêm ngặt đặc tả OpenID Connect Core 1.0 và OAuth 2.0 RFC 6749, đóng vai trò là cửa ngõ đăng nhập duy nhất cho tất cả các webapp, portal quản trị và ứng dụng di động trong hệ sinh thái sức khỏe.",
-    "background": "Trước đây, mỗi ứng dụng con trong công ty duy trì bảng cơ sở dữ liệu người dùng riêng rẽ, dẫn đến trải nghiệm đăng nhập rời rạc, khó kiểm soát quyền hạn phân cấp và tiềm ẩn nguy cơ rò rỉ thông tin y tế nhạy cảm."
+    "summary": "Xây dựng máy chủ định danh (IdP) độc lập tuân thủ đặc tả OpenID Connect Core 1.0 và OAuth 2.0, đóng vai trò là cửa ngõ đăng nhập duy nhất cho tất cả các webapp, portal quản trị và ứng dụng di động trong hệ sinh thái của công ty.",
+    "background": "Trước đây, mỗi ứng dụng con duy trì cơ sở dữ liệu người dùng riêng rẽ, khiến người dùng phải đăng nhập nhiều lần và gây khó khăn cho việc quản lý tài khoản nhân viên của các đối tác doanh nghiệp. Việc tập trung hóa định danh giúp đồng bộ trải nghiệm và nâng cao tính bảo mật."
   },
   "challenge": {
-    "title": "Bảo mật Tuyệt đối theo Tiêu chuẩn Y tế & Khả năng Tương thích Cao",
-    "problem": "Phải tích hợp đồng thời nhiều client khác nhau (Next.js SPA, React Native mobile apps, backend microservices) vào cùng một hệ thống đăng nhập tập trung mà không làm giảm tốc độ xác thực.",
+    "title": "Bảo mật Xác thực & Trải nghiệm Đăng nhập Liền mạch",
+    "problem": "Tích hợp đồng thời nhiều client khác nhau (Next.js SPA, Mobile apps, Backend APIs) vào cùng một hệ thống đăng nhập tập trung, đảm bảo quy trình đăng nhập nhanh chóng, trực quan và an toàn.",
     "bottlenecks": [
-      "Nguy cơ lộ mã ủy quyền (Authorization Code interception) trên các thiết bị di động công cộng.",
-      "Cần thu hồi token tức thời (Instant Session Revocation) trên toàn mạng khi phát hiện rủi ro bảo mật hoặc khi người dùng đổi mật khẩu.",
-      "Tối ưu hóa chi phí giải mã và kiểm tra chữ ký RSA256 khi lưu lượng API đạt đỉnh."
+      "Bảo vệ mã ủy quyền trên các ứng dụng di động và Single Page App bằng cơ chế chuẩn hóa.",
+      "Cần cơ chế thu hồi phiên làm việc (Session Revocation) nhanh chóng khi người dùng đăng xuất hoặc đổi mật khẩu.",
+      "Tối ưu hóa thời gian kiểm tra chữ ký token JWT để các API nghiệp vụ phản hồi mượt mà."
     ]
   },
   "solution": {
-    "title": "Triển khai Identity Provider Phân tán với PKCE & Cơ chế Caching JWKS",
-    "approach": "Ứng dụng Laravel Passport kết hợp tùy biến chuẩn OIDC discovery endpoint (`/.well-known/openid-configuration`), bảo vệ token bằng thuật toán bất đối xứng RS256 và đệm JWKS keys tại tầng Redis.",
+    "title": "Triển khai Identity Provider với PKCE & Bộ đệm Khóa Xác thực trên Redis",
+    "approach": "Ứng dụng Laravel Passport kết hợp chuẩn hóa các OIDC endpoints (`/.well-known/openid-configuration`), sử dụng thuật toán ký RS256 và lưu đệm khóa công khai (JWKS) tại Redis để tăng tốc độ xác thực.",
     "keyInnovations": [
-      "Bắt buộc luồng PKCE (Proof Key for Code Exchange) với SHA-256 code challenge cho tất cả ứng dụng Public Client.",
-      "Tự động xoay vòng cặp khóa bí mật RSA định kỳ (Automated RSA Key Rotation) và công khai khóa công khai qua endpoint JWKS có chữ ký số.",
-      "Hệ thống phân quyền kết hợp RBAC (theo vai trò bác sĩ, bệnh nhân, quản trị viên) và ABAC (theo phòng ban, tổ chức)."
+      "Áp dụng luồng PKCE (Proof Key for Code Exchange) cho tất cả ứng dụng Web SPA và Mobile App.",
+      "Cơ chế xoay vòng cặp khóa RSA định kỳ và công khai qua endpoint JWKS có chữ ký số an toàn.",
+      "Phân quyền theo vai trò (RBAC) linh hoạt giữa quản trị viên doanh nghiệp, chuyên viên và người dùng cá nhân."
     ]
   },
   "architecture": {
-    "overview": "Kiến trúc máy chủ định danh tập trung với khả năng mở rộng ngang (Horizontal Scaling) bằng Docker containers.",
+    "overview": "Mô hình kiến trúc máy chủ định danh tập trung gọn gàng, bảo mật và dễ mở rộng.",
     "layers": [
       {
-        "layer": "Tầng Giao diện Đăng nhập & Xác thực Đa Yếu tố",
-        "tech": "Next.js, Tailwind CSS, WebAuthn / TOTP MFA",
-        "detail": "Giao diện đăng nhập thân thiện, responsive, hỗ trợ mã hóa 2 lớp TOTP Authenticator và nhớ thiết bị tin cậy."
+        "layer": "Tầng Giao diện Đăng nhập Thân thiện",
+        "tech": "Next.js, Tailwind CSS, Responsive Design",
+        "detail": "Giao diện đăng nhập thân thiện, rõ ràng, hỗ trợ ghi nhớ thiết bị và giao diện thích ứng mọi kích thước màn hình."
       },
       {
         "layer": "Tầng Lõi Giao thức OIDC / OAuth2",
         "tech": "PHP / Laravel, OpenID Connect Provider Core",
-        "detail": "Cấp phát ID Token (OpenID), Access Token (JWT Bearer) và Refresh Token với cơ chế trượt (Sliding Expiration)."
+        "detail": "Cấp phát ID Token, Access Token (JWT Bearer) và Refresh Token theo cơ chế chuẩn mực."
       },
       {
-        "layer": "Tầng Quản lý Phiên & Token Revocation",
-        "tech": "Redis Cluster, In-memory Blacklist",
-        "detail": "Theo dõi trạng thái phiên đăng nhập trực tiếp (Active Sessions) và thu hồi quyền truy cập trong dưới 10ms."
+        "layer": "Tầng Quản lý Phiên & Bộ đệm Tốc độ cao",
+        "tech": "Redis Cache, In-memory Token Store",
+        "detail": "Theo dõi phiên đăng nhập trực tiếp và hỗ trợ thu hồi token nhanh chóng khi cần thiết."
       },
       {
-        "layer": "Tầng Lưu trữ Định danh & Phân quyền",
-        "tech": "PostgreSQL, Encrypted PII Columns, Docker",
-        "detail": "Bảo vệ thông tin cá nhân theo chuẩn GDPR/HIPAA với cột mã hóa và bảng ánh xạ quyền hạn linh hoạt."
+        "layer": "Tầng Lưu trữ Tài khoản & Phân quyền",
+        "tech": "PostgreSQL, MySQL, Docker",
+        "detail": "Lưu trữ thông tin tài khoản an toàn với mật khẩu băm chuẩn bcrypt và bảng phân quyền theo tổ chức."
       }
     ]
   },
   "features": [
     {
-      "title": "Đăng Nhập Một Lần (Single Sign-On - SSO) Mượt Mà",
-      "description": "Người dùng chỉ cần đăng nhập một lần tại cổng OIDC để truy cập liền mạch vào tất cả các webapp thống kê, cổng tra cứu sức khỏe và ứng dụng đối tác.",
+      "title": "Đăng Nhập Một Lần (Single Sign-On - SSO) Thuận Tiện",
+      "description": "Người dùng chỉ cần đăng nhập một lần để truy cập vào tất cả các webapp báo cáo, cổng quản trị portal và ứng dụng di động trong hệ sinh thái.",
       "technicalHighlights": [
-        "Hỗ trợ tính năng Single Sign-Out (Front-channel và Back-channel logout).",
-        "Trang Consent Screen tùy biến quyền truy cập dữ liệu cá nhân theo tiêu chuẩn quốc tế."
+        "Hỗ trợ tính năng đăng xuất đồng bộ giữa các hệ thống liên kết.",
+        "Màn hình ủy quyền (Consent Screen) hiển thị rõ ràng các quyền cần truy cập."
       ]
     },
     {
-      "title": "Cổng Quản Trị Phân Quyền & Thống Kê Truy Cập",
-      "description": "Bảng điều khiển cho phép Super Admin quản lý OAuth clients, gán quyền phân cấp, theo dõi lịch sử đăng nhập bất thường theo địa chỉ IP.",
+      "title": "Trang Quản Trị Tài Khoản & Phân Quyền Doanh Nghiệp",
+      "description": "Cung cấp bảng điều khiển cho phép người quản trị doanh nghiệp quản lý danh sách nhân sự, phân vai trò và kiểm tra lịch sử truy cập.",
       "technicalHighlights": [
-        "Tích hợp công cụ phát hiện đăng nhập từ vị trí bất thường (Geo-IP anomaly detection).",
-        "Nhật ký kiểm toán bảo mật (Security Audit Logs) không thể can thiệp."
+        "Quản lý trạng thái kích hoạt tài khoản và cấp lại mật khẩu an toàn.",
+        "Ghi nhận nhật ký đăng nhập phục vụ theo dõi hoạt động hệ thống."
       ]
     }
   ],
   "metrics": [
     {
-      "label": "Tài Khoản Định Danh Đang Quản Lý",
-      "value": "200,000+",
-      "change": "100% người dùng chuyển đổi"
+      "label": "Tài Khoản Định Danh Được Quản Lý",
+      "value": "50,000+",
+      "change": "Đồng bộ toàn hệ sinh thái"
     },
     {
-      "label": "Thời Gian Xác Thực Token Trung Bình",
-      "value": "< 12ms",
-      "change": "Nhờ cơ chế Redis JWKS Cache"
+      "label": "Độ Trễ Phản Hồi Xác Thực (SSO)",
+      "value": "< 100ms",
+      "change": "Đệm khóa JWT qua Redis"
     },
     {
-      "label": "Tiêu Chuẩn Bảo Mật Đạt Chuẩn",
-      "value": "RFC 6749 / OIDC",
-      "change": "Zero vulnerability audit"
+      "label": "Ứng Dụng & Portal Được Tích Hợp",
+      "value": "5+ Nền tảng",
+      "change": "Web, Mobile & Portal B2B"
+    },
+    {
+      "label": "Tiêu Chuẩn Định Danh Áp Dụng",
+      "value": "OIDC / OAuth 2.0",
+      "change": "Chuẩn quốc tế RFC"
     }
   ],
-  "visuals": [
+  "gallery": [
     {
-      "title": "Sơ đồ Luồng OIDC PKCE Authorization Flow",
-      "description": "Quy trình xác thực an toàn giữa ứng dụng web/mobile và máy chủ Identity Provider.",
-      "type": "architecture",
-      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+      "title": "Giao Diện Xác Thực Tập Trung Thân Thiện",
+      "caption": "Màn hình đăng nhập bảo mật, trực quan và tối ưu cho người dùng doanh nghiệp.",
+      "image": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      "title": "Giao diện Quản trị OAuth Client & Sessions",
-      "description": "Giao diện Next.js cho phép quản lý client credentials, scopes và thu hồi phiên đăng nhập từ xa.",
-      "type": "screenshot",
-      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop"
+      "title": "Quản Trị Phân Quyền & Báo Cáo Truy Cập",
+      "caption": "Bảng điều khiển quản lý phiên làm việc và phân cấp quyền hạn theo tổ chức.",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
     }
   ],
   "takeaways": [
-    "Việc triển khai chuẩn OpenID Connect từ gốc đòi hỏi sự thấu hiểu sâu sắc về mã hóa bất đối xứng RSA và luồng bảo mật PKCE.",
-    "Tách biệt hoàn toàn máy chủ định danh khỏi các dịch vụ nghiệp vụ giúp nâng cao tính bảo mật và tính sẵn sàng của toàn bộ hệ thống."
+    "Ứng dụng chuẩn OpenID Connect giúp chuẩn hóa toàn bộ luồng đăng nhập của các ứng dụng trong công ty theo một quy chuẩn thống nhất.",
+    "Cơ chế đệm khóa JWKS trên Redis giúp việc kiểm tra tính hợp lệ của token diễn ra nhanh chóng mà không làm tăng tải lên cơ sở dữ liệu."
   ]
 }

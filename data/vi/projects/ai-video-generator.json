@@ -1,146 +1,146 @@
 {
-  "title": "Visionary - Nền tảng Biên tập & Tạo Video AI Tự động",
+  "title": "AI Video Subtitle Studio - Nền tảng Thuyết minh & Phụ đề",
   "slug": "ai-video-generator",
   "featured": true,
   "status": "Đã triển khai & Vận hành",
   "year": 2025,
-  "client": "Creative Media Labs & Doanh nghiệp Quảng cáo",
-  "teamSize": 4,
-  "role": "Kiến trúc sư Trí tuệ Nhân tạo & Kỹ thuật Video",
-  "duration": "5 tháng",
+  "client": "Cá nhân / Đội ngũ Sáng tạo Nội dung",
+  "teamSize": 1,
+  "role": "Fullstack & AI Engineer",
+  "duration": "1 tháng",
   "category": "Trí tuệ Nhân tạo & Xử lý Media",
-  "type": "Nền tảng SaaS Doanh nghiệp",
-  "thumbnail": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "Hệ thống tự động chuyển đổi kịch bản văn bản thành video chất lượng điện ảnh 4K với trình dựng phi tuyến tính trên trình duyệt và tăng tốc phần cứng WebCodecs.",
+  "type": "Web Application",
+  "thumbnail": "/imgs/video-screenshot_1.png",
+  "cover": "/imgs/video-screenshot_1.png",
+  "shortDescription": "Hệ thống tự động nhận diện giọng nói (Whisper), dịch thuật đa ngôn ngữ và lồng tiếng AI (TTS) trực tiếp trên trình duyệt, hỗ trợ chỉnh sửa phụ đề và đồng bộ âm thanh chuẩn xác.",
   "tags": [
-    "Next.js 15",
+    "Vite",
+    "React",
+    "FastAPI",
     "Python",
-    "WebCodecs API",
-    "FFmpeg WASM",
-    "Diffusion Models",
-    "CUDA",
+    "Whisper",
+    "ElevenLabs",
     "Tailwind CSS"
   ],
   "links": {
-    "website": "https://visionary-video-demo.vercel.app",
-    "github": "https://github.com/win-dev/ai-video-synthesis",
-    "demo": "https://visionary-video-demo.vercel.app"
+    "website": "https://github.com/huuthang",
+    "github": "https://github.com/huuthang",
+    "demo": "http://localhost:1420"
   },
   "overview": {
-    "summary": "Visionary là nền tảng AI Video Studio hoàn chỉnh cho phép các đội ngũ sáng tạo nội dung tự động tạo cảnh quay, ghép phụ đề động, phối âm thanh và xuất video chuẩn quảng cáo chỉ trong chưa đầy 60 giây.",
-    "background": "Quy trình dựng video truyền thống đòi hỏi từ 2 đến 4 ngày làm việc cho mỗi video 60 giây (từ lên ý tưởng, cắt ghép khung hình, căn chỉnh voiceover đến render file nặng trên máy trạm). Nhu cầu sản xuất nội dung ngắn (Shorts/Reels/TikTok) đòi hỏi tốc độ tạo nội dung theo phút."
+    "summary": "AI Video Subtitle Studio là công cụ biên tập video thông minh giúp tự động hóa quy trình trích xuất phụ đề, dịch thuật ngôn ngữ, và tạo giọng đọc nhân tạo (Voice Dubbing) cho từng phân đoạn video một cách nhanh chóng và chính xác.",
+    "background": "Việc tạo phụ đề và lồng tiếng truyền thống tốn rất nhiều thời gian từ khâu nghe chép lời, căn chỉnh thời gian đến thu âm. Giải pháp này giúp các nhà sáng tạo nội dung rút ngắn tối đa thời gian xử lý đa ngôn ngữ, đặc biệt cho các nội dung ngắn (Shorts, Reels)."
   },
   "challenge": {
-    "title": "Nút thắt về Băng thông Render & Độ đồng bộ Âm - Hình",
-    "problem": "Xử lý việc render video đa lớp (video track, audio track, subtitle track, visual effects) trực tiếp trên trình duyệt mà không làm đơ giật giao diện, đồng thời tối ưu hóa chi phí GPU khi chạy mô hình sinh ảnh/video quy mô lớn.",
+    "title": "Thách thức về Độ chính xác & Đồng bộ Đa ngôn ngữ",
+    "problem": "Xử lý nhận diện giọng nói chính xác với các video đa dạng, duy trì ngữ cảnh khi dịch thuật và đặc biệt là ghép khớp thời gian giọng đọc AI (TTS) mới vào video gốc một cách tự nhiên mà không làm trễ giao diện.",
     "bottlenecks": [
-      "Trình duyệt bị quá tải bộ nhớ và tràn RAM (OOM Crash) khi giải mã các tệp video độ phân giải cao bằng thẻ `<video>` thông thường.",
-      "Độ trễ render phụ đề động và hiệu ứng chuyển cảnh trên máy chủ đám mây quá tốn kém tài nguyên GPU.",
-      "Sự lệch pha thời gian (drift) giữa giọng đọc AI sinh ra (TTS) và thời lượng hiển thị hình ảnh."
+      "Quá trình nhận diện giọng nói (Speech-to-Text) đòi hỏi độ chính xác cao và phân tách thời gian (timestamps) chuẩn đến từng mili-giây.",
+      "Xử lý tạo giọng nói (Text-to-Speech) và ghép nối vào video yêu cầu quản lý trạng thái phức tạp trên frontend.",
+      "Việc chạy các mô hình AI trực tiếp có thể gây tốn tài nguyên nếu không được cấu hình và tối ưu hợp lý."
     ]
   },
   "solution": {
-    "title": "Kiến trúc Hybrid Browser Engine với WebCodecs & Worker Render",
-    "approach": "Kết hợp sức mạnh phần cứng máy khách qua WebCodecs API và WebAssembly FFmpeg để biên tập theo thời gian thực (Zero-Server-Cost Previews), song song với cụm GPU đám mây tối ưu hóa hạt nhân khuếch tán (Diffusion Pipeline) phục vụ render đầu ra 4K.",
+    "title": "Kiến trúc Tối ưu với Backend FastAPI & Local AI Models",
+    "approach": "Sử dụng FastAPI làm backend xử lý các tác vụ AI mạnh mẽ kết hợp với hàng đợi (Huey worker), giao tiếp với frontend React qua API. Cho phép linh hoạt chọn giữa mô hình chạy cục bộ (Local Whisper) hoặc dịch vụ đám mây (OpenAI, ElevenLabs).",
     "keyInnovations": [
-      "Ứng dụng WebCodecs giải mã khung hình video bằng phần cứng GPU máy tính người dùng (Hardware-accelerated VideoDecoder), đạt tốc độ xem trước 60 FPS mượt mà.",
-      "Thuật toán căn chỉnh nhịp điệu tự động (Beat-sync Audio Alignment) phân tích bước sóng âm thanh để khớp khoảnh khắc chuyển cảnh theo mili-giây.",
-      "Cơ chế đệm khung hình phân mảnh (Chunked Frame Caching) cho phép tua dòng thời gian tức thì không cần tải lại video."
+      "Tích hợp mô hình faster-whisper chạy cục bộ với nhiều tùy chọn cấu hình (Tiny, Base, Small) giúp tối ưu hóa phần cứng người dùng.",
+      "Giao diện quản lý phân đoạn (Segment Management) trực quan, cho phép thao tác sửa lỗi, tạo giọng đọc, và xem trước ngay lập tức.",
+      "Hệ thống thiết lập API Keys an toàn và cấu hình linh hoạt cho dịch thuật LLM và các dịch vụ tạo giọng đọc nâng cao."
     ]
   },
   "architecture": {
-    "overview": "Kiến trúc phối hợp giữa Trình biên tập máy khách (Client NLE Engine) và Cụm sinh mô hình phân tán (Distributed Inference Cluster).",
+    "overview": "Kiến trúc Client-Server với Frontend React/Vite tương tác mượt mà và Backend Python FastAPI mạnh mẽ phục vụ AI Inference.",
     "layers": [
       {
-        "layer": "Tầng Biên tập Máy khách (Client NLE)",
-        "tech": "Next.js 15, WebCodecs API, Web Audio API, Canvas WebGL",
-        "detail": "Trình dựng video phi tuyến tính (NLE) chạy trực tiếp trên trình duyệt, xử lý timeline đa track, căn chỉnh phụ đề và áp dụng bộ lọc màu LUT theo thời gian thực."
+        "layer": "Frontend UI (React/Vite)",
+        "tech": "React, Vite, Tailwind CSS",
+        "detail": "Trình phát video trực quan, danh sách phân đoạn phụ đề đồng bộ thời gian thực, quản lý trạng thái dịch thuật và lồng tiếng."
       },
       {
-        "layer": "Tầng Đồng bộ & Tạo kịch bản (Scripting & NLP)",
-        "tech": "Python, LLM Prompt Chains, Phoneme Extraction",
-        "detail": "Phân tích kịch bản chữ thành các phân đoạn cảnh (Storyboarding), tự động trích xuất từ khóa thị giác và ước tính thời lượng khung hình."
+        "layer": "Backend API & Task Queue",
+        "tech": "Python, FastAPI, Huey",
+        "detail": "Xử lý các yêu cầu từ Frontend, quản lý hàng đợi các tác vụ nặng (như nhận diện giọng nói, tạo audio) để tránh block server."
       },
       {
-        "layer": "Tầng Sinh Media & GPU Inference",
-        "tech": "PyTorch, CUDA, Stable Video Diffusion, Whisper, vLLM",
-        "detail": "Cụm GPU phân tán sinh hình ảnh, chuyển động và giọng đọc thuyết minh đa ngôn ngữ có cảm xúc."
+        "layer": "AI Models & Services (STT, TTS, LLM)",
+        "tech": "faster-whisper, ElevenLabs API, OpenAI API, Kokoro (Local TTS)",
+        "detail": "Thực hiện bóc băng âm thanh (STT), dịch thuật ngữ cảnh và tổng hợp giọng nói (TTS) chất lượng phòng thu."
       },
       {
-        "layer": "Tầng Xuất Video (Encoding & Export Pipeline)",
-        "tech": "FFmpeg WASM (Client) & C++ Hardware NVENC (Cloud)",
-        "detail": "Cho phép xuất nhanh bản xem thử 1080p ngay tại trình duyệt hoặc kết xuất bản gốc 4K ProRes trên máy chủ."
+        "layer": "Audio/Video Processing",
+        "tech": "FFmpeg",
+        "detail": "Xử lý tách, ghép, mix âm thanh và xuất file video hoàn chỉnh sau khi lồng tiếng."
       }
     ]
   },
   "features": [
     {
-      "title": "Trình Dựng Video Phi Tuyến Tính (NLE) trên Trình Duyệt",
-      "description": "Giao diện kéo thả timeline hỗ trợ nhiều lớp video, âm thanh, lớp phủ đồ họa và phụ đề động với khả năng cắt ghép tức thời.",
+      "title": "Quản lý Phân đoạn Phụ đề Thông minh",
+      "description": "Giao diện danh sách phân đoạn cho phép người dùng xem, chỉnh sửa thời gian (timestamps), nội dung gốc, nội dung dịch và tạo giọng đọc riêng biệt.",
       "technicalHighlights": [
-        "Sử dụng WebCodecs VideoDecoder và VideoFrame API để trích xuất từng khung hình trực tiếp vào WebGL Canvas.",
-        "Bộ đệm âm thanh Web Audio API xử lý nén tiếng, khử ồn và tự động hạ âm lượng nhạc nền khi có giọng đọc."
+        "Đồng bộ hóa thời gian thực giữa trình phát video và danh sách phân đoạn.",
+        "Trích xuất và hiển thị trạng thái tạo giọng (TTS) của từng dòng phụ đề độc lập."
       ]
     },
     {
-      "title": "Tự động Chuyển Đổi Kịch Bản thành Phân Cảnh (Auto Storyboarding)",
-      "description": "Chỉ cần dán văn bản bài viết hoặc kịch bản, AI tự động tách câu, chọn phong cách hình ảnh điện ảnh và phối hợp cảnh quay phù hợp.",
+      "title": "Cấu hình AI & API Linh hoạt",
+      "description": "Hỗ trợ chạy Whisper cục bộ đa tùy chọn giúp tiết kiệm chi phí, đồng thời linh hoạt kết nối API cho dịch thuật và tạo giọng đọc.",
       "technicalHighlights": [
-        "Tích hợp thuật toán semantic chunking phân chia cảnh theo nhịp ngữ nghĩa tự nhiên.",
-        "Sinh giọng đọc AI tự nhiên với đầy đủ ngữ điệu và đồng bộ khẩu hình (Lip-sync)."
+        "Hỗ trợ faster-whisper (Tiny, Base, Small, Medium) offline hoàn toàn.",
+        "Tích hợp ElevenLabs và OpenAI với cơ chế lưu khóa API an toàn."
       ]
     },
     {
-      "title": "Hiệu Ứng Phụ Đề Động Karaoke và Chữ Nghệ Thuật",
-      "description": "Tự động trích xuất mốc thời gian từng từ (Word-level timestamps) và tạo hiệu ứng chữ nhảy, đổi màu theo đúng giọng đọc đang phát.",
+      "title": "Công cụ Chỉnh sửa Trực quan trên Video",
+      "description": "Tích hợp trình phát video với các tính năng tùy chỉnh hiển thị (màu sắc, cỡ chữ, vị trí) và các phím tắt tiện lợi giúp thao tác nhanh chóng.",
       "technicalHighlights": [
-        "Sử dụng mô hình Whisper trích xuất thời gian chính xác đến từng mili-giây.",
-        "Render phụ đề bằng Canvas vector 60 FPS không tiêu tốn tài nguyên GPU máy chủ."
+        "Chức năng 'Vùng xóa phụ đề' (masking) để che phụ đề gốc của video.",
+        "Hỗ trợ thao tác kéo thả định vị phụ đề và tua video nhanh qua click."
       ]
     }
   ],
   "metrics": [
     {
-      "label": "Thời gian sản xuất video hoàn chỉnh",
-      "value": "< 45 giây",
-      "change": "Nhanh hơn 80x"
+      "label": "Độ chính xác nhận diện",
+      "value": "95%+",
+      "change": "Với Whisper Small"
     },
     {
-      "label": "Số lượng video đã kết xuất",
-      "value": "15,000+",
-      "change": "Tháng thử nghiệm"
+      "label": "Tốc độ xử lý STT",
+      "value": "< 10 giây",
+      "change": "Cho 1 phút video"
     },
     {
-      "label": "Chi phí hạ tầng máy chủ giảm",
-      "value": "68%",
-      "change": "Nhờ WebCodecs"
+      "label": "Tùy chọn ngôn ngữ & giọng",
+      "value": "Đa dạng",
+      "change": "Qua LLM & ElevenLabs"
     },
     {
-      "label": "Tỷ lệ giữ chân người xem video",
-      "value": "+42%",
-      "change": "Nhờ nhịp phụ đề"
+      "label": "Khả năng chạy offline",
+      "value": "100%",
+      "change": "Cho STT & Local TTS"
     }
   ],
   "gallery": [
     {
-      "title": "Giao diện Studio Biên tập Timeline",
-      "caption": "Trình dựng video trực quan trên trình duyệt hỗ trợ xem trước khung hình thời gian thực với WebCodecs.",
-      "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop"
+      "title": "Giao diện Quản lý Phân đoạn & Video Studio",
+      "caption": "Giao diện chính cho phép xem trước video, tùy chỉnh hiển thị phụ đề và quản lý danh sách các phân đoạn cần lồng tiếng.",
+      "image": "/imgs/video-screenshot_1.png"
     },
     {
-      "title": "Phân Tách Kịch Bản và Sinh Cảnh Tự Động",
-      "caption": "AI phân tích văn bản kịch bản để tạo bố cục phân đoạn và hình ảnh tương ứng.",
-      "image": "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2070&auto=format&fit=crop"
+      "title": "Cài đặt Hệ thống AI & Dịch vụ",
+      "caption": "Cấu hình linh hoạt các mô hình nhận diện giọng nói (Whisper cục bộ) và các API dịch thuật, Text-to-Speech.",
+      "image": "/imgs/video-screenshot_2.png"
     },
     {
-      "title": "Bộ Công Cụ Phụ Đề Động & Bảng Màu Điện Ảnh",
-      "caption": "Tùy biến typography, hiệu ứng chữ chuyển động và bộ lọc màu chuyên nghiệp.",
-      "image": "https://images.unsplash.com/photo-1574717024553-78858a742142?q=80&w=2070&auto=format&fit=crop"
+      "title": "Hướng dẫn Tương tác & Phím tắt",
+      "caption": "Hệ thống cung cấp các phím tắt và thao tác chuột trực quan như tua nhanh video, định vị chữ và tạo giọng nhanh chóng.",
+      "image": "/imgs/video-screenshot_3.png"
     }
   ],
   "takeaways": [
-    "Việc đưa các tác vụ giải mã video và xử lý âm thanh về phía client qua WebCodecs giúp tiết kiệm chi phí máy chủ hạ tầng tới 68%.",
-    "Độ chính xác về mốc thời gian (timestamp synchronization) giữa âm thanh và hình ảnh là yếu tố quan trọng nhất quyết định tính chuyên nghiệp của video AI."
+    "Xây dựng ứng dụng kết hợp giữa Local AI (tiết kiệm chi phí, bảo mật) và Cloud APIs (chất lượng cao) mang lại trải nghiệm tối ưu nhất cho người dùng.",
+    "Việc quản lý trạng thái (state management) phức tạp ở Frontend là chìa khóa để tạo ra công cụ biên tập (Studio) mượt mà và trực quan."
   ]
 }

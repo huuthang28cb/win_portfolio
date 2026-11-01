@@ -16,6 +16,7 @@ import {
 
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { Logo } from "@/components/logo"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -73,12 +74,12 @@ export function Navbar({ locale, dict }: { locale: string; dict: any }) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        {/* Left: Brand / Name */}
+        {/* Left: Brand / Name with Logo */}
         <Link
           href={`/${locale}`}
-          className="font-bold text-lg tracking-tight text-foreground hover:text-primary transition-colors"
+          className="font-bold text-lg tracking-tight text-foreground hover:text-primary transition-colors flex items-center gap-2.5 group"
         >
-          {locale === "vi" ? "Nguyễn Thắng" : "Win Nguyen"}
+          <span>Võ Hữu Thắng  </span>
         </Link>
 
         {/* Desktop Navigation Links matching reference screenshot */}

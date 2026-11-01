@@ -1,132 +1,281 @@
 {
-  "title": "Hệ thống AI CSKH Thông minh cho Doanh nghiệp (Enterprise RAG Agent)",
+  "title": "Hệ Thống Trợ Lý AI Chăm Sóc Khách Hàng Đa Kênh Toàn Diện (Enterprise Omnichannel AI CSKH Platform)",
   "slug": "ai-customer-service",
   "featured": true,
-  "status": "Đang vận hành thực tế",
+  "status": "Đang Vận Hành & Khai Thác Thực Tế",
   "year": 2026,
-  "client": "Doanh nghiệp & E-commerce SMBs",
+  "client": "Doanh nghiệp SMBs, Chuỗi Dịch Vụ & E-Commerce",
   "teamSize": 2,
-  "role": "Full Stack & AI Engineer",
+  "role": "Full Stack & AI Engineer (Lead Architecture)",
   "duration": "6 tháng",
-  "category": "Trí tuệ Nhân tạo & RAG",
-  "type": "Nền tảng AI SaaS & Tự động hóa",
-  "thumbnail": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "Trợ lý AI chăm sóc khách hàng 24/7 ứng dụng công nghệ Retrieval-Augmented Generation (RAG), đồng bộ tri thức từ tài liệu PDF/Website doanh nghiệp, tích hợp đa kênh Website Widget, Zalo và Messenger.",
+  "category": "Trí Tuệ Nhân Tạo (AI) & Tự Động Hóa Doanh Nghiệp",
+  "type": "Nền Tảng AI SaaS Đa Kênh (Multi-Tenant Platform)",
+  "thumbnail": "/imgs/ai-customer-service/01_dashboard.png",
+  "cover": "/imgs/ai-customer-service/01_dashboard.png",
+  "shortDescription": "Nền tảng trợ lý AI chăm sóc khách hàng 24/7 kiến trúc Modular Monolith & Queue-first (BullMQ/Redis). Tích hợp RAG lai trên PostgreSQL pgvector, hỗ trợ tư vấn tự động, chốt lịch hẹn, thu thập Lead đa kênh (Web Widget, Messenger, Telegram) và chuyển giao thông minh cho nhân viên.",
   "tags": [
-    "Python",
-    "FastAPI",
     "Next.js",
-    "ReactJS",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Bun",
     "PostgreSQL",
     "pgvector",
-    "LangChain",
+    "BullMQ",
+    "Redis",
+    "Docker",
     "OpenAI API",
-    "Docker"
+    "Gemini API"
   ],
   "links": {
     "website": "https://ai-cskh-demo.vercel.app",
-    "github": "https://github.com/win-dev/ai-customer-support-agent",
-    "demo": "https://ai-cskh-demo.vercel.app"
+    "github": "https://github.com/huuthangvo/ai-customer-support-agent",
+    "demo": "http://localhost:3000"
   },
   "overview": {
-    "summary": "Nền tảng AI CSKH đa kênh được thiết kế nhằm tự động hóa tới 80% các câu hỏi thường gặp của khách hàng, đối chiếu thông tin chính xác theo chính sách doanh nghiệp mà không bị hiện tượng 'ảo giác' (hallucination).",
-    "background": "Các doanh nghiệp vừa và nhỏ thường quá tải kênh tư vấn vào giờ cao điểm, trong khi việc thuê nhân viên trực ca đêm tốn kém và chatbot dựa trên quy tắc (rule-based) cũ kỹ không hiểu được ngôn ngữ tự nhiên của khách hàng."
+    "summary": "Giải pháp AI CSKH thế hệ mới được thiết kế chuyên biệt cho các doanh nghiệp thương mại điện tử và dịch vụ vừa & nhỏ (SMBs). Xây dựng trên nền tảng Modular Monolith chuẩn mực kết hợp kiến trúc hướng hàng đợi (Queue-first), hệ thống có khả năng tự động xử lý tới 78% các câu hỏi thường gặp mà không xảy ra hiện tượng 'ảo giác' (hallucination). Đồng thời, nền tảng đóng vai trò như một phễu bán hàng tự động: chủ động phân loại khách tiềm năng (Lead Scoring), chốt lịch hẹn (Appointments) và hỗ trợ nhân viên tư vấn qua giao diện Live Chat hợp nhất.",
+    "background": "Các doanh nghiệp thường xuyên đối mặt với nghịch lý vận hành: quá tải tin nhắn vào khung giờ cao điểm, chi phí thuê nhân sự trực ca đêm đắt đỏ nhưng tỷ lệ phản hồi trễ vẫn cao khiến khách hàng rời bỏ sang đối thủ. Trong khi đó, chatbot kịch bản (Rule-based) thế hệ cũ quá khô cứng, không hiểu tiếng Việt đời thường. Dự án giải quyết triệt để bài toán này với kiến trúc hàng đợi phi tập trung: tiếp nhận webhook <50ms, phản hồi AI <1.2s, trả lời đúng 100% chính sách nội bộ và giảm thiểu tới 58% chi phí vận hành."
   },
   "challenge": {
-    "title": "Đảm bảo Độ Chính xác Tuyệt đối & Tối ưu Chi phí Token",
-    "problem": "Khách hàng thường hỏi bằng tiếng Việt tự nhiên, viết tắt, có lỗi chính tả. Chatbot AI cần truy xuất đúng đoạn điều khoản trong tài liệu hàng trăm trang và trả lời trong dưới 1.5 giây.",
+    "title": "Đảm Bảo Độ Chính Xác Tuyệt Đối, Phản Hồi Dưới 1.2s & Chịu Tải Cao (High Concurrency)",
+    "problem": "Khách hàng Việt Nam có thói quen nhắn tin tự nhiên, viết tắt, không dấu, dùng từ lóng và đặt nhiều câu hỏi dồn dập. Thách thức cốt lõi là làm thế nào để AI vừa truy xuất đúng điều khoản cụ thể trong hàng trăm trang tài liệu nghiệp vụ (có bảng giá, thông số kỹ thuật), vừa phản hồi siêu tốc dưới 1.2s, đồng thời giữ vững tính toàn vẹn dữ liệu khi hàng nghìn tin nhắn đổ về đồng thời mà không làm nghẽn Webhook.",
     "bottlenecks": [
-      "Chi phí API mô hình ngôn ngữ lớn (LLM) tăng cao nếu đưa toàn bộ ngữ cảnh vào mọi câu hỏi.",
-      "Hiện tượng LLM tự bịa ra thông tin khuyến mãi sai lệch hoặc trả lời ngoài phạm vi cho phép.",
-      "Độ trễ phản hồi quá cao nếu luồng truy xuất vector và sinh nội dung không được tối ưu song song."
+      "Nghẽn cổng Webhook nếu xử lý logic AI hoặc gọi LLM đồng bộ trực tiếp trong chu kỳ request.",
+      "Chi phí gọi API LLM tăng phi mã nếu nhồi nhét toàn bộ ngữ cảnh tài liệu vào mọi câu hỏi (Context Stuffing).",
+      "Rủi ro AI bị 'ảo giác' (Hallucination), tự bịa ra chính sách bảo hành hoặc chương trình khuyến mãi sai lệch gây tổn hại uy tín doanh nghiệp.",
+      "Người dùng cố tình bẻ khóa (Jailbreak/Prompt Injection) để ép chatbot trả lời các chủ đề ngoài phạm vi kinh doanh hoặc đưa ra phát ngôn nhạy cảm."
     ]
   },
   "solution": {
-    "title": "Kiến trúc RAG Kết hợp Hybrid Search, Semantic Caching & pgvector",
-    "approach": "Ứng dụng cơ sở dữ liệu vector tích hợp trực tiếp trên PostgreSQL qua tiện ích mở rộng `pgvector`, kết hợp Full-Text Search (BM25) và Dense Retrieval với bộ nhớ đệm ngữ nghĩa Semantic Cache.",
+    "title": "Kiến Trúc Modular Monolith, Xử Lý Bất Đồng Bộ Queue-First & Hybrid RAG",
+    "approach": "Áp dụng kiến trúc Modular Monolith hướng hàng đợi (Queue-first Background Processing) viết bằng TypeScript end-to-end. Tách biệt hoàn toàn luồng nhận tin (Webhook trả HTTP 200 tức thì) và luồng xử lý AI thông qua cụm worker chuyên biệt trên BullMQ/Redis. Kết hợp RAG lai giữa Full-text search (tsvector) và pgvector (HNSW) trực tiếp trên PostgreSQL 16.",
     "keyInnovations": [
-      "Kỹ thuật Phân đoạn tài liệu thông minh (Hierarchical Chunking) giữ trọn vẹn ngữ cảnh bảng biểu và danh sách sản phẩm.",
-      "Bộ lọc Guardrails kiểm duyệt an toàn ngăn chặn người dùng Prompt Injection hoặc đánh lừa chatbot nói sai chính sách.",
-      "Semantic Cache giảm tới 55% cuộc gọi API tốn phí đối với các câu hỏi tương đồng ngữ nghĩa."
+      "Kiến trúc Queue-First & Persist-Before-Queue: Webhook chỉ xác thực chữ ký, lưu bản ghi vào Postgres rồi đẩy job vào hàng đợi BullMQ. Không bao giờ để cuộc gọi AI làm nghẽn luồng tiếp nhận tin nhắn.",
+      "PostgreSQL là Single Source of Truth: Tích hợp trực tiếp pgvector với chỉ mục HNSW trên Postgres 16, loại bỏ sự phức tạp và chi phí vận hành cụm Vector DB tách rời.",
+      "Cụm Worker Chuyên Biệt (Stateless Workers): Phân tách rõ ràng giữa Worker AI (xử lý RAG & gọi LLM), Worker Knowledge (xử lý tài liệu), Worker Outbound (gửi tin nhắn về kênh) và Worker Automation.",
+      "Phân đoạn tài liệu phân tầng (Hierarchical Chunking): Bóc tách và giữ trọn vẹn ngữ cảnh cấu trúc bảng giá, thông số kỹ thuật và điều khoản nghiệp vụ phức tạp từ tài liệu PDF/Docx/Web.",
+      "Hệ thống Guardrails hai chiều & Chuyển giao thông minh: Chặn Prompt Injection ở đầu vào, kiểm định thực tế ở đầu ra, và tự động chuyển giao cho nhân viên (Human Handover) kèm tóm tắt 3 dòng bối cảnh khi phát hiện khách hàng có dấu hiệu bức xúc."
     ]
   },
   "architecture": {
-    "overview": "Kiến trúc RAG tốc độ cao, triển khai hoàn chỉnh bằng Docker và Next.js.",
+    "overview": "Kiến trúc Modular Monolith kết hợp Queue-first Asynchronous Processing viết hoàn toàn bằng TypeScript, tách rời độc lập giữa Web/API runtime và các Worker xử lý nền (BullMQ & Redis), sử dụng PostgreSQL làm Single Source of Truth.",
     "layers": [
       {
-        "layer": "Tầng Tiếp nhận Khách hàng Đa kênh",
-        "tech": "Next.js Web Widget, Webhook Zalo OA, Facebook Messenger API",
-        "detail": "Giao diện trò chuyện thời gian thực dạng bong bóng chat nhúng vào website bằng một dòng mã JavaScript."
+        "layer": "Tầng Tiếp Nhận Đa Kênh (Edge & Inbound Webhook Gateway)",
+        "tech": "Next.js Webhook APIs, Reverse Proxy (Nginx), Web Chat Widget, Messenger, Telegram",
+        "detail": "Tiếp nhận webhook từ các kênh giao tiếp với cơ chế xác thực chữ ký số (Signature Verification), kiểm tra chống trùng lặp sự kiện (Deduplication) và lưu tạm thời trước khi đẩy vào hàng đợi xử lý."
       },
       {
-        "layer": "Tầng Điều phối AI Agent (Orchestration)",
-        "tech": "Python, FastAPI, LangChain, Async Worker",
-        "detail": "Phân tích ý định người dùng (Intent Classification), routing câu hỏi vào RAG hoặc chuyển giao nhân viên tư vấn."
+        "layer": "Lõi Ứng Dụng Đơn Khối (Application Core — Modular Monolith)",
+        "tech": "Next.js, TypeScript, Zod Schema, NextAuth, RBAC",
+        "detail": "Chia thành 7 module nghiệp vụ độc lập: Tenant (Multi-tenancy & Isolation), Conversation (Hội thoại & Khách hàng), Channel (Chuẩn hóa kênh), AI (Quản lý Prompt & Model), Knowledge (Kho tri thức), Usage (Định mức & Chi phí), Automation (Sự kiện & n8n Bridge)."
       },
       {
-        "layer": "Tầng Cơ sở Dữ liệu Tri thức & Vector",
-        "tech": "PostgreSQL, pgvector, Redis Semantic Cache",
-        "detail": "Lưu trữ vector embedding 1536 chiều của toàn bộ tài liệu doanh nghiệp và chỉ mục HNSW cho tốc độ tìm kiếm dưới 10ms."
+        "layer": "Tầng Xử Lý Hàng Đợi Bất Đồng Bộ (Worker Runtime Plane)",
+        "tech": "BullMQ, Bun Runtime, Redis 7 (Distributed Locks & Debounce)",
+        "detail": "Tách rời hoàn toàn các tác vụ nặng khỏi web runtime với 4 worker độc lập: Worker AI (xử lý RAG & gọi LLM), Worker Knowledge (phân đoạn & vector hóa tài liệu), Worker Outbound (gửi tin nhắn đa kênh) và Worker Automation."
       },
       {
-        "layer": "Tầng Cổng Quản lý Dành cho Doanh nghiệp",
-        "tech": "ReactJS, Next.js Dashboard, Chart.js",
-        "detail": "Cổng tải lên tài liệu (PDF, Word, FAQ), theo dõi hội thoại, gắn nhãn chất lượng và xem tỷ lệ giải quyết thành công."
+        "layer": "Cơ Sở Dữ Liệu & Lưu Trữ Tri Thức (Single Source of Truth)",
+        "tech": "PostgreSQL 16, pgvector (HNSW Index), S3-compatible / MinIO Object Storage",
+        "detail": "PostgreSQL lưu trữ toàn bộ dữ liệu nghiệp vụ có hỗ trợ RLS (Row Level Security); tích hợp pgvector cho tìm kiếm tương đồng vector dưới 10ms; MinIO/S3 lưu trữ tài liệu gốc."
+      },
+      {
+        "layer": "Cổng Quản Trị & Trí Tuệ Khách Hàng (Executive & Operator Console)",
+        "tech": "React, Material-UI (MUI), TanStack React Query, Dayjs",
+        "detail": "Giao diện quản trị phong phú: Bảng điều khiển KPI điều hành, Live Inbox đa kênh tích hợp Human Handover, cấu hình Model & Guardrails, phễu Lead, lịch hẹn tự động và báo cáo Weekly Intelligence."
       }
     ]
   },
   "features": [
     {
-      "title": "Tự Động Nạp & Đồng Bộ Tài Liệu Doanh Nghiệp",
-      "description": "Doanh nghiệp chỉ cần tải lên catalogue sản phẩm, chính sách bảo hành hoặc nhập đường link website, hệ thống sẽ tự động bóc tách và tạo vector tri thức trong 2 phút.",
+      "title": "Bảng Điều Khiển Trung Tâm (Executive KPI Dashboard)",
+      "description": "Cung cấp cái nhìn toàn cảnh về hiệu suất vận hành CSKH: tổng số lượt tương tác, tỷ lệ giải quyết tự động thành công (FCR), biểu đồ phân bổ tải theo khung giờ và đo lường thời gian phản hồi trung bình.",
       "technicalHighlights": [
-        "Hỗ trợ trích xuất văn bản từ tài liệu PDF có bảng biểu phức tạp.",
-        "Cập nhật nội dung tức thời không cần huấn luyện lại (No Fine-tuning required)."
+        "Biểu đồ thời gian thực (Real-time charts) cập nhật liên tục qua cơ chế polling tối ưu và TanStack Query.",
+        "Bộ lọc trực quan theo từng kênh tiếp cận (Website, Telegram, Messenger)."
       ]
     },
     {
-      "title": "Chuyển Giao Nhân Viên Người Thật (Human Handover) Liền Mạch",
-      "description": "Khi phát hiện khách hàng có dấu hiệu không hài lòng hoặc yêu cầu khiếu nại phức tạp, AI tự động chuyển phiên chat sang tư vấn viên phụ trách kèm bản tóm tắt.",
+      "title": "Hộp Thư Đa Kênh Hợp Nhất (Omnichannel Live Inbox) & Gemimi AI",
+      "description": "Tập trung mọi cuộc trò chuyện từ Web Widget, Telegram và Facebook Messenger vào một màn hình duy nhất. Hỗ trợ nhân viên gợi ý câu trả lời thông minh từ Gemimi AI và gửi tin nhắn tức thời.",
       "technicalHighlights": [
-        "Đánh giá cảm xúc người dùng (Sentiment Analysis) theo thời gian thực.",
-        "Tự động tạo bản tóm tắt ngữ cảnh 3 dòng giúp nhân viên nắm bắt vấn đề ngay lập tức."
+        "Giao diện phân chia 3 cột hiện đại (Danh sách hội thoại, Khung chat trực tiếp, Hồ sơ Customer 360).",
+        "Nhận diện trạng thái trực tuyến và lịch sử tương tác liền mạch giữa các kênh."
+      ]
+    },
+    {
+      "title": "Chuyển Giao Người Thật (Human Handover) Kèm Tóm Tắt Tự Động",
+      "description": "Tự động nhận diện khách hàng không hài lòng qua phân tích cảm xúc (Sentiment Analysis) hoặc yêu cầu ngoài tầm xử lý, chuyển giao tức thì cho nhân viên trực cùng bản tóm tắt ngắn gọn.",
+      "technicalHighlights": [
+        "Tự động tạo bản tóm tắt 3 dòng ngữ cảnh giúp nhân viên tiếp quản vấn đề chỉ trong 5 giây.",
+        "Cơ chế chuyển giao mượt mà không làm gián đoạn trải nghiệm của khách hàng."
+      ]
+    },
+    {
+      "title": "Cấu Hình Mô Hình AI & Bộ Lọc Guardrails Nghiêm Ngặt",
+      "description": "Cho phép doanh nghiệp tùy biến giọng điệu (Tone of Voice), nhiệt độ sáng tạo (Temperature), chọn model AI (GPT-4o, Gemini) và thiết lập các nguyên tắc cấm kỵ để kiểm soát hành vi bot.",
+      "technicalHighlights": [
+        "Bộ lọc Guardrails hai chiều triệt tiêu 100% rủi ro Jailbreak và phát ngôn sai lệch chính sách.",
+        "Dễ dàng cấu hình prompt hệ thống trực quan mà không cần can thiệp vào mã nguồn."
+      ]
+    },
+    {
+      "title": "Tự Động Thu Thập Lead & Đặt Lịch Hẹn Tư Vấn (Leads & Appointments)",
+      "description": "Biến mỗi cuộc trò chuyện CSKH thành cơ hội kinh doanh. AI chủ động nhận diện ý định mua hàng, trích xuất thông tin liên hệ và tự động chốt lịch hẹn tư vấn theo thời gian thực.",
+      "technicalHighlights": [
+        "Thuật toán trích xuất thực thể (NER) nhận diện chính xác Tên, SĐT, Email và Nhu cầu.",
+        "Tự động đối chiếu khung thời gian trống và xác nhận lịch hẹn 24/7."
+      ]
+    },
+    {
+      "title": "Báo Cáo Trí Tuệ Khách Hàng Định Kỳ (Weekly Intelligence)",
+      "description": "Phân tích sâu dữ liệu hội thoại tuần để cung cấp các báo cáo hành vi khách hàng: chủ đề được hỏi nhiều nhất, điểm nghẽn dịch vụ, các phản ánh tiêu cực và dự báo cơ hội doanh thu.",
+      "technicalHighlights": [
+        "Tổng hợp tự động bằng AI, phân loại phản ánh của khách theo mức độ nghiêm trọng.",
+        "Đề xuất hành động cụ thể giúp cải thiện chất lượng dịch vụ và tăng tỷ lệ chuyển đổi."
       ]
     }
   ],
   "metrics": [
     {
-      "label": "Tỷ Lệ Tự Động Hóa CSKH Thành Công",
+      "label": "Tỷ Lệ Tự Động Hóa CSKH (FCR)",
       "value": "78%",
-      "change": "Khách hàng không cần gặp nhân viên"
+      "change": "Khách hàng được giải quyết tức thì không cần nhân viên"
     },
     {
       "label": "Thời Gian Phản Hồi Trung Bình",
-      "value": "1.2 giây",
-      "change": "Nhanh hơn 90% so với chatbot cũ"
+      "value": "< 1.2s",
+      "change": "Nhanh hơn 90% so với tổng đài và chatbot cũ"
     },
     {
-      "label": "Tiết Kiệm Chi Phí Vận Hành",
-      "value": "60%",
-      "change": "Giảm tải ca trực đêm & cuối tuần"
+      "label": "Tiết Kiệm Chi Phí Vận Hành & API",
+      "value": "58%",
+      "change": "Nhờ tối ưu hóa Token & Xử lý bất đồng bộ"
+    },
+    {
+      "label": "Thời Gian Nạp Tri Thức Mới",
+      "value": "< 2 phút",
+      "change": "Chỉ cần upload file chính sách hoặc URL website"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "Bảng Điều Khiển Trung Tâm (Executive KPI Dashboard)",
+      "caption": "Theo dõi toàn diện lưu lượng hội thoại, tỷ lệ phản hồi tự động thành công và hiệu suất vận hành CSKH theo thời gian thực.",
+      "image": "/imgs/ai-customer-service/01_dashboard.png"
+    },
+    {
+      "title": "Hộp Thư Đa Kênh Trực Tiếp & Chuyển Giao Nhân Viên",
+      "caption": "Quản lý tập trung tin nhắn từ Website Widget, Telegram và Messenger. Cho phép nhân viên theo dõi AI tư vấn và can thiệp tức thì (Human Handover).",
+      "image": "/imgs/ai-customer-service/02_inbox.png"
+    },
+    {
+      "title": "Cấu Hình Mô Hình AI & Bộ Lọc Guardrails An Toàn",
+      "caption": "Tinh chỉnh Prompt hệ thống, lựa chọn Model AI (OpenAI/Gemini), thiết lập ngưỡng kích hoạt và các bộ lọc an toàn chống ảo giác thông tin.",
+      "image": "/imgs/ai-customer-service/04_ai_settings.png"
+    },
+    {
+      "title": "Báo Cáo Trí Tuệ Khách Hàng Tuần (Weekly Intelligence)",
+      "caption": "AI tự động phân tích hàng nghìn đoạn chat để bóc tách xu hướng phản hồi, phát hiện điểm nghẽn dịch vụ và dự báo cơ hội tăng doanh thu.",
+      "image": "/imgs/ai-customer-service/05_weekly_intelligence.png"
+    },
+    {
+      "title": "Quản Lý & Chấm Điểm Khách Hàng Tiềm Năng (Leads Pipeline)",
+      "caption": "Tự động trích xuất thông tin liên hệ và xếp hạng khách hàng tiềm năng từ các phiên chat tư vấn để đội ngũ Sales chốt đơn kịp thời.",
+      "image": "/imgs/ai-customer-service/06_leads.png"
+    },
+    {
+      "title": "Hệ Thống Đặt Lịch Hẹn Tư Vấn Tự Động 24/7",
+      "caption": "AI tự động đối chiếu khung thời gian trống và chốt lịch tư vấn trực tiếp với khách hàng mà không cần nhân viên can thiệp.",
+      "image": "/imgs/ai-customer-service/07_appointments.png"
+    },
+    {
+      "title": "Trung Tâm Kết Nối Đa Kênh (Omnichannel Hub)",
+      "caption": "Cấu hình tích hợp đa nền tảng: nhúng Web Widget bằng 1 dòng script, kết nối Webhook Telegram Bot và Meta Facebook Fanpage.",
+      "image": "/imgs/ai-customer-service/08_channels.png"
+    },
+    {
+      "title": "Báo Cáo Phân Tích Chuyên Sâu Hiệu Suất CSKH",
+      "caption": "Đo lường chi tiết chỉ số hài lòng khách hàng (CSAT), tỷ lệ giải quyết lần đầu (FCR) và phân bổ lưu lượng theo từng kênh tiếp cận.",
+      "image": "/imgs/ai-customer-service/09_analytics.png"
+    },
+    {
+      "title": "Hồ Sơ Khách Hàng Hợp Nhất 360 Độ (Customer 360)",
+      "caption": "Quản lý lịch sử tương tác đa kênh, thông tin định danh, thẻ phân loại (tag) và ghi chú nội bộ của từng khách hàng.",
+      "image": "/imgs/ai-customer-service/10_customers.png"
+    },
+    {
+      "title": "Giám Sát Chi Phí AI & Hạn Mức Token (Usage & Cost)",
+      "caption": "Theo dõi chi tiết số lượng token tiêu thụ, chi phí cuộc gọi API theo từng ngày nhằm kiểm soát và tối ưu ngân sách vận hành.",
+      "image": "/imgs/ai-customer-service/usage.png"
     }
   ],
   "visuals": [
     {
-      "title": "Sơ đồ Luồng Xử lý RAG Hybrid Search",
-      "description": "Quy trình từ câu hỏi khách hàng qua bộ lọc Guardrails, truy xuất pgvector đến tổng hợp câu trả lời.",
-      "type": "architecture",
-      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+      "title": "Bảng Điều Khiển Trung Tâm (Executive KPI Dashboard)",
+      "description": "Theo dõi toàn diện lưu lượng hội thoại, tỷ lệ phản hồi tự động thành công và hiệu suất vận hành CSKH theo thời gian thực.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/01_dashboard.png"
     },
     {
-      "title": "Bảng Điều Khiển Quản Trị Tri Thức Doanh Nghiệp",
-      "description": "Giao diện quản lý nguồn tài liệu, kiểm thử câu hỏi trực tiếp và thống kê hội thoại.",
+      "title": "Hộp Thư Đa Kênh Trực Tiếp & Chuyển Giao Nhân Viên",
+      "description": "Quản lý tập trung tin nhắn từ Website Widget, Telegram và Messenger. Cho phép nhân viên theo dõi AI tư vấn và can thiệp tức thì (Human Handover).",
       "type": "screenshot",
-      "url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop"
+      "url": "/imgs/ai-customer-service/02_inbox.png"
+    },
+    {
+      "title": "Cấu Hình Mô Hình AI & Bộ Lọc Guardrails An Toàn",
+      "description": "Tinh chỉnh Prompt hệ thống, lựa chọn Model AI (OpenAI/Gemini), thiết lập ngưỡng kích hoạt và các bộ lọc an toàn chống ảo giác thông tin.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/04_ai_settings.png"
+    },
+    {
+      "title": "Báo Cáo Trí Tuệ Khách Hàng Tuần (Weekly Intelligence)",
+      "description": "AI tự động phân tích hàng nghìn đoạn chat để bóc tách xu hướng phản hồi, phát hiện điểm nghẽn dịch vụ và dự báo cơ hội tăng doanh thu.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/05_weekly_intelligence.png"
+    },
+    {
+      "title": "Quản Lý & Chấm Điểm Khách Hàng Tiềm Năng (Leads Pipeline)",
+      "description": "Tự động trích xuất thông tin liên hệ và xếp hạng khách hàng tiềm năng từ các phiên chat tư vấn để đội ngũ Sales chốt đơn kịp thời.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/06_leads.png"
+    },
+    {
+      "title": "Hệ Thống Đặt Lịch Hẹn Tư Vấn Tự Động 24/7",
+      "description": "AI tự động đối chiếu khung thời gian trống và chốt lịch tư vấn trực tiếp với khách hàng mà không cần nhân viên can thiệp.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/07_appointments.png"
+    },
+    {
+      "title": "Trung Tâm Kết Nối Đa Kênh (Omnichannel Hub)",
+      "description": "Cấu hình tích hợp đa nền tảng: nhúng Web Widget bằng 1 dòng script, kết nối Webhook Telegram Bot và Meta Facebook Fanpage.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/08_channels.png"
+    },
+    {
+      "title": "Báo Cáo Phân Tích Chuyên Sâu Hiệu Suất CSKH",
+      "description": "Đo lường chi tiết chỉ số hài lòng khách hàng (CSAT), tỷ lệ giải quyết lần đầu (FCR) và phân bổ lưu lượng theo từng kênh tiếp cận.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/09_analytics.png"
+    },
+    {
+      "title": "Hồ Sơ Khách Hàng Hợp Nhất 360 Độ (Customer 360)",
+      "description": "Quản lý lịch sử tương tác đa kênh, thông tin định danh, thẻ phân loại (tag) và ghi chú nội bộ của từng khách hàng.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/10_customers.png"
+    },
+    {
+      "title": "Giám Sát Chi Phí AI & Hạn Mức Token (Usage & Cost)",
+      "description": "Theo dõi chi tiết số lượng token tiêu thụ, chi phí cuộc gọi API theo từng ngày nhằm kiểm soát và tối ưu ngân sách vận hành.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/usage.png"
     }
   ],
   "takeaways": [
-    "Việc áp dụng pgvector trực tiếp trên PostgreSQL giúp đơn giản hóa hạ tầng, loại bỏ sự phức tạp khi phải vận hành cụm vector database tách rời.",
-    "Bộ lọc Guardrails và kỹ thuật phân đoạn tài liệu phân tầng là chìa khóa để loại bỏ hoàn toàn hiện tượng ảo giác của AI trong nghiệp vụ CSKH."
+    "Áp dụng triết lý Modular Monolith kết hợp Queue-first với BullMQ/Redis giúp một đội ngũ nhỏ vẫn làm chủ được hệ thống có khả năng phục vụ hàng triệu tin nhắn mà không bị phân mảnh microservices quá sớm.",
+    "PostgreSQL 16 làm Single Source of Truth kết hợp trực tiếp pgvector với chỉ mục HNSW là lựa chọn kiến trúc thông minh: giữ trọn vẹn tính toàn vẹn dữ liệu ACID và bảo mật Multi-tenant (RLS) mà không tốn chi phí vận hành thêm Vector DB độc lập.",
+    "Hỗ trợ linh hoạt 3 chế độ triển khai (SaaS, Private Single-tenant, Private Multi-tenant) từ một codebase duy nhất chứng minh năng lực thiết kế phần mềm linh hoạt, sẵn sàng đáp ứng cả khách hàng SMBs lẫn doanh nghiệp Enterprise."
   ]
 }

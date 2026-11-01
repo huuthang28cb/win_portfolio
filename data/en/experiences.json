@@ -1,47 +1,35 @@
 [
   {
-    "id": "healthtech-product",
-    "organization": "Digital HealthTech Platform",
-    "role": "Senior Full Stack & AI Systems Engineer",
+    "id": "healthtech-grandm",
+    "organization": "Grandm.vn (Digital HealthTech Platform)",
+    "role": "Full Stack Developer (Backend-Focused)",
     "period": "2022 - Present",
-    "location": "Ho Chi Minh City, Vietnam",
+    "location": "Nha Trang, Khanh Hoa, Vietnam",
     "type": "work",
-    "description": "Leading backend infrastructure, biometrics data processing, and pragmatic AI service integration for an enterprise digital health and wellness product serving hundreds of thousands of active users.",
+    "description": "Core full-stack developer contributing to the Digital HealthTech Platform. Responsible for backend architecture, high-throughput wearable telemetry data pipelines, enterprise-grade OIDC/SSO identity systems, scalable management portals, and AI workflow automations.",
     "highlights": [
-      "Engineered high-throughput data sync pipelines ingesting telemetry from top wearables: Huawei Health, Google Fit, Google Health Connect, and Apple HealthKit.",
-      "Architected an enterprise-grade OIDC (OpenID Connect / OAuth2 SSO) identity platform securing authentication across all web and mobile client applications.",
-      "Optimized partitioned PostgreSQL databases to process and aggregate tens of millions of daily biometrics (heart rate, sleep stages, activity calories).",
-      "Integrated AI automation services for clinical report generation, health trend analytics, and intelligent customer support."
+      "Engineered real-time telemetry ingestion pipelines processing health data (heart rate, step count, sleep stages, SpO2, active calories) across major smart wearable ecosystems: Huawei Health, Google Fit, Google Health Connect, and Apple HealthKit.",
+      "Utilized Redis Queue and background workers to ingest and process millions of daily telemetry events reliably without bottlenecks.",
+      "Architected dual-database storage leveraging partitioned time-series PostgreSQL alongside MySQL for transactional business logic; tuned SQL queries and multi-tier Redis caching to maintain sub-50ms dashboard API response times.",
+      "Built a centralized Identity Provider adhering to OpenID Connect and OAuth 2.0 standards (Authorization Code Flow with PKCE), securing Single Sign-On (SSO) across Web, Mobile, and enterprise portal clients.",
+      "Developed responsive B2B enterprise portals and administrative dashboards using Next.js, ReactJS, and Tailwind CSS, enabling intuitive corporate health management and organizational reporting.",
+      "Integrated AI solutions and Large Language Models (LLMs) to automate health metric summarization, routine medical reporting, and intelligent support capabilities.",
+      "Configured automated CI/CD deployment pipelines using Jenkins and containerized application services with Docker, ensuring consistent, repeatable releases."
     ],
-    "techStack": ["PHP", "Laravel", "Python", "ReactJS", "Next.js", "PostgreSQL", "Docker", "Redis", "OIDC"]
+    "techStack": ["PHP", "Laravel", "Python", "Node.js", "Next.js", "ReactJS", "PostgreSQL", "MySQL", "Redis", "Jenkins", "Docker", "OIDC"]
   },
   {
-    "id": "enterprise-backend",
-    "organization": "Nexus Software Solutions",
-    "role": "Backend & Full Stack Engineer (Backend Heavy)",
-    "period": "2019 - 2022",
-    "location": "Ho Chi Minh City, Vietnam",
-    "type": "work",
-    "description": "Engineered scalable backend web services, payment gateway integrations, and data-heavy admin webapps for enterprise partners.",
-    "highlights": [
-      "Built standardized RESTful & GraphQL APIs with PHP/Laravel and Python following domain-driven design principles.",
-      "Tuned complex PostgreSQL queries and indexing strategies, slashing analytical report generation times by 70%.",
-      "Containerized production microservices with Docker and orchestrated continuous integration and deployment pipelines."
-    ],
-    "techStack": ["PHP", "Laravel", "Python", "PostgreSQL", "Docker", "ReactJS", "Redis", "GitLab CI"]
-  },
-  {
-    "id": "university-it",
-    "organization": "University of Technology (VNU)",
+    "id": "university-ntu",
+    "organization": "Nha Trang University (NTU)",
     "role": "Bachelor of Science in Information Technology",
-    "period": "2015 - 2019",
-    "location": "Ho Chi Minh City, Vietnam",
+    "period": "2019 - 2022",
+    "location": "Nha Trang, Khanh Hoa, Vietnam",
     "type": "education",
-    "description": "Graduated in Software Engineering and Computer Systems. Solid foundational knowledge in data structures, algorithms, relational database design, and software architecture.",
+    "description": "Graduated with a Bachelor's degree in Information Technology. Acquired strong academic foundations in Computer Science, Data Structures & Algorithms, Relational Database Design (SQL), Object-Oriented Programming (OOP), and Computer Networks.",
     "highlights": [
-      "Graduation Capstone: Architecture and implementation of distributed service-oriented web systems.",
-      "Active contributor to programming competitions and open-source software clubs."
+      "Independently researched and developed web management systems and RESTful APIs using PHP, Laravel, Node.js, and MySQL.",
+      "Completed degree requirements on schedule with high project marks, cultivating methodical engineering thinking and continuous self-learning habits."
     ],
-    "techStack": ["Software Architecture", "Database Design", "OOP", "Linux", "Data Structures"]
+    "techStack": ["Computer Science", "Algorithms", "Database Design", "OOP", "PHP", "Laravel", "MySQL", "JavaScript", "Linux"]
   }
 ]

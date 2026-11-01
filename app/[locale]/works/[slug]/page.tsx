@@ -37,6 +37,20 @@ export function generateStaticParams() {
 
 export const dynamicParams = false
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>
+}) {
+  const { locale, slug } = await params
+  const project = getProjectBySlug(locale, slug)
+  if (!project) return {}
+  return {
+    title: project.title,
+    description: project.shortDescription || project.overview?.summary,
+  }
+}
+
 export default async function ProjectDetailPage({
   params,
 }: {

@@ -1,8 +1,21 @@
 import Link from "next/link"
-import { Mail, MapPin, Clock, Github, Twitter, Linkedin, ArrowLeft } from "lucide-react"
+import { Mail, MapPin, Clock, Github, Twitter, Linkedin, Facebook, ArrowLeft } from "lucide-react"
 import { getDictionary } from "@/lib/i18n"
 import { getProfile } from "@/lib/data"
 import { ContactForm } from "@/components/contact-form"
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const dict = getDictionary(locale)
+  return {
+    title: dict.contact?.title || "Liên hệ",
+    description: dict.contact?.subtitle,
+  }
+}
 
 export default async function ContactPage({
   params,
@@ -90,7 +103,18 @@ export default async function ContactPage({
                     className="academic-link flex items-center gap-1.5"
                   >
                     <Github className="h-3.5 w-3.5" />
-                    <span>GitHub: win-dev</span>
+                    <span>GitHub: huuthangvo</span>
+                  </a>
+                )}
+                {profile.links.facebook && (
+                  <a
+                    href={profile.links.facebook.startsWith("http") ? profile.links.facebook : `https://facebook.com/${profile.links.facebook}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="academic-link flex items-center gap-1.5"
+                  >
+                    <Facebook className="h-3.5 w-3.5" />
+                    <span>Facebook: thangreal.1368</span>
                   </a>
                 )}
                 {profile.links.linkedin && (

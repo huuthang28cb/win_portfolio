@@ -2,7 +2,7 @@
   {
     "name": "HealthTech & Big Data",
     "slug": "health-big-data",
-    "description": "Biometric telemetry ingestion, wearable device IoT sync, and time-series pipelines."
+    "description": "Health data telemetry ingestion, wearable device IoT sync, and time-series pipelines."
   },
   {
     "name": "Security & OIDC Identity",

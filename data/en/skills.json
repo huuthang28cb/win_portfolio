@@ -1,22 +1,22 @@
 [
   {
     "category": "Backend & Database Engineering",
-    "skills": ["PHP", "Laravel", "Python", "PostgreSQL", "Redis", "MySQL", "Eloquent ORM", "SQLAlchemy", "Query Optimization", "Table Partitioning"]
+    "skills": ["PHP", "Laravel", "Python", "Node.js", "PostgreSQL", "MySQL", "Redis", "RESTful API Design", "SQL Query Optimization"]
   },
   {
-    "category": "Frontend & Web Architecture",
-    "skills": ["ReactJS", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript (ES6+)", "State Management", "Responsive UI/UX", "RESTful / GraphQL"]
+    "category": "Frontend & Web Applications",
+    "skills": ["Next.js", "ReactJS", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "Enterprise Portals", "Admin Dashboards", "State Management"]
   },
   {
-    "category": "Applied AI & Media Systems",
-    "skills": ["Prompt Engineering", "Whisper AI (STT)", "Kokoro TTS (Voice Synthesis)", "RAG Systems", "OpenAI API", "Vector Embeddings"]
+    "category": "Security, IoT & CI/CD Automation",
+    "skills": ["Jenkins (CI/CD)", "Docker", "Docker Compose", "OpenID Connect (OIDC)", "OAuth 2.0 SSO", "Wearable APIs (Huawei Health, Google Fit)", "Linux Server"]
   },
   {
-    "category": "DevOps, Security & IoT Integrations",
-    "skills": ["Docker", "Docker Compose", "OpenID Connect (OIDC)", "OAuth 2.0 SSO", "Huawei Health API", "Google Health Connect", "Linux Server", "Git / CI-CD"]
+    "category": "Applied AI & Workflow Automation",
+    "skills": ["AI Model Integration (OpenAI, LLMs)", "Prompt Engineering", "RAG Systems", "Automated Reporting Pipelines"]
   },
   {
-    "category": "Languages & Senior Competencies",
-    "skills": ["Professional Working English", "Technical Architecture Design", "International API Specifications", "Independent Execution", "Agile / Scrum"]
+    "category": "Languages & Professional Competencies",
+    "skills": ["Technical English (Reading & Research Proficiency)", "Problem Solving", "Team Collaboration & Ownership", "Git Version Control", "Agile Mindset"]
   }
 ]

@@ -1,132 +1,266 @@
 {
-  "title": "企業向けオムニチャネルAIカスタマーサポートAgent (RAG基盤)",
+  "title": "企業向けオムニチャネルAIカスタマーサポートAgent (モジュラーモノリス基盤)",
   "slug": "ai-customer-service",
   "featured": true,
   "status": "本番稼働中",
   "year": 2026,
   "client": "中小企業 & Eコマース事業者",
   "teamSize": 2,
-  "role": "フルスタック & AIエンジニア",
+  "role": "フルスタック & AIエンジニア (Lead Architecture)",
   "duration": "6ヶ月",
-  "category": "人工知能 & RAG",
-  "type": "AI SaaS & 業務自動化",
-  "thumbnail": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "Retrieval-Augmented Generation (RAG)技術を活用した24時間対応のAI問い合わせ対応Agent。社内PDF規約やWebサイトと連携し、Webウィジェット、Zalo、Messengerを統合。",
+  "category": "人工知能 & 業務自動化",
+  "type": "マルチテナントAI SaaSプラットフォーム",
+  "thumbnail": "/imgs/ai-customer-service/01_dashboard.png",
+  "cover": "/imgs/ai-customer-service/01_dashboard.png",
+  "shortDescription": "モジュラーモノリスとQueue-firstアーキテクチャ(BullMQ/Redis)を採用した24時間AI問い合わせ対応Agent。PostgreSQL pgvectorによるハイブリッドRAG、自動リード獲得、予約受付、人間引き継ぎを統合。",
   "tags": [
-    "Python",
-    "FastAPI",
     "Next.js",
-    "ReactJS",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Bun",
     "PostgreSQL",
     "pgvector",
-    "LangChain",
+    "BullMQ",
+    "Redis",
+    "Docker",
     "OpenAI API",
-    "Docker"
+    "Gemini API"
   ],
   "links": {
     "website": "https://ai-cskh-demo.vercel.app",
-    "github": "https://github.com/win-dev/ai-customer-support-agent",
-    "demo": "https://ai-cskh-demo.vercel.app"
+    "github": "https://github.com/huuthangvo/ai-customer-support-agent",
+    "demo": "http://localhost:3000"
   },
   "overview": {
-    "summary": "オムニチャネル対応のAIカスタマーサポートプラットフォーム。企業の公式ドキュメントを参照し、ハルシネーション（嘘の回答）を起こさずによくある問い合わせの最大80%を自動解決します。",
+    "summary": "オムニチャネル対応のAIカスタマーサポートプラットフォーム。モジュラーモノリスと非同期キュー設計を採用し、ハルシネーション（嘘の回答）を起こさずによくある問い合わせの最大78%を自動解決します。さらにリード獲得や予約受付、オペレーターへのスムーズな引き継ぎも自動化します。",
     "background": "中小企業では夜間や混雑時の一次対応リソース不足が深刻であり、従来型のルールベースボットでは自然言語の文脈や曖昧な質問に対応できない課題がありました。"
   },
   "challenge": {
-    "title": "ハルシネーションの完全排除とAPIトークン費用の最小化",
-    "problem": "誤字脱字や略語を含む自然な口語表現から、数百ページに及ぶ規約・マニュアルの該当箇所を1.5秒以内に正確に特定し回答すること。",
+    "title": "ハルシネーションの完全排除、低レイテンシ(1.2秒未満) & 高負荷耐性",
+    "problem": "誤字脱字や口語表現を含む大量のチャットメッセージをWebhook詰まりを起こさずに処理し、規約・マニュアルの該当箇所を1.2秒以内に特定して正確に回答すること。",
     "bottlenecks": [
+      "Webhookの同期処理によるリクエストタイムアウトとメッセージ喪失のリスク。",
       "全ての文脈をそのままLLMに渡すことによるAPI利用料の急激な高騰。",
-      "モデルが勝手に架空の割引制度を捏造（ハルシネーション）するリスクの防止。",
-      "ベクトル検索と回答生成パイプラインの逐次処理によるレイテンシの増大。"
+      "モデルが非公式な規約を捏造してしまうリスクやプロンプトインジェクション攻撃。"
     ]
   },
   "solution": {
-    "title": "PostgreSQL pgvectorとセマンティックキャッシュによるハイブリッドRAG構成",
-    "approach": "PostgreSQLの拡張機能`pgvector`でベクトルDBを統合し、BM25キーワード検索と密ベクトル検索のハイブリッド検索およびセマンティックキャッシュを構築。",
+    "title": "モジュラーモノリス、Queue-First非同期ワーカー & ネイティブpgvector",
+    "approach": "TypeScriptによるモジュラーモノリス設計を採用。Webhookの即時応答(HTTP 200)とAI処理をBullMQ/Redisワーカーで完全分離し、PostgreSQL 16上のpgvectorと全文検索を融合したハイブリッドRAGを構築。",
     "keyInnovations": [
-      "表組や箇条書きのコンテキストを崩さない階層型チャンキング（Hierarchical Chunking）。",
-      "プロンプトインジェクション攻撃や規約外発言を遮断する厳格なガードレール機能。",
-      "類似した頻出質問のAPI呼び出しを最大55%削減するセマンティックキャッシュ。"
+      "Queue-First & Persist-Before-Queue: Webhook署名検証とデータ永続化後に即座にキューへ投入し、アクセス集中時もメッセージを一切ドロップしない堅牢性を確保。",
+      "PostgreSQL as Single Source of Truth: pgvector (HNSW)を直接活用し、専用ベクトルDBの運用コストと運用の複雑性を排除。",
+      "ステートレスな専門ワーカー群: AI生成、ドキュメント解析、メッセージ送信(Outbound)、イベント配信を独立ワーカーで並行処理。",
+      "階層型チャンキング (Hierarchical Chunking) と双方向ガードレールによるハルシネーションの完全防止。"
     ]
   },
   "architecture": {
-    "overview": "DockerとNext.jsで構築された高スループット非同期RAGパイプライン。",
+    "overview": "TypeScriptで統一されたモジュラーモノリスとQueue-first非同期処理（BullMQ/Redis）による高可用性システム設計。",
     "layers": [
       {
-        "layer": "オムニチャネル受付ゲートウェイ",
-        "tech": "Next.js Web Widget, Zalo OA Webhooks, Facebook Messenger API",
-        "detail": "1行のJavaScriptタグでWebサイトに導入可能な軽量チャットウィジェット。"
+        "layer": "オムニチャネル連携ゲートウェイ (Edge & Webhooks)",
+        "tech": "Next.js Webhook APIs, Reverse Proxy (Nginx), Web Widget, Telegram, Messenger",
+        "detail": "暗号署名検証、イベント重複排除を実施し、即時に永続化してBullMQキューへ委譲。"
       },
       {
-        "layer": "AI Agent オーケストレーション層",
-        "tech": "Python, FastAPI, LangChain, Async Worker",
-        "detail": "ユーザーの意図分類（Intent Classification）、RAG処理へのルーティング、有人オペレーターへのエスカレーション判定。"
+        "layer": "アプリケーションコア (Modular Monolith)",
+        "tech": "Next.js, TypeScript, Zod Schema, NextAuth, RBAC",
+        "detail": "7つの独立モジュール(Tenant, Conversation, Channel, AI, Knowledge, Usage, Automation)で構成。"
       },
       {
-        "layer": "ナレッジベクトルDB層",
-        "tech": "PostgreSQL, pgvector, Redis Semantic Cache",
-        "detail": "1536次元の埋め込みベクトルとHNSWインデックスによる10ms未満の類似度検索。"
+        "layer": "Queue-First非同期ワーカー基盤 (Worker Runtime)",
+        "tech": "BullMQ, Bun Runtime, Redis 7 (Distributed Locks & Debounce)",
+        "detail": "重いAI推論やドキュメント解析、チャネル送信をWebランタイムから完全分離して並行稼働。"
       },
       {
-        "layer": "企業管理者コンソール",
-        "tech": "ReactJS, Next.js Dashboard, Chart.js",
-        "detail": "PDF・Word・URL等のナレッジ管理、会話ログの品質監査、自動解決率の統計ダッシュボード。"
+        "layer": "データベース & ナレッジストア (Single Source of Truth)",
+        "tech": "PostgreSQL 16, pgvector (HNSW), S3-compatible / MinIO",
+        "detail": "行レベルセキュリティ(RLS)付きPostgreSQL 16と高速ベクトル検索HNSW、MinIOオブジェクトストレージ。"
+      },
+      {
+        "layer": "オペレーター管理ダッシュボード",
+        "tech": "React, Material-UI (MUI), TanStack React Query, Dayjs",
+        "detail": "リアルタイムインボックス、Customer 360プロファイル、Weekly Intelligence分析画面。"
       }
     ]
   },
   "features": [
     {
-      "title": "社内ドキュメントの自動取り込み & ベクトル化",
-      "description": "製品カタログやFAQのPDFをドラッグ＆ドロップするだけで、約2分で検索可能なナレッジベースを構築。",
+      "title": "統合ダッシュボード (Executive KPI Dashboard)",
+      "description": "問い合わせ総数、自動解決率、時間帯別トラフィック、平均応答速度をリアルタイムに可視化。",
       "technicalHighlights": [
-        "複雑な表組を含むPDFからの高精度テキスト抽出。",
-        "モデルの再学習（ファインチューニング）不要の即時データ更新。"
+        "リアルタイムデータ更新とインタラクティブなチャネル別フィルター。"
       ]
     },
     {
-      "title": "AIサマリー付きシームレス有人引き継ぎ",
-      "description": "複雑なクレームや顧客の不満シグナルを検知すると、AIが3行で会話要約を作成して有人サポートへ即座に転送。",
+      "title": "オムニチャネル・ライブインボックス & 人間引き継ぎ",
+      "description": "Web、Telegram、Messengerのメッセージを一画面に集約。AIと対話中の顧客へワンクリックで引き継ぎ可能。",
       "technicalHighlights": [
-        "リアルタイムの感情分析（Sentiment Analysis）による自動検知。",
-        "要約テキストによりオペレーターの状況把握時間を大幅短縮。"
+        "3行のコンテキスト自動要約によるスムーズな引き継ぎ支援。"
+      ]
+    },
+    {
+      "title": "AIモデル設定 & ガードレール管理",
+      "description": "システムプロンプトの調整、モデル選択(OpenAI/Gemini)、安全性ガードレールのしきい値設定。",
+      "technicalHighlights": [
+        "ハルシネーションとプロンプトインジェクションを完全に防止する双方向セキュリティ。"
+      ]
+    },
+    {
+      "title": "週次顧客インテリジェンス (Weekly Intelligence)",
+      "description": "何千件ものチャット履歴をAIが解析し、問い合わせトレンドや不満点、売上拡大の機会を自動レポート。",
+      "technicalHighlights": [
+        "手動分析不要で実用的な改善アクションを提案。"
+      ]
+    },
+    {
+      "title": "リード獲得 & 24時間アポイントメント自動予約",
+      "description": "顧客の購買意欲をAIがリアルタイムに検出し、連絡先抽出とカレンダー予約を自動完了。",
+      "technicalHighlights": [
+        "NER（固有表現抽出）による正確な情報取得と空き時間自動照合。"
       ]
     }
   ],
   "metrics": [
     {
-      "label": "問い合わせ自動解決率",
+      "label": "自動解決率 (FCR)",
       "value": "78%",
-      "change": "オペレーター不要で完結"
+      "change": "オペレーター不要で即時解決"
     },
     {
       "label": "平均応答速度",
-      "value": "1.2秒",
-      "change": "従来比90%高速化"
+      "value": "< 1.2秒",
+      "change": "従来型ボットより90%高速"
     },
     {
-      "label": "サポート運用コスト削減",
-      "value": "60%",
-      "change": "夜間・休日シフトの負担削減"
+      "label": "運用およびAPIコスト削減",
+      "value": "58%",
+      "change": "非同期キュー & プロンプト最適化"
+    },
+    {
+      "label": "新規ナレッジ反映速度",
+      "value": "< 2分",
+      "change": "ドキュメントアップロードまたはURL入力のみ"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "統合ダッシュボード (Executive KPI Dashboard)",
+      "caption": "問い合わせトラフィック、自動解決率、CSKHの稼働パフォーマンスをリアルタイムに俯瞰。",
+      "image": "/imgs/ai-customer-service/01_dashboard.png"
+    },
+    {
+      "title": "オムニチャネル・インボックス & オペレーター引き継ぎ",
+      "caption": "Web、Telegram、Messengerのチャットを集約管理。AIの回答状況を確認し、即座に担当者へハンドオーバー。",
+      "image": "/imgs/ai-customer-service/02_inbox.png"
+    },
+    {
+      "title": "AIモデル設定 & ガードレール構成",
+      "caption": "システムプロンプトの調整、モデル選択、ハルシネーション防止ガードレールの管理。",
+      "image": "/imgs/ai-customer-service/04_ai_settings.png"
+    },
+    {
+      "title": "週次顧客インテリジェンス分析 (Weekly Intelligence)",
+      "caption": "AIがチャットログを横断分析し、頻出の問い合わせやサービス課題、売上成長機会を可視化。",
+      "image": "/imgs/ai-customer-service/05_weekly_intelligence.png"
+    },
+    {
+      "title": "リード獲得 & スコアリング管理",
+      "caption": "商談につながる顧客情報をAIが自動抽出・スコアリングし、営業パイプラインへ連携。",
+      "image": "/imgs/ai-customer-service/06_leads.png"
+    },
+    {
+      "title": "24時間自動アポイントメント予約",
+      "caption": "空き枠を自動照合し、顧客とのデモ・相談日程をチャット内で完結。",
+      "image": "/imgs/ai-customer-service/07_appointments.png"
+    },
+    {
+      "title": "オムニチャネル統合ハブ",
+      "caption": "Webウィジェット、Telegram Bot、Meta Facebook FanpageのWebhookを包括的に設定。",
+      "image": "/imgs/ai-customer-service/08_channels.png"
+    },
+    {
+      "title": "詳細アナリティクス & CSAT分析",
+      "caption": "顧客満足度(CSAT)、一次解決率(FCR)、チャネル別トラフィックの詳細レポート。",
+      "image": "/imgs/ai-customer-service/09_analytics.png"
+    },
+    {
+      "title": "顧客360度プロファイル",
+      "caption": "各顧客の過去の対話履歴、属性タグ、社内メモを一元管理。",
+      "image": "/imgs/ai-customer-service/10_customers.png"
+    },
+    {
+      "title": "AIコスト & トークン使用量モニタリング",
+      "caption": "日別のトークン消費量とAPI費用を追跡し、運用コストを最適化。",
+      "image": "/imgs/ai-customer-service/usage.png"
     }
   ],
   "visuals": [
     {
-      "title": "ハイブリッド検索RAGアーキテクチャ図",
-      "description": "質問受付からGuardrailsチェック、pgvector検索、回答生成に至るシステムフロー。",
-      "type": "architecture",
-      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+      "title": "統合ダッシュボード (Executive KPI Dashboard)",
+      "description": "問い合わせトラフィック、自動解決率、CSKHの稼働パフォーマンスをリアルタイムに俯瞰。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/01_dashboard.png"
     },
     {
-      "title": "企業ナレッジベース管理画面",
-      "description": "アップロードした資料の管理、テスト質問シミュレーター、および会話統計画面。",
+      "title": "オムニチャネル・インボックス & オペレーター引き継ぎ",
+      "description": "Web、Telegram、Messengerのチャットを集約管理。AIの回答状況を確認し、即座に担当者へハンドオーバー。",
       "type": "screenshot",
-      "url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop"
+      "url": "/imgs/ai-customer-service/02_inbox.png"
+    },
+    {
+      "title": "AIモデル設定 & ガードレール構成",
+      "description": "システムプロンプトの調整、モデル選択、ハルシネーション防止ガードレールの管理。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/04_ai_settings.png"
+    },
+    {
+      "title": "週次顧客インテリジェンス分析 (Weekly Intelligence)",
+      "description": "AIがチャットログを横断分析し、頻出の問い合わせやサービス課題、売上成長機会を可視化。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/05_weekly_intelligence.png"
+    },
+    {
+      "title": "リード獲得 & スコアリング管理",
+      "description": "商談につながる顧客情報をAIが自動抽出・スコアリングし、営業パイプラインへ連携。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/06_leads.png"
+    },
+    {
+      "title": "24時間自動アポイントメント予約",
+      "description": "空き枠を自動照合し、顧客とのデモ・相談日程をチャット内で完結。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/07_appointments.png"
+    },
+    {
+      "title": "オムニチャネル統合ハブ",
+      "description": "Webウィジェット、Telegram Bot、Meta Facebook FanpageのWebhookを包括的に設定。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/08_channels.png"
+    },
+    {
+      "title": "詳細アナリティクス & CSAT分析",
+      "description": "顧客満足度(CSAT)、一次解決率(FCR)、チャネル別トラフィックの詳細レポート。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/09_analytics.png"
+    },
+    {
+      "title": "顧客360度プロファイル",
+      "description": "各顧客の過去の対話履歴、属性タグ、社内メモを一元管理。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/10_customers.png"
+    },
+    {
+      "title": "AIコスト & トークン使用量モニタリング",
+      "description": "日別のトークン消費量とAPI費用を追跡し、運用コストを最適化。",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/usage.png"
     }
   ],
   "takeaways": [
-    "PostgreSQL上のpgvectorを活用することで、別系統のVector DBクラスタを運用するインフラの複雑さを大幅に削減できた。",
-    "階層型ドキュメント分割と厳格なガードレール設計こそが、商用サポートにおけるハルシネーションゼロを実現する核心である。"
+    "TypeScriptによるモジュラーモノリスとQueue-first（BullMQ/Redis）の組み合わせにより、小規模チームでもマイクロサービスの過度な分割を避けつつ、高負荷に耐えうる堅牢な基盤を実現。",
+    "PostgreSQL 16上にpgvector (HNSW)を直接導入することで、専用ベクトルDBの運用コストと運用の複雑性を排除しつつACIDトランザクションを維持。",
+    "同一コードベースからSaaS、Private Single-tenant、Private Multi-tenantの3つの展開モードをサポートし、エンタープライズ要件にも柔軟に対応。"
   ]
 }

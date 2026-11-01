@@ -15,7 +15,7 @@
     "experience_title": "Kinh nghiệm & Quá trình Công tác",
     "projects_title": "Dự án Tiêu biểu",
     "solutions": "Kiến trúc & Giải pháp Tiêu biểu",
-    "solutionsSubtitle": "Các giải pháp hạ tầng lớn, dữ liệu sinh trắc học sức khỏe, định danh OIDC và hệ thống AI thực chiến",
+    "solutionsSubtitle": "Các giải pháp hạ tầng lớn, xử lý dữ liệu sức khỏe, định danh OIDC và hệ thống AI thực chiến",
     "credentials": "Chứng chỉ & Bằng cấp Chuyên môn",
     "credentialsSubtitle": "Nền tảng đào tạo chính quy, năng lực tiếng Anh chuyên nghiệp và chứng nhận kỹ thuật thực chiến",
     "publications_title": "Kiến trúc & Giải pháp Tiêu biểu",
@@ -30,6 +30,7 @@
     "scholar": "Google Scholar",
     "github": "GitHub",
     "linkedin": "LinkedIn",
+    "facebook": "Facebook",
     "wechat": "WeChat"
   },
   "project": {

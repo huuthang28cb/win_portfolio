@@ -15,7 +15,7 @@
     "experience_title": "職務経歴 & 学歴",
     "projects_title": "主要プロジェクト & 事例紹介",
     "solutions": "中核ソリューション & アーキテクチャ",
-    "solutionsSubtitle": "大規模生体データパイプライン、統合認証基盤、および商用AI自動化システムの実装実績",
+    "solutionsSubtitle": "大規模ヘルスデータパイプライン、統合認証基盤、および商用AI自動化システムの実装実績",
     "credentials": "資格 & 専門学歴",
     "credentialsSubtitle": "正規工学学士号、ビジネス英語運用能力、および各種専門技術認定",
     "publications_title": "中核ソリューション & アーキテクチャ",
@@ -30,6 +30,7 @@
     "scholar": "Google Scholar",
     "github": "GitHub",
     "linkedin": "LinkedIn",
+    "facebook": "Facebook",
     "wechat": "WeChat"
   },
   "project": {
@@ -54,13 +55,13 @@
   },
   "works": {
     "title": "全プロジェクトポートフォリオ",
-    "desc": "ヘルスケア生体データ連携基盤、エンタープライズOIDC認証サーバー、応用AIプロダクト、および高パフォーマンスWebアプリの実績一覧。",
+    "desc": "ヘルスケアデータ連携基盤、エンタープライズOIDC認証サーバー、応用AIプロダクト、および高パフォーマンスWebアプリの実績一覧。",
     "all": "すべて",
     "filter_label": "カテゴリ絞り込み:"
   },
   "contact": {
     "title": "お問い合わせ & 技術相談",
-    "subtitle": "シニアエンジニアポジション、バックエンド設計、AI統合、またはプロダクト開発に関するご相談を歓迎します。",
+    "subtitle": "フルスタック・バックエンド開発、AI統合、またはプロダクト開発に関するご相談を歓迎します。",
     "availability": "新しいプロジェクトやポジションを募集中",
     "form_name": "お名前",
     "form_email": "メールアドレス",

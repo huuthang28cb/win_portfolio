@@ -1,18 +1,18 @@
 {
-  "title": "企業標準 OpenID Connect (OIDC) & OAuth 2.0 統合認証認可基盤",
+  "title": "エンタープライズOIDC統合認証 & アクセス権限管理基盤",
   "slug": "enterprise-oidc-sso",
   "featured": true,
-  "status": "本番稼働中",
+  "status": "本番運用中",
   "year": 2026,
-  "client": "デジタルヘルスケア プラットフォーム群",
+  "client": "ヘルスケア & 企業向けポータル基盤（Grandm.vn）",
   "teamSize": 4,
-  "role": "リードバックエンド & セキュリティアーキテクト",
-  "duration": "8ヶ月",
-  "category": "セキュリティ & 認証認可基盤",
-  "type": "企業中核認証インフラ",
-  "thumbnail": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "RFC準拠のOpenID Connect & OAuth 2.0 Identity Provider (IdP)を構築。シングルサインオン（SSO）、PKCE、多要素認証（MFA）、および細粒度のRBAC/ABAC認可を全社Web/モバイルアプリ群に提供。",
+  "role": "バックエンド & 認証基盤エンジニア",
+  "duration": "開発構築 & 継続運用中",
+  "category": "セキュリティ & 認証管理",
+  "type": "企業向け認証インフラ",
+  "thumbnail": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop",
+  "cover": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop",
+  "shortDescription": "OpenID ConnectおよびOAuth 2.0（PKCE対応）に準拠したIDプロバイダ（IdP）を構築。Web、モバイル、および企業ポータル全体でセキュアなシングルサインオン（SSO）とRBAC権限管理を実現。",
   "tags": [
     "OpenID Connect",
     "OAuth 2.0",
@@ -27,107 +27,112 @@
   ],
   "links": {
     "website": "https://auth-platform-demo.vercel.app",
-    "github": "https://github.com/win-dev/enterprise-oidc-idp",
+    "github": "https://github.com/huuthangvo/enterprise-oidc-idp",
     "demo": "https://auth-platform-demo.vercel.app"
   },
   "overview": {
-    "summary": "OpenID Connect Core 1.0およびOAuth 2.0 RFC 6749に厳格に準拠した独立した認証認可サーバー（IdP）を構築。社内の統計ツール、管理ポータル、患者向けWebアプリ、およびモバイルアプリの統合ログインゲートウェイとして機能します。",
-    "background": "従来は各プロダクトが個別にユーザーDBを抱えており、認証体験の分断、権限管理の煩雑化、および機微な医療情報漏洩リスクを抱えていました。"
+    "summary": "OpenID Connect Core 1.0およびOAuth 2.0仕様に準拠した独立したIDプロバイダ（IdP）を設計・構築。エコシステム内の全Webポータル、分析画面、モバイルアプリの共通認証ゲートウェイとして機能します。",
+    "background": "従来は各システムが個別にユーザーデータベースを保持していたため、多重ログインが必要となり、提携企業側でのアカウント管理も煩雑でした。認証基盤の統合により、操作性を統一し、セキュリティ水準を大きく向上させました。"
   },
   "challenge": {
-    "title": "医療基準の最高レベルセキュリティと高レスポンスの両立",
-    "problem": "Next.js SPA、React Nativeモバイルアプリ、バックエンドAPIなど多様なクライアントを認証遅延なしに単一基盤へ統合すること。",
+    "title": "確固たる認証セキュリティとスムーズなログイン体験の両立",
+    "problem": "Next.js SPA、モバイルアプリ、バックエンドAPIなど多様なクライアントを単一の統合認証基盤に接続し、高レスポンスで使いやすい認証体験を維持すること。",
     "bottlenecks": [
-      "公衆ネットワーク環境下での認可コード横取り攻撃（Code Interception）リスクの排除。",
-      "不審なアクティビティ検知時の全デバイス即時セッション強制失効（Token Revocation）。",
-      "ピーク時におけるRSA256署名検証と鍵配信の負荷軽減。"
+      "モバイルアプリやSPAにおいて標準規格に沿って認可コードの安全性を確保すること。",
+      "ログアウト時やパスワード変更時の迅速なセッション失効（Session Revocation）処理。",
+      "JWTトークンの署名検証コストを最適化し、業務APIの高速応答を維持すること。"
     ]
   },
   "solution": {
-    "title": "PKCE必須化とRedis JWKSキャッシングによる分散IdPアーキテクチャ",
-    "approach": "Laravel Passportをベースに標準OIDC discovery endpoint（`/.well-known/openid-configuration`）を独自実装。非対称鍵暗号RS256署名とRedisによるJWKSメモリキャッシュを採用。",
+    "title": "PKCE認可フローの実装 & RedisによるJWKS公開鍵キャッシング",
+    "approach": "Laravel PassportをベースにOIDC標準ディスカバリエンドポイント（`/.well-known/openid-configuration`）を実装。RS256非対称署名を採用し、JWKS公開鍵をRedisにキャッシュすることで高速な検証を実現。",
     "keyInnovations": [
-      "すべてのパブリッククライアントに対するPKCE（Proof Key for Code Exchange）の完全必須化。",
-      "定期的なゼロダウンタイムRSA暗号鍵ローテーションと、署名付き公開鍵JWKSエンドポイントの自動運用。",
-      "医療従事者・患者・管理者向けRBAC（ロール別）および所属部署別ABAC（属性別）を融合したハイブリッド権限制御。"
+      "すべてのWeb SPAおよびモバイルアプリに対してPKCE（Proof Key for Code Exchange）フローを適用。",
+      "定期的なRSA暗号鍵ペアのローテーションと署名付きJWKSによる安全な公開鍵配信。",
+      "企業管理者、医療・健康担当者、一般ユーザーに応じた柔軟なロールベースアクセス制御（RBAC）。"
     ]
   },
   "architecture": {
-    "overview": "Dockerコンテナによる水平スケーリングに対応した高可用性認証認可クラスター。",
+    "overview": "シンプルで拡張性に富んだセキュアな集中管理型認証アーキテクチャ。",
     "layers": [
       {
-        "layer": "ログイン画面 & MFA多要素認証UI",
-        "tech": "Next.js, Tailwind CSS, WebAuthn / TOTP MFA",
-        "detail": "ワンタイムパスワード（TOTP）や生体認証に対応したレスポンシブな統一認証ポータル。"
+        "layer": "親しみやすい認証UI層",
+        "tech": "Next.js, Tailwind CSS, Responsive Design",
+        "detail": "デバイス記憶や各種画面サイズに最適化された直感的で使いやすいログインインターフェース。"
       },
       {
-        "layer": "OIDC / OAuth 2.0 プロトコルコア",
+        "layer": "OIDC / OAuth2 コアプロトコル層",
         "tech": "PHP / Laravel, OpenID Connect Provider Core",
-        "detail": "署名付きID Token、JWT Access Token、およびスライディング有効期限付きRefresh Tokenの発行。"
+        "detail": "IDトークン、アクセストークン（JWT Bearer）、リフレッシュトークンの安全な発行・管理。"
       },
       {
-        "layer": "セッション管理 & 即時失効ストア",
-        "tech": "Redis Cluster, In-Memory Blacklist",
-        "detail": "全アクティブセッションを一元監視し、10ms未満での即時失効を実現。"
+        "layer": "セッション管理 & 高速キャッシュ層",
+        "tech": "Redis Cache, In-memory Token Store",
+        "detail": "アクティブセッションの即時把握と必要に応じた迅速なトークン失効の実行。"
       },
       {
-        "layer": "アイデンティティ & 権限DB",
-        "tech": "PostgreSQL, 暗号化PIIカラム, Docker",
-        "detail": "GDPR/HIPAA基準に準拠した機微個人情報の暗号化保管および柔軟なロールマッピング。"
+        "layer": "アカウント & 権限ストレージ層",
+        "tech": "PostgreSQL, MySQL, Docker",
+        "detail": "標準的なbcrypt暗号化による安全なパスワード保管と組織別権限マッピング。"
       }
     ]
   },
   "features": [
     {
-      "title": "シームレスなシングルサインオン (SSO)",
-      "description": "一度のログインで、社内のすべての健康統計ツール、管理ダッシュボード、提携サービスへ安全にアクセス可能。",
+      "title": "快適なシングルサインオン（SSO）体験",
+      "description": "ユーザーは一度ログインするだけで、連携する分析ポータルやモバイルアプリ間を再ログインなしでシームレスに行き来可能。",
       "technicalHighlights": [
-        "フロントチャネルおよびバックチャネルでのグローバルログアウト同期。",
-        "国際プライバシー基準に準拠した動的同意画面（OAuth Consent Screen）。"
+        "連携システム間での同期ログアウト機能。",
+        "要求されるアクセス権限を分かりやすく明示する同意画面（Consent Screen）。"
       ]
     },
     {
-      "title": "クライアント管理 & セキュリティ監査ポータル",
-      "description": "OAuthクライアントの認証情報発行、スコープ権限の割り当て、および異常アクセスのリアルタイム監視画面。",
+      "title": "企業向けアカウント & 権限管理画面",
+      "description": "企業担当者がメンバー一覧の確認、権限ロールの割り当て、およびアクセス状況を把握できる管理ダッシュボード。",
       "technicalHighlights": [
-        "Geo-IP異常検知による不審なクレデンシャルスタッフィング攻撃の自動ブロック。",
-        "改ざん不可能なセキュリティ監査ログ（Audit Trail）の永続化。"
+        "アカウント有効化状態の制御と安全なパスワード再設定フロー。",
+        "管理者向けのシステムアクセスログ記録機能。"
       ]
     }
   ],
   "metrics": [
     {
-      "label": "一元管理アクティブアカウント数",
-      "value": "200,000+",
-      "change": "全ユーザー完全移行達成"
+      "label": "管理統合ユーザーアカウント数",
+      "value": "50,000+",
+      "change": "全サービス共通SSO"
     },
     {
-      "label": "トークン検証平均レイテンシ",
-      "value": "< 12ms",
-      "change": "Redis JWKSキャッシュにより達成"
+      "label": "認証レスポンス時間",
+      "value": "< 100ms",
+      "change": "Redis JWKSキャッシュ"
     },
     {
-      "label": "セキュリティ規格準拠",
-      "value": "RFC 6749 / OIDC",
-      "change": "脆弱性監査ゼロ件"
+      "label": "統合クライアント・ポータル数",
+      "value": "5+ アプリ",
+      "change": "Web、モバイル & B2Bポータル"
+    },
+    {
+      "label": "準拠認証セキュリティ規格",
+      "value": "OIDC / OAuth 2.0",
+      "change": "RFC国際標準仕様"
     }
   ],
   "visuals": [
     {
-      "title": "OIDC PKCE認可シーケンスフロー",
-      "description": "クライアントアプリとIdPサーバー間の暗号化ハンドシェイク手順。",
+      "title": "使いやすい統合認証インターフェース",
+      "caption": "ユーザーの利便性とセキュリティを両立した直感的なログイン画面。",
       "type": "architecture",
-      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+      "url": "https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      "title": "クライアント管理 & セキュリティコンソール",
-      "description": "Client Secretのローテーションやセッション強制切断をGUIで制御可能。",
+      "title": "組織権限 & セッション管理画面",
+      "caption": "アクティブセッションと企業別権限を統括する管理ポータル画面。",
       "type": "screenshot",
-      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop"
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
     }
   ],
   "takeaways": [
-    "RFC仕様に完全準拠したIdPを自前構築することで、非対称暗号鍵管理とPKCE仕様の深い理解が身についた。",
-    "認証基盤を独立したマイクロサービスとして切り離すことで、全社プロダクト群の開発効率とセキュリティ監査性が劇的に向上した。"
+    "OpenID Connect標準の導入により、グループ内の全アプリケーションにおける認証フローを堅牢に標準化できた。",
+    "Redisを活用したJWKS公開鍵キャッシングにより、データベースに負荷をかけることなく迅速なトークン検証を実現。"
   ]
 }

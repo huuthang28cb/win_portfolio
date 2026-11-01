@@ -1,11 +1,11 @@
 [
   {
     "id": "health-wearable-pipeline",
-    "title": "クロスプラットフォーム ウェアラブル・生体データ連携パイプライン",
+    "title": "クロスプラットフォーム ウェアラブル・ヘルスデータ連携パイプライン",
     "category": "データエンジニアリング & IoT統合",
-    "overview": "Huawei Health、Google Fit、Google Health Connect、Apple HealthKitからバイオメトリクスデータを自動収集・正規化する分散パイプラインを構築。",
+    "overview": "Huawei Health、Google Fit、Google Health Connect、Apple HealthKitからヘルスケアデータを自動収集・正規化する分散パイプラインを構築。",
     "highlights": [
-      "心拍数、血中酸素濃度、睡眠サイクル、歩数、消費カロリーなど20種類以上の生体指標を統一スキーマへと自動変換。",
+      "心拍数、血中酸素濃度、睡眠サイクル、歩数、消費カロリーなど20種類以上の健康指標を統一スキーマへと自動変換。",
       "端末側のバッテリー消費を抑える適応型ポーリングとリアルタイムWebhook受信機構の最適化。",
       "PostgreSQLの時系列パーティショニング設計により、グラフ表示クエリの応答時間30ms未満を維持。"
     ],

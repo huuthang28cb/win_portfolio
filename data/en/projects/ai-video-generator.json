@@ -1,146 +1,146 @@
 {
-  "title": "Visionary - Autonomous AI Video Production Studio",
+  "title": "AI Video Subtitle Studio - Voiceover & Subtitle Platform",
   "slug": "ai-video-generator",
   "featured": true,
-  "status": "Production Deployed",
+  "status": "Deployed & Operating",
   "year": 2025,
-  "client": "Creative Media Labs & Ad Agencies",
-  "teamSize": 4,
-  "role": "AI & Video Systems Architect",
-  "duration": "5 Months",
+  "client": "Individuals / Content Creator Teams",
+  "teamSize": 1,
+  "role": "Fullstack & AI Engineer",
+  "duration": "1 month",
   "category": "Artificial Intelligence & Media Processing",
-  "type": "Enterprise SaaS Platform",
-  "thumbnail": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "End-to-end AI video synthesis platform converting text scripts into 4K cinematic commercials featuring browser-based non-linear editing accelerated by WebCodecs.",
+  "type": "Web Application",
+  "thumbnail": "/imgs/video-screenshot_1.png",
+  "cover": "/imgs/video-screenshot_1.png",
+  "shortDescription": "Automated system for speech recognition (Whisper), multilingual translation, and AI voice dubbing (TTS) directly in the browser, supporting subtitle editing and accurate audio synchronization.",
   "tags": [
-    "Next.js 15",
+    "Vite",
+    "React",
+    "FastAPI",
     "Python",
-    "WebCodecs API",
-    "FFmpeg WASM",
-    "Diffusion Models",
-    "CUDA",
+    "Whisper",
+    "ElevenLabs",
     "Tailwind CSS"
   ],
   "links": {
-    "website": "https://visionary-video-demo.vercel.app",
-    "github": "https://github.com/win-dev/ai-video-synthesis",
-    "demo": "https://visionary-video-demo.vercel.app"
+    "website": "https://github.com/huuthang",
+    "github": "https://github.com/huuthang",
+    "demo": "http://localhost:1420"
   },
   "overview": {
-    "summary": "Visionary is a comprehensive AI Video Studio empowering creators to generate scenes, dynamic subtitles, audio soundscapes, and production-grade video in under 60 seconds.",
-    "background": "Traditional video production took 2 to 4 days for a 60-second clip (ideation, clip splicing, voiceover matching, and heavy workstation rendering). Short-form media demands minutes-level turnaround."
+    "summary": "AI Video Subtitle Studio is a smart video editing tool that automates the process of extracting subtitles, translating languages, and generating artificial voice (Voice Dubbing) for each video segment quickly and accurately.",
+    "background": "Traditional subtitling and voice dubbing takes a lot of time from transcribing, time alignment to recording. This solution helps content creators minimize the time for multilingual processing, especially for short content (Shorts, Reels)."
   },
   "challenge": {
-    "title": "Browser Render Bottlenecks & Audio-Visual Synchronization",
-    "problem": "Handling multi-track real-time rendering (video, audio, dynamic subtitles, transitions) directly inside modern browsers without UI stutter, while minimizing GPU cloud rendering costs.",
+    "title": "Challenge of Accuracy & Multilingual Synchronization",
+    "problem": "Handling accurate speech recognition with diverse videos, maintaining context during translation, and especially seamlessly syncing the new AI voice (TTS) timing with the original video without lagging the interface.",
     "bottlenecks": [
-      "Standard HTML5 `<video>` tags suffered severe memory leaks and crashes on high-bitrate media.",
-      "Cloud-side rendering for draft video previews was prohibitively expensive.",
-      "Cumulative timing drift between generated AI voiceovers and scene transition markers."
+      "The Speech-to-Text process requires high accuracy and precise time separation (timestamps) down to the millisecond.",
+      "Processing Text-to-Speech and integrating it into the video requires complex state management on the frontend.",
+      "Running AI models directly can consume resources if not properly configured and optimized."
     ]
   },
   "solution": {
-    "title": "Hybrid In-Browser NLE Engine via WebCodecs & Worker Pipelines",
-    "approach": "Coupled local client hardware acceleration using WebCodecs and WebAssembly FFmpeg for instant zero-server-cost previews with distributed GPU clusters for final 4K masters.",
+    "title": "Optimized Architecture with FastAPI Backend & Local AI Models",
+    "approach": "Using FastAPI as a backend to handle powerful AI tasks combined with a task queue (Huey worker), communicating with the React frontend via API. Allows flexibility to choose between local models (Local Whisper) or cloud services (OpenAI, ElevenLabs).",
     "keyInnovations": [
-      "Direct GPU hardware frame decoding via WebCodecs VideoDecoder, delivering fluid 60 FPS previews.",
-      "Beat-sync audio alignment algorithm matching scene transitions to musical cadence down to the millisecond.",
-      "Chunked frame caching mechanism allowing instant non-linear timeline scrubbing without stream rebuffering."
+      "Integrating the locally-run faster-whisper model with multiple configuration options (Tiny, Base, Small) to optimize user hardware.",
+      "Intuitive Segment Management interface, allowing error correction, voice generation, and immediate preview.",
+      "Secure API Key setup system and flexible configuration for LLM translation and advanced voice generation services."
     ]
   },
   "architecture": {
-    "overview": "A hybrid client-server topology splitting real-time editing from heavy distributed generative inference.",
+    "overview": "Client-Server architecture with a smooth React/Vite Frontend UI and a powerful Python FastAPI Backend serving AI Inference.",
     "layers": [
       {
-        "layer": "Client NLE Engine",
-        "tech": "Next.js 15, WebCodecs API, Web Audio API, Canvas WebGL",
-        "detail": "Runs an in-browser non-linear editing suite managing multi-track compositing and real-time color grading."
+        "layer": "Frontend UI (React/Vite)",
+        "tech": "React, Vite, Tailwind CSS",
+        "detail": "Intuitive video player, real-time synchronized subtitle segment list, translation and dubbing state management."
       },
       {
-        "layer": "Storyboarding & Scripting Engine",
-        "tech": "Python, LLM Prompt Chains, Phoneme Extraction",
-        "detail": "Parses scripts into cohesive storyboard scenes, extracts visual prompts, and estimates shot durations."
+        "layer": "Backend API & Task Queue",
+        "tech": "Python, FastAPI, Huey",
+        "detail": "Handles requests from the Frontend, manages the queue of heavy tasks (like speech recognition, audio generation) to avoid blocking the server."
       },
       {
-        "layer": "Generative Media & GPU Cluster",
-        "tech": "PyTorch, CUDA, Stable Video Diffusion, Whisper, vLLM",
-        "detail": "Distributed GPU pool synthesizing visuals, scene transitions, and expressive multi-lingual voice tracks."
+        "layer": "AI Models & Services (STT, TTS, LLM)",
+        "tech": "faster-whisper, ElevenLabs API, OpenAI API, Kokoro (Local TTS)",
+        "detail": "Performs audio transcription (STT), contextual translation, and studio-quality speech synthesis (TTS)."
       },
       {
-        "layer": "Encoding & Export Pipeline",
-        "tech": "FFmpeg WASM (Client) & C++ NVENC (Cloud)",
-        "detail": "Exports rapid 1080p client-side drafts or renders master 4K ProRes deliverables in the cloud."
+        "layer": "Audio/Video Processing",
+        "tech": "FFmpeg",
+        "detail": "Processes audio splitting, merging, mixing, and exports the final video file after dubbing."
       }
     ]
   },
   "features": [
     {
-      "title": "Browser-Based Non-Linear Video Editor (NLE)",
-      "description": "Multi-track timeline supporting seamless trimming, overlay transitions, audio ducking, and real-time canvas preview.",
+      "title": "Smart Subtitle Segment Management",
+      "description": "The segment list interface allows users to view and edit timestamps, original content, translated content, and generate separate voices.",
       "technicalHighlights": [
-        "WebCodecs VideoDecoder extracts raw frames directly into WebGL textures.",
-        "Web Audio API handles automated speech compression and background music ducking."
+        "Real-time synchronization between the video player and the segment list.",
+        "Extracts and displays the voice generation (TTS) status of each subtitle line independently."
       ]
     },
     {
-      "title": "Autonomous Script-to-Storyboard Synthesis",
-      "description": "Transforms plain text articles or ad scripts into cinematic visual scenes with contextual camera movement.",
+      "title": "Flexible AI & API Configuration",
+      "description": "Supports running multi-option local Whisper to save costs, while flexibly connecting APIs for translation and voice generation.",
       "technicalHighlights": [
-        "Semantic chunking algorithm detecting natural narrative pacing.",
-        "Lifelike multi-character speech synthesis with synchronized lip movement."
+        "Supports fully offline faster-whisper (Tiny, Base, Small, Medium).",
+        "Integrates ElevenLabs and OpenAI with a secure API key storage mechanism."
       ]
     },
     {
-      "title": "Dynamic Word-Synced Karaoke Subtitles",
-      "description": "Renders kinetic word-by-word animated typography with customizable highlight gradients matching speech cadence.",
+      "title": "Intuitive On-Video Editing Tools",
+      "description": "Integrates a video player with customizable display features (color, font size, position) and convenient shortcuts for quick manipulation.",
       "technicalHighlights": [
-        "Whisper millisecond-precision phoneme timestamp extraction.",
-        "Hardware-rendered 60 FPS vector subtitles avoiding server GPU overhead."
+        "'Subtitle Masking' feature to cover the original subtitles of the video.",
+        "Supports drag-and-drop subtitle positioning and quick video skipping via clicks."
       ]
     }
   ],
   "metrics": [
     {
-      "label": "Production Turnaround",
-      "value": "< 45 seconds",
-      "change": "80x Faster"
+      "label": "Recognition Accuracy",
+      "value": "95%+",
+      "change": "With Whisper Small"
     },
     {
-      "label": "Rendered Videos",
-      "value": "15,000+",
-      "change": "Beta Month"
+      "label": "STT Processing Speed",
+      "value": "< 10 seconds",
+      "change": "For 1 minute of video"
     },
     {
-      "label": "Cloud Infrastructure Cost",
-      "value": "-68%",
-      "change": "Via WebCodecs"
+      "label": "Language & Voice Options",
+      "value": "Diverse",
+      "change": "Via LLM & ElevenLabs"
     },
     {
-      "label": "Audience Retention Rate",
-      "value": "+42%",
-      "change": "Kinetic Subs"
+      "label": "Offline Capability",
+      "value": "100%",
+      "change": "For STT & Local TTS"
     }
   ],
   "gallery": [
     {
-      "title": "Browser NLE Timeline Studio",
-      "caption": "Intuitive video editor with real-time multi-track preview powered by WebCodecs.",
-      "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop"
+      "title": "Segment Management & Video Studio Interface",
+      "caption": "The main interface allows video preview, subtitle display customization, and management of the segments to be dubbed.",
+      "image": "/imgs/video-screenshot_1.png"
     },
     {
-      "title": "Autonomous Script Breakdown",
-      "caption": "AI script parser generating storyboard layouts and corresponding cinematic visuals.",
-      "image": "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2070&auto=format&fit=crop"
+      "title": "AI System & Service Settings",
+      "caption": "Flexible configuration of speech recognition models (Local Whisper) and APIs for translation and Text-to-Speech.",
+      "image": "/imgs/video-screenshot_2.png"
     },
     {
-      "title": "Kinetic Typography & Color Grading",
-      "caption": "Customizable animated subtitle presets and cinematic color lookup tables (LUTs).",
-      "image": "https://images.unsplash.com/photo-1574717024553-78858a742142?q=80&w=2070&auto=format&fit=crop"
+      "title": "Interaction Guide & Shortcuts",
+      "caption": "The system provides shortcuts and intuitive mouse interactions like fast-forwarding the video, positioning text, and generating voice quickly.",
+      "image": "/imgs/video-screenshot_3.png"
     }
   ],
   "takeaways": [
-    "Offloading video decoding and audio mixing to the client through WebCodecs saves up to 68% in cloud infrastructure costs.",
-    "Tight millisecond synchronization between synthesized voiceovers and visual cuts is the primary differentiator for high-retention AI videos."
+    "Building an application that combines Local AI (cost-saving, secure) and Cloud APIs (high quality) brings the most optimal experience to users.",
+    "Complex state management in the Frontend is the key to creating a smooth and intuitive editing tool (Studio)."
   ]
 }

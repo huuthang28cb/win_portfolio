@@ -3,7 +3,7 @@
     "id": "health-wearable-pipeline",
     "title": "Pipeline Đồng bộ Dữ liệu Thiết bị Đeo & Sức khỏe Đa nền tảng",
     "category": "Data Engineering & IoT Integration",
-    "overview": "Thiết kế kiến trúc hấp thụ và chuẩn hóa dữ liệu sinh trắc học hàng ngày từ hệ sinh thái Huawei Health, Google Fit, Google Health Connect và Apple HealthKit.",
+    "overview": "Thiết kế kiến trúc tiếp nhận và chuẩn hóa dữ liệu sức khỏe hàng ngày từ hệ sinh thái Huawei Health, Google Fit, Google Health Connect và Apple HealthKit.",
     "highlights": [
       "Xử lý chuẩn hóa hơn 20 loại chỉ số sức khỏe khác nhau (nhịp tim, nồng độ oxy SpO2, chu kỳ giấc ngủ, số bước chân, calo tiêu thụ) về định dạng thống nhất.",
       "Tối ưu hóa cơ chế Webhook và cơ chế Polling phân tầng để cập nhật dữ liệu tự động mà không làm cạn pin thiết bị đeo.",

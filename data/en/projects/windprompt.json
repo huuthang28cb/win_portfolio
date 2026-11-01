@@ -1,5 +1,5 @@
 {
-  "title": "WindPrompt - Curated AI Prompt Engineering Library",
+  "title": "WindPrompt - Professional AI Prompt Library",
   "slug": "windprompt",
   "featured": true,
   "status": "Live & Actively Maintained",
@@ -7,112 +7,140 @@
   "client": "Personal Project",
   "teamSize": 1,
   "role": "Creator & Full Stack Engineer",
-  "duration": "Ongoing Project",
-  "category": "Artificial Intelligence & Developer Tools",
-  "type": "Online Web Platform",
-  "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
-  "shortDescription": "Production AI prompt repository tailored for software engineers, marketers, and product builders with real-time dynamic templating and sub-second retrieval.",
+  "duration": "Continuous Project",
+  "category": "Artificial Intelligence (AI) & Web Platform",
+  "type": "Content Sharing Platform",
+  "thumbnail": "/imgs/windprompt/trending.png",
+  "cover": "/imgs/windprompt/trending.png",
+  "shortDescription": "A platform for sharing and discovering high-quality prompts for AI image generation tools. Features an integrated admin system, traffic analytics, and optimal affiliate tools.",
   "tags": [
     "Next.js 15",
     "React",
     "TypeScript",
     "Tailwind CSS",
     "PostgreSQL",
-    "OpenAI API",
+    "Prisma",
     "Vercel"
   ],
   "links": {
     "website": "https://windprompt.com/",
-    "github": "https://github.com/win-dev/windprompt",
+    "github": "https://github.com/huuthangvo/windprompt",
     "demo": "https://windprompt.com/"
   },
   "overview": {
-    "summary": "WindPrompt (https://windprompt.com/) is a curated collection of battle-tested prompts structured to extract peak performance from modern LLMs with zero friction.",
-    "background": "Engineers and professionals waste substantial time and API tokens iterating on suboptimal prompt structures without standardized variable interpolation."
+    "summary": "WindPrompt (https://windprompt.com/) is a curated library of the most trending and optimized prompts for AI image generation models. The project not only provides a smooth search and copy experience for end users but also features a comprehensive Admin Dashboard to measure performance and integrate monetization tools.",
+    "background": "As AI image generation becomes increasingly popular, users often struggle to find a prompt that yields the desired results. WindPrompt was built to address this need, creating a space where users can easily access high-quality prompts, while allowing administrators to easily manage content and track performance."
   },
   "challenge": {
-    "title": "Sub-Second Search & Interactive Dynamic Variable Insertion",
-    "problem": "Delivering instant contextual prompt exploration with inline variable replacement and seamless clipboard synchronization across desktop and mobile.",
+    "title": "Building a Smooth Experience & Efficient Data Management",
+    "problem": "The biggest challenge was building a platform that displays a large number of high-quality images with their prompts without slowing down page load speeds, while simultaneously developing an Admin system robust enough to track key engagement metrics.",
     "bottlenecks": [
-      "Categorizing hundreds of prompts across multiple professional workflows without visual clutter.",
-      "Parsing nested dynamic template tags in real time without triggering layout recalculations.",
-      "Maintaining perfect Core Web Vitals and organic search indexability."
+      "Optimizing performance to render mass AI images and handle fast search and filtering.",
+      "Building a tracking system for critical metrics like Pageviews, prompt Copy rate, and user geographical location.",
+      "Designing a flexible data structure to support multiple languages and integrate monetization/affiliate modules without bothering users."
     ]
   },
   "solution": {
-    "title": "Edge Serverless Architecture & Real-Time Variable Interpolation",
-    "approach": "Constructed with Next.js 15 and edge caching on Vercel backed by PostgreSQL, ensuring sub-10ms query times and an intuitive UI.",
+    "title": "Modern Web Architecture & Comprehensive Admin System",
+    "approach": "Using Next.js combined with PostgreSQL and Prisma ORM to ensure fast response times and SEO optimization. The interface is designed to be modern, visual-first, and minimizes user interactions.",
     "keyInnovations": [
-      "Dynamic AST variable parser identifying `{{variable}}` placeholders into interactive form fields.",
-      "High-contrast minimalist interface supporting responsive light and dark themes.",
-      "Comprehensive taxonomy: Engineering, Product Strategy, Content Writing, and Automation."
+      "Visual discovery feature: Displays the top 20 trending prompts and a library categorized by various topics.",
+      "Comprehensive Admin page: Provides a visual statistics Dashboard of total users, views, copy rates, and traffic graphs by country.",
+      "Flexible Monetization integration: Allows administrators to easily add and customize Affiliate tags from the settings page."
     ]
   },
   "architecture": {
-    "overview": "A modern lightweight WebApp architecture optimized for speed and interactivity.",
+    "overview": "A clearly layered modern web system prioritizing high performance and scalability.",
     "layers": [
       {
-        "layer": "User Interface Layer",
+        "layer": "Frontend (User Interface)",
         "tech": "Next.js 15, React 19, Tailwind CSS",
-        "detail": "Responsive client interface with instant category filtering, smart search, and 1-click clipboard actions."
+        "detail": "Responsive design supporting quick view and 1-click copy features. Optimized image loading and grid-based list display."
       },
       {
-        "layer": "Logic & Templating Engine",
-        "tech": "TypeScript, Template Parser API",
-        "detail": "Extracts variables, validates placeholder inputs, and compiles finalized prompt payloads."
+        "layer": "Backend & Business Logic",
+        "tech": "Next.js API Routes, TypeScript",
+        "detail": "Handles category filtering logic, records user events (copy, view), and returns statistical data for the Dashboard."
       },
       {
-        "layer": "Data & Persistence Layer",
-        "tech": "PostgreSQL, Prisma ORM, Redis Cache",
-        "detail": "Stores prompt libraries, favorites, usage metrics, and community ratings."
+        "layer": "Database & Storage",
+        "tech": "PostgreSQL, Prisma, Redis Cache",
+        "detail": "Stores Prompt information, access analytics data, system configuration information, and user data."
       }
     ]
   },
   "features": [
     {
-      "title": "Curated Multi-Domain Prompt Collection",
-      "description": "Hundreds of standardized templates for engineers (Code Refactoring, Bug Investigation, Architecture Analysis), Marketers, and Writers.",
+      "title": "Prompt Library & Trend Discovery",
+      "description": "The main interface allows users to browse the most prominent prompts. Supports search, categorization, and a 'Top 20' trending prompt leaderboard.",
       "technicalHighlights": [
-        "Granular tagging and hierarchical category taxonomy.",
-        "One-click copy containing compiled variable inputs."
+        "Multilingual interface support (e.g., Japanese).",
+        "Instant image preview and prompt copying operations."
       ]
     },
     {
-      "title": "Interactive Variable Fill-in Forms",
-      "description": "Users input context into clean form inputs, automatically populating the prompt template in real time.",
+      "title": "Admin Dashboard & Traffic Management",
+      "description": "A dedicated control center for administrators, providing real-time data on site activity.",
       "technicalHighlights": [
-        "Lightweight parsing regex preserving markdown code block formatting.",
-        "Recent prompt history cached in browser LocalStorage."
+        "Analytical charts for Pageviews and copy rate statistics.",
+        "Tracking visitors by country (Singapore, UK, Canada, etc.)."
+      ]
+    },
+    {
+      "title": "Affiliate Tool Integration (Monetization)",
+      "description": "A system allowing flexible creation and management of affiliate marketing ads without affecting SEO or user experience.",
+      "technicalHighlights": [
+        "Customizable Affiliate tags in the Sidebar or below Prompts.",
+        "System-wide toggle to Enable/Disable monetization mode with a single click."
       ]
     }
   ],
   "metrics": [
     {
-      "label": "Page Load Speed (LCP)",
+      "label": "Page Load Speed",
       "value": "< 0.8s",
       "change": "Lighthouse 98"
     },
     {
-      "label": "Curated Prompts",
-      "value": "500+",
-      "change": "Weekly Updates"
+      "label": "Engagement Rate",
+      "value": "Actual",
+      "change": "Measured Copy Rate"
     },
     {
-      "label": "Monthly Active Users",
-      "value": "10,000+",
-      "change": "Organic Growth"
+      "label": "Admin System",
+      "value": "Comprehensive",
+      "change": "Integrated Dashboard"
     }
   ],
   "gallery": [
     {
-      "title": "WindPrompt Library Interface",
-      "caption": "Explore curated prompts and dynamic placeholder injection live at windprompt.com.",
-      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+      "title": "Home Page - Trending Display",
+      "caption": "An eye-catching homepage interface highlighting the most currently interesting AI image generation prompts.",
+      "image": "/imgs/windprompt/home.png"
+    },
+    {
+      "title": "Prompt Library",
+      "caption": "Where users can search, filter by category, and discover a wide range of creative prompt ideas.",
+      "image": "/imgs/windprompt/library.png"
+    },
+    {
+      "title": "Top 20 Leaderboard",
+      "caption": "Page displaying the 20 most popular prompts along with a quick scan feature for trends.",
+      "image": "/imgs/windprompt/trending.png"
+    },
+    {
+      "title": "Admin Dashboard",
+      "caption": "An interface for administrators providing an overview of traffic volume, prompt copy rates, and traffic distribution by country.",
+      "image": "/imgs/windprompt/admin.png"
+    },
+    {
+      "title": "Monetization System Settings",
+      "caption": "A settings page allowing administrators to easily add and customize Affiliate tags or advertisements.",
+      "image": "/imgs/windprompt/settings.png"
     }
   ],
   "takeaways": [
-    "Minimizing user interaction steps from discovery to execution is paramount for utility tools.",
-    "Standardized prompts drastically increase developer velocity when collaborating with AI assistants."
+    "Building a content sharing platform requires a balance between the end-user experience (smooth, easy to use) and tools for the administrator (detailed, easily configurable).",
+    "Integrating an analytics system and monetization tools from the start helps the project be self-sustaining and well-oriented for future expansion."
   ]
 }

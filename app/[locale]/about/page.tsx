@@ -4,6 +4,17 @@ import { getProfile, getExperiences, getSkills } from "@/lib/data"
 import { getDictionary } from "@/lib/i18n"
 import { OrgLogo } from "@/components/home/org-logo"
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  if (locale === "vi") return { title: "Giới thiệu & Quá trình Công tác" }
+  if (locale === "ja") return { title: "プロフィール & 経歴概要" }
+  return { title: "About & Professional Journey" }
+}
+
 export default async function AboutPage({
   params,
 }: {

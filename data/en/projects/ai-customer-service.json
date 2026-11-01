@@ -1,132 +1,281 @@
 {
-  "title": "Enterprise Omnichannel AI Customer Support Agent (RAG Platform)",
+  "title": "Enterprise Omnichannel AI Customer Support Platform (Modular Monolith)",
   "slug": "ai-customer-service",
   "featured": true,
-  "status": "In Production",
+  "status": "Live & Production-Ready",
   "year": 2026,
-  "client": "Enterprise SMBs & E-Commerce Brands",
+  "client": "Enterprise SMBs, Service Chains & E-Commerce",
   "teamSize": 2,
-  "role": "Full Stack & AI Engineer",
+  "role": "Full Stack & AI Engineer (Lead Architecture)",
   "duration": "6 months",
-  "category": "Artificial Intelligence & RAG",
-  "type": "AI SaaS & Business Automation",
-  "thumbnail": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "24/7 intelligent customer support agent powered by Retrieval-Augmented Generation (RAG), syncing knowledge from corporate documents and website portals with seamless Web Widget, Zalo, and Messenger integrations.",
+  "category": "Artificial Intelligence & Business Automation",
+  "type": "Omnichannel Multi-Tenant AI SaaS Platform",
+  "thumbnail": "/imgs/ai-customer-service/01_dashboard.png",
+  "cover": "/imgs/ai-customer-service/01_dashboard.png",
+  "shortDescription": "24/7 intelligent customer care agent built on a Modular Monolith & Queue-first architecture (BullMQ/Redis). Features Hybrid RAG on PostgreSQL pgvector, automated lead qualification, calendar booking, and seamless human handover across Web Widget, Telegram, and Messenger.",
   "tags": [
-    "Python",
-    "FastAPI",
     "Next.js",
-    "ReactJS",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Bun",
     "PostgreSQL",
     "pgvector",
-    "LangChain",
+    "BullMQ",
+    "Redis",
+    "Docker",
     "OpenAI API",
-    "Docker"
+    "Gemini API"
   ],
   "links": {
     "website": "https://ai-cskh-demo.vercel.app",
-    "github": "https://github.com/win-dev/ai-customer-support-agent",
-    "demo": "https://ai-cskh-demo.vercel.app"
+    "github": "https://github.com/huuthangvo/ai-customer-support-agent",
+    "demo": "http://localhost:3000"
   },
   "overview": {
-    "summary": "An omnichannel AI customer care platform designed to resolve up to 80% of repetitive customer inquiries autonomously, referencing verified company policy documents with zero hallucinations.",
-    "background": "Small-and-medium enterprises suffer from overwhelmed support queues during surge hours. Night-shift staffing is expensive, while legacy rule-based chatbots fail to understand conversational nuances."
+    "summary": "A next-generation AI customer care platform engineered specifically for SMBs and e-commerce enterprises. Built upon an enterprise Modular Monolith combined with a Queue-first processing architecture, it resolves up to 78% of incoming inquiries autonomously with zero hallucinations based on internal knowledge. Beyond support, it acts as an automated sales pipeline: qualifying leads, scheduling appointments, and assisting live operators.",
+    "background": "Businesses routinely face operational bottlenecks: message queues spike during peak hours, while night-shift customer support is prohibitively expensive yet still suffers from slow response times. Traditional rule-based chatbots fail to grasp natural colloquial language. This platform solves the challenge with decoupled queues: sub-50ms webhook acknowledgment, sub-1.2s AI generation, 100% policy-compliant accuracy, and a 58% reduction in operational overhead."
   },
   "challenge": {
-    "title": "Zero-Hallucination Precision & Token Cost Optimization",
-    "problem": "Handling natural, colloquial customer queries containing abbreviations and typos while locating the exact clause across hundreds of document pages within 1.5 seconds.",
+    "title": "Zero-Hallucination Precision, Sub-1.2s Latency & High-Concurrency Throughput",
+    "problem": "Handling conversational, colloquial customer inquiries with slang and multi-part queries under heavy traffic. The core technical hurdle was engineering an AI capable of locating the exact clause inside complex, multi-page business manuals (including pricing and technical specs) in under 1.2s without blocking incoming webhook events.",
     "bottlenecks": [
-      "Escalating LLM token usage costs when feeding raw document excerpts into every prompt.",
-      "Model hallucination fabricating invalid promotional policies outside allowed boundaries.",
-      "High query-to-answer latency without concurrent vector retrieval and streaming synthesis."
+      "Webhook timeouts if synchronous LLM inference or vector searches are executed inside the HTTP request loop.",
+      "Exponentially increasing LLM API costs when stuffing extensive context chunks into every prompt.",
+      "High operational risk of model hallucinations inventing incorrect discount terms or false warranty claims.",
+      "Jailbreak and prompt injection attempts by users attempting to manipulate the bot into disclosing unauthorized policies."
     ]
   },
   "solution": {
-    "title": "Hybrid RAG Pipeline with Semantic Caching & PostgreSQL pgvector",
-    "approach": "Integrated vector storage natively within PostgreSQL via `pgvector`, combining BM25 keyword matching with dense embeddings and Redis-backed semantic caching.",
+    "title": "Modular Monolith, Queue-First Worker Runtime & Native pgvector Hybrid RAG",
+    "approach": "Adopted a 100% TypeScript Modular Monolith pattern with Queue-first background processing. Decoupled inbound ingestion from heavy AI inference using dedicated BullMQ workers on Redis, while running hybrid search (Full-Text Search + pgvector HNSW indexing) directly within PostgreSQL 16.",
     "keyInnovations": [
-      "Hierarchical Chunking preserving tabular layout and structured product attribute matrices.",
-      "Strict Guardrail filters preventing prompt injection exploits and off-policy disclosures.",
-      "Semantic Caching eliminating up to 55% of costly LLM inference calls for frequent inquiries."
+      "Queue-First & Persist-Before-Queue: Webhooks verify HMAC signatures, persist events to Postgres, and queue background jobs within 50ms, guaranteeing zero dropped messages under traffic spikes.",
+      "PostgreSQL as Single Source of Truth: Integrated pgvector natively with HNSW indexing, eliminating the complexity and maintenance costs of standalone vector database clusters.",
+      "Stateless Worker Plane: Dedicated Bun/BullMQ workers isolating AI generation, document ingestion, outbound channel delivery, and automation event broadcasting.",
+      "Hierarchical Chunking: Preserves structural context from complex pricing tables, specifications, and multi-page policy manuals.",
+      "Bidirectional Guardrail Engine & Handover: Strips prompt injection attempts at ingestion and cross-verifies factual claims before dispatching responses, automatically handing over to human staff with a 3-line briefing when frustration is detected."
     ]
   },
   "architecture": {
-    "overview": "High-throughput asynchronous RAG architecture orchestrated with Docker and Next.js.",
+    "overview": "TypeScript Modular Monolith with Queue-first Asynchronous Processing (BullMQ & Redis), decoupling Webhook/API runtimes from background workers with PostgreSQL as the Single Source of Truth.",
     "layers": [
       {
-        "layer": "Omnichannel Ingestion Gateway",
-        "tech": "Next.js Web Widget, Zalo OA Webhooks, Facebook Messenger API",
-        "detail": "Lightweight embeddable chat widget integrated with a single line of JavaScript code."
+        "layer": "Omnichannel Edge & Inbound Webhook Gateway",
+        "tech": "Next.js Webhook APIs, Reverse Proxy (Nginx), Web Chat Widget, Messenger, Telegram",
+        "detail": "Receives webhooks with cryptographic signature verification, event deduplication, and immediate persistence before delegating to BullMQ queues."
       },
       {
-        "layer": "Agent Orchestration & Intent Engine",
-        "tech": "Python, FastAPI, LangChain, Async Worker",
-        "detail": "Classifies customer intent, routes domain queries through RAG, or triggers human agent handoff."
+        "layer": "Application Core (Modular Monolith)",
+        "tech": "Next.js, TypeScript, Zod Schema, NextAuth, RBAC",
+        "detail": "Encapsulates 7 business modules: Tenant (Multi-tenancy & Isolation), Conversation (Threads & Customers), Channel (Inbound/Outbound adapters), AI (Prompt & Model management), Knowledge (RAG & Ingestion), Usage (Quotas & Costs), and Automation (Domain events & n8n Bridge)."
       },
       {
-        "layer": "Vector Knowledge Base",
-        "tech": "PostgreSQL, pgvector, Redis Semantic Cache",
-        "detail": "Houses 1536-dimensional embeddings with HNSW indexing for sub-10ms nearest neighbor queries."
+        "layer": "Queue-First Asynchronous Worker Runtime",
+        "tech": "BullMQ, Bun Runtime, Redis 7 (Distributed Locks & Debounce)",
+        "detail": "Runs 4 independent stateless background workers: AI Worker (Prompting & LLM inference), Knowledge Worker (Document chunking & vectorization), Outbound Worker (Multi-channel delivery), and Automation Worker."
       },
       {
-        "layer": "Corporate Management Console",
-        "tech": "ReactJS, Next.js Dashboard, Chart.js",
-        "detail": "Self-service document upload portal (PDF, Word, FAQ URLs) with live conversation analytics."
+        "layer": "Database & Knowledge Store (Single Source of Truth)",
+        "tech": "PostgreSQL 16, pgvector (HNSW Index), S3-compatible / MinIO Object Storage",
+        "detail": "PostgreSQL acts as the single source of truth with Row Level Security (RLS); native pgvector for sub-10ms nearest neighbor queries; MinIO/S3 for raw file storage."
+      },
+      {
+        "layer": "Operator & Management Console",
+        "tech": "React, Material-UI (MUI), TanStack React Query, Dayjs",
+        "detail": "Full-featured administrative portal: Executive KPI dashboard, omnichannel live inbox with Human Handover, model configuration & guardrails, lead pipeline, and Weekly Intelligence reports."
       }
     ]
   },
   "features": [
     {
-      "title": "Automated Document Ingestion & Vectorization",
-      "description": "Upload product catalogues or paste website URLs to ingest and build searchable knowledge vectors in under 2 minutes.",
+      "title": "Executive KPI Command Center",
+      "description": "Real-time visibility into customer support health: total conversation volume, First Contact Resolution (FCR) rate, hourly traffic heatmaps, and average response times.",
       "technicalHighlights": [
-        "Advanced tabular text extraction from complex multi-page PDF documents.",
-        "Instant document updates with zero model fine-tuning required."
+        "Live charts streaming updates with optimized polling / TanStack Query.",
+        "Interactive channel filtering across Website Widget, Telegram, and Messenger."
       ]
     },
     {
-      "title": "Seamless Human Handover with AI Summaries",
-      "description": "Escalates frustrated customers or complex complaints to live support representatives with a 3-line AI briefing.",
+      "title": "Unified Omnichannel Live Inbox & Gemimi AI",
+      "description": "Centralizes conversations from web and social channels into a single unified split-screen. Enables agents to inspect AI reasoning, edit Gemimi AI suggestions, and intervene instantly.",
       "technicalHighlights": [
-        "Real-time sentiment scoring flagging escalation signals.",
-        "Automated conversational context summarization saving minutes of onboarding time."
+        "Modern 3-column workflow (Thread list, Live conversation, Customer 360 sidebar).",
+        "Unified conversation continuity across web, mobile, and social platforms."
+      ]
+    },
+    {
+      "title": "Seamless Human Handover with Context Briefing",
+      "description": "Sentiment analysis triggers automatic escalation when detecting dissatisfied customers, handing over the active session to live agents alongside a 3-line AI summary.",
+      "technicalHighlights": [
+        "Automated 3-line context briefing reducing agent onboarding time to under 5 seconds.",
+        "Frictionless live handoff without interrupting the ongoing customer conversation."
+      ]
+    },
+    {
+      "title": "AI Model Configuration & Strict Safety Guardrails",
+      "description": "Customizes brand tone of voice, creativity temperature, model selection (GPT-4o, Gemini), and boundary rules to guarantee complete alignment with business requirements.",
+      "technicalHighlights": [
+        "Dual-layer Guardrail defenses completely preventing prompt injections and unauthorized commitments.",
+        "Intuitive system prompt builder with zero code changes required."
+      ]
+    },
+    {
+      "title": "Automated Lead Capture & 24/7 Appointment Booking",
+      "description": "Converts support interactions into revenue opportunities. AI detects purchasing intent, extracts verified contact information, and books consultation slots into the calendar.",
+      "technicalHighlights": [
+        "Named Entity Recognition (NER) accurately capturing Name, Phone, Email, and Budget.",
+        "Automated conflict-free slot checking and instant calendar confirmation 24/7."
+      ]
+    },
+    {
+      "title": "Weekly Customer Intelligence & Growth Reports",
+      "description": "Deep-dives into conversational patterns to uncover frequent customer questions, product friction points, negative sentiment trends, and forecasted revenue opportunities.",
+      "technicalHighlights": [
+        "Autonomous AI synthesis eliminating hours of manual chat review.",
+        "Actionable strategic recommendations for business operators and product teams."
       ]
     }
   ],
   "metrics": [
     {
-      "label": "Automated Resolution Rate",
+      "label": "Automated Resolution Rate (FCR)",
       "value": "78%",
-      "change": "Resolved without human intervention"
+      "change": "Resolved immediately with zero human intervention"
     },
     {
-      "label": "Average Response Time",
-      "value": "1.2s",
-      "change": "90% faster than legacy bots"
+      "label": "Average Response Latency",
+      "value": "< 1.2s",
+      "change": "90% faster than legacy phone queues & rule bots"
     },
     {
-      "label": "Support Cost Reduction",
-      "value": "60%",
-      "change": "Lower night/weekend staffing expense"
+      "label": "Operational & Token Savings",
+      "value": "58%",
+      "change": "Driven by asynchronous queuing & prompt optimization"
+    },
+    {
+      "label": "Knowledge Ingestion Speed",
+      "value": "< 2 min",
+      "change": "Simply upload PDF/Docx policy or paste website URL"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "Executive KPI Command Center",
+      "caption": "Comprehensive monitoring of message traffic, automated resolution success rates, and customer care performance in real-time.",
+      "image": "/imgs/ai-customer-service/01_dashboard.png"
+    },
+    {
+      "title": "Omnichannel Live Inbox & Human Handover",
+      "caption": "Unified inbox aggregating Website Widget, Telegram, and Messenger threads. Allows human agents to supervise AI interactions and take over instantly.",
+      "image": "/imgs/ai-customer-service/02_inbox.png"
+    },
+    {
+      "title": "AI Configuration & Safety Guardrails",
+      "caption": "System prompt tuning, model selection (OpenAI/Gemini), temperature thresholds, and security guardrail configurations preventing hallucinations.",
+      "image": "/imgs/ai-customer-service/04_ai_settings.png"
+    },
+    {
+      "title": "Weekly Customer Intelligence Reports",
+      "caption": "AI parses thousands of conversations to pinpoint customer feedback trends, discover operational bottlenecks, and identify revenue opportunities.",
+      "image": "/imgs/ai-customer-service/05_weekly_intelligence.png"
+    },
+    {
+      "title": "Automated Lead Capture & Scoring Pipeline",
+      "caption": "Identifies customer purchasing intent during conversations, extracting verified contact info and scoring leads directly for the sales pipeline.",
+      "image": "/imgs/ai-customer-service/06_leads.png"
+    },
+    {
+      "title": "24/7 Automated Appointment Scheduling",
+      "caption": "AI cross-references available calendar slots to schedule consultation calls directly with prospective clients without manual intervention.",
+      "image": "/imgs/ai-customer-service/07_appointments.png"
+    },
+    {
+      "title": "Omnichannel Integration Gateway",
+      "caption": "Effortless platform integrations: one-line JavaScript embeddable web widget, Telegram Bot, and Meta Facebook Fanpage webhooks.",
+      "image": "/imgs/ai-customer-service/08_channels.png"
+    },
+    {
+      "title": "In-Depth CSAT & Support Analytics",
+      "caption": "Detailed tracking of customer satisfaction scores (CSAT), first-contact resolution rates (FCR), and channel-by-channel traffic distributions.",
+      "image": "/imgs/ai-customer-service/09_analytics.png"
+    },
+    {
+      "title": "Customer 360 Profile & Interaction Timeline",
+      "caption": "Unified customer view tracking historical conversations across channels, custom tags, and internal agent notes for hyper-personalized care.",
+      "image": "/imgs/ai-customer-service/10_customers.png"
+    },
+    {
+      "title": "AI Cost & Token Consumption Monitoring",
+      "caption": "Daily tracking of token usage, API call volumes, and estimated cloud expenditures to optimize operational budgets.",
+      "image": "/imgs/ai-customer-service/usage.png"
     }
   ],
   "visuals": [
     {
-      "title": "Hybrid Search RAG Architecture Flow",
-      "description": "Workflow from customer query through Guardrails, pgvector search, and synthesized response.",
-      "type": "architecture",
-      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+      "title": "Executive KPI Command Center",
+      "description": "Comprehensive monitoring of message traffic, automated resolution success rates, and customer care performance in real-time.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/01_dashboard.png"
     },
     {
-      "title": "Knowledge Base Management Console",
-      "description": "Administrative UI for uploading manuals, testing prompts, and auditing conversations.",
+      "title": "Omnichannel Live Inbox & Human Handover",
+      "description": "Unified inbox aggregating Website Widget, Telegram, and Messenger threads. Allows human agents to supervise AI interactions and take over instantly.",
       "type": "screenshot",
-      "url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop"
+      "url": "/imgs/ai-customer-service/02_inbox.png"
+    },
+    {
+      "title": "AI Configuration & Safety Guardrails",
+      "description": "System prompt tuning, model selection (OpenAI/Gemini), temperature thresholds, and security guardrail configurations preventing hallucinations.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/04_ai_settings.png"
+    },
+    {
+      "title": "Weekly Customer Intelligence Reports",
+      "description": "AI parses thousands of conversations to pinpoint customer feedback trends, discover operational bottlenecks, and identify revenue opportunities.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/05_weekly_intelligence.png"
+    },
+    {
+      "title": "Automated Lead Capture & Scoring Pipeline",
+      "description": "Identifies customer purchasing intent during conversations, extracting verified contact info and scoring leads directly for the sales pipeline.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/06_leads.png"
+    },
+    {
+      "title": "24/7 Automated Appointment Scheduling",
+      "description": "AI cross-references available calendar slots to schedule consultation calls directly with prospective clients without manual intervention.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/07_appointments.png"
+    },
+    {
+      "title": "Omnichannel Integration Gateway",
+      "description": "Effortless platform integrations: one-line JavaScript embeddable web widget, Telegram Bot, and Meta Facebook Fanpage webhooks.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/08_channels.png"
+    },
+    {
+      "title": "In-Depth CSAT & Support Analytics",
+      "description": "Detailed tracking of customer satisfaction scores (CSAT), first-contact resolution rates (FCR), and channel-by-channel traffic distributions.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/09_analytics.png"
+    },
+    {
+      "title": "Customer 360 Profile & Interaction Timeline",
+      "description": "Unified customer view tracking historical conversations across channels, custom tags, and internal agent notes for hyper-personalized care.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/10_customers.png"
+    },
+    {
+      "title": "AI Cost & Token Consumption Monitoring",
+      "description": "Daily tracking of token usage, API call volumes, and estimated cloud expenditures to optimize operational budgets.",
+      "type": "screenshot",
+      "url": "/imgs/ai-customer-service/usage.png"
     }
   ],
   "takeaways": [
-    "Leveraging pgvector within PostgreSQL eliminates the operational complexity of managing standalone vector database clusters.",
-    "Hierarchical document chunking combined with strict guardrails is essential for production-grade zero-hallucination support agents."
+    "Adopting a Modular Monolith with Queue-first background processing (BullMQ & Redis) allows a small team to maintain an enterprise-grade platform capable of processing millions of messages without premature microservices fragmentation.",
+    "Using PostgreSQL 16 as the Single Source of Truth with native pgvector HNSW indexing maintains ACID guarantees and multi-tenant RLS isolation without the operational burden of standalone vector DBs.",
+    "Supporting 3 deployment modes (SaaS, Private Single-tenant, Private Multi-tenant) from a single unified codebase demonstrates high-caliber architectural discipline suitable for both SMBs and enterprise clients."
   ]
 }

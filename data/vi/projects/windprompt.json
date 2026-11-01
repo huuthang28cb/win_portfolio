@@ -1,118 +1,146 @@
 {
-  "title": "WindPrompt - Thư viện Prompt AI Chuyên sâu",
+  "title": "WindPrompt - Thư viện Prompt AI Chuyên Nghiệp",
   "slug": "windprompt",
   "featured": true,
-  "status": "Đang vận hành thực tế",
+  "status": "Live & Actively Maintained",
   "year": 2025,
-  "client": "Dự án Cá nhân (Personal Project)",
+  "client": "Dự án cá nhân",
   "teamSize": 1,
   "role": "Creator & Full Stack Engineer",
-  "duration": "Đang phát triển liên tục",
-  "category": "Trí tuệ Nhân tạo & Công cụ Lập trình viên",
-  "type": "Nền tảng WebApp Trực tuyến",
-  "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop",
-  "shortDescription": "Nền tảng thư viện prompt AI chuyên nghiệp được tối ưu hóa cho lập trình viên, nhà sáng tạo và doanh nghiệp với khả năng tìm kiếm, thử nghiệm và quản lý ngữ cảnh thông minh.",
+  "duration": "Dự án liên tục",
+  "category": "Trí tuệ nhân tạo (AI) & Nền tảng Web",
+  "type": "Nền tảng chia sẻ nội dung",
+  "thumbnail": "/imgs/windprompt/trending.png",
+  "cover": "/imgs/windprompt/trending.png",
+  "shortDescription": "Nền tảng chia sẻ và khám phá câu lệnh (Prompt) chất lượng cao cho các công cụ AI tạo ảnh. Tích hợp hệ thống quản trị, phân tích lưu lượng truy cập và công cụ Affiliate tối ưu.",
   "tags": [
     "Next.js 15",
     "React",
     "TypeScript",
     "Tailwind CSS",
     "PostgreSQL",
-    "OpenAI API",
+    "Prisma",
     "Vercel"
   ],
   "links": {
     "website": "https://windprompt.com/",
-    "github": "https://github.com/win-dev/windprompt",
+    "github": "https://github.com/huuthangvo/windprompt",
     "demo": "https://windprompt.com/"
   },
   "overview": {
-    "summary": "WindPrompt (https://windprompt.com/) là thư viện prompt AI chất lượng cao được tuyển chọn và cấu trúc khoa học, giúp người dùng khai thác tối đa sức mạnh của các mô hình ngôn ngữ lớn (LLMs).",
-    "background": "Người dùng thường gặp khó khăn trong việc viết prompt chuẩn xác để nhận được phản hồi chất lượng từ AI, dẫn đến lãng phí thời gian thử nghiệm và chi phí token không cần thiết."
+    "summary": "WindPrompt (https://windprompt.com/) là một thư viện tập hợp các câu lệnh (prompts) thịnh hành và tối ưu nhất dành cho các mô hình AI tạo ảnh. Dự án không chỉ mang đến trải nghiệm tìm kiếm, sao chép prompt mượt mà cho người dùng cuối mà còn sở hữu một hệ thống quản trị (Admin Dashboard) toàn diện để đo lường hiệu suất và tích hợp các công cụ tạo doanh thu.",
+    "background": "Khi AI tạo ảnh ngày càng phổ biến, người dùng thường gặp khó khăn trong việc tìm ra một prompt mang lại kết quả như ý. WindPrompt được xây dựng nhằm giải quyết nhu cầu đó, tạo ra một không gian nơi người dùng có thể dễ dàng tiếp cận các prompt chất lượng cao, đồng thời cho phép người quản trị dễ dàng quản lý nội dung và theo dõi hiệu quả hoạt động."
   },
   "challenge": {
-    "title": "Tổ chức & Thử nghiệm Prompt Thời gian thực",
-    "problem": "Xây dựng giao diện tìm kiếm tức thì theo ngữ cảnh, hỗ trợ sao chép một chạm, điền biến động (dynamic placeholders) và kiểm thử prompt trực tiếp mà không gây trễ giao diện.",
+    "title": "Xây Dựng Trải Nghiệm Mượt Mà & Quản Trị Dữ Liệu Hiệu Quả",
+    "problem": "Thách thức lớn nhất là xây dựng một nền tảng hiển thị số lượng lớn hình ảnh chất lượng cao đi kèm prompt mà không làm giảm tốc độ tải trang, đồng thời phát triển một hệ thống Admin đủ mạnh để theo dõi các chỉ số tương tác quan trọng.",
     "bottlenecks": [
-      "Số lượng prompt lớn đòi hỏi phân loại đa tầng theo ngành nghề, vai trò và mục đích sử dụng.",
-      "Cần cơ chế điền biến tham số trực quan ngay trên giao diện trước khi người dùng copy.",
-      "Tối ưu hóa điểm SEO và tốc độ tải trang trên các thiết bị di động."
+      "Tối ưu hóa hiệu năng render hàng loạt hình ảnh AI và xử lý tìm kiếm, lọc (filter) nhanh chóng.",
+      "Xây dựng hệ thống theo dõi (tracking) các chỉ số quan trọng như lượt xem trang (Pageviews), tỷ lệ sao chép prompt (Copy rate), và vị trí địa lý của người dùng.",
+      "Thiết kế cấu trúc dữ liệu linh hoạt để hỗ trợ đa ngôn ngữ và tích hợp các module kiếm tiền (Monetization/Affiliate) mà không làm phiền người dùng."
     ]
   },
   "solution": {
-    "title": "Kiến trúc Serverless Edge với Tìm kiếm Nhanh & Dynamic Templating",
-    "approach": "Ứng dụng Next.js App Router kết hợp bộ đệm biên Vercel Edge và cơ sở dữ liệu PostgreSQL để phục vụ tra cứu tức thì dưới 10ms.",
+    "title": "Kiến Trúc Web Hiện Đại & Hệ Thống Quản Trị Toàn Diện",
+    "approach": "Ứng dụng Next.js kết hợp với PostgreSQL và Prisma ORM giúp đảm bảo tốc độ phản hồi nhanh chóng và tối ưu SEO. Giao diện được thiết kế hiện đại, tập trung vào hình ảnh (Visual-first) và tối giản hóa các bước thao tác.",
     "keyInnovations": [
-      "Bộ phân tích biến thông minh tự động nhận diện cú pháp `{{variable}}` và sinh form nhập liệu tức thời.",
-      "Giao diện tối giản hiện đại với chế độ Dark/Light mode và trải nghiệm người dùng mượt mà.",
-      "Hệ thống phân mục chuyên sâu: Lập trình, Marketing, Viết nội dung, Tự động hóa quy trình."
+      "Tính năng khám phá trực quan: Hiển thị top 20 prompt đang thịnh hành và thư viện phân loại theo nhiều chủ đề.",
+      "Trang Admin toàn diện: Cung cấp Dashboard thống kê trực quan về tổng số người dùng, lượt xem, tỷ lệ copy và đồ thị traffic theo quốc gia.",
+      "Tích hợp công cụ Monetization linh hoạt: Cho phép quản trị viên thêm và tùy chỉnh các thẻ Affiliate dễ dàng từ trang cài đặt."
     ]
   },
   "architecture": {
-    "overview": "Mô hình WebApp hiện đại tối ưu hóa cho tốc độ và khả năng tương tác cao.",
+    "overview": "Hệ thống web hiện đại được chia lớp rõ ràng, ưu tiên hiệu suất cao và khả năng mở rộng.",
     "layers": [
       {
-        "layer": "Tầng Giao diện Người dùng",
+        "layer": "Frontend (Giao diện người dùng)",
         "tech": "Next.js 15, React 19, Tailwind CSS",
-        "detail": "Giao diện phản hồi tức thì với bộ lọc theo danh mục, thanh tìm kiếm thông minh và công cụ sao chép nhanh."
+        "detail": "Thiết kế Responsive, hỗ trợ tính năng xem nhanh và sao chép chỉ với 1 click. Tối ưu hóa việc tải hình ảnh và hiển thị danh sách theo dạng lưới."
       },
       {
-        "layer": "Tầng Logic & Xử lý Prompt",
-        "tech": "TypeScript, Template Parser API",
-        "detail": "Phân tích cấu trúc prompt, điền giá trị biến động và kiểm tra tính hợp lệ trước khi gửi sang mô hình AI."
+        "layer": "Backend & Xử lý nghiệp vụ",
+        "tech": "Next.js API Routes, TypeScript",
+        "detail": "Xử lý logic lọc danh mục, ghi nhận các sự kiện người dùng (copy, view) và trả về dữ liệu thống kê cho Dashboard."
       },
       {
-        "layer": "Tầng Dữ liệu & Lưu trữ",
-        "tech": "PostgreSQL, Prisma ORM, Redis Cache",
-        "detail": "Lưu trữ thư viện prompt, lượt yêu thích, đánh giá và thống kê mức độ hiệu quả."
+        "layer": "Cơ sở dữ liệu & Lưu trữ",
+        "tech": "PostgreSQL, Prisma, Redis Cache",
+        "detail": "Lưu trữ thôngত্তি tin Prompt, dữ liệu phân tích truy cập (Analytics), thông tin cấu hình hệ thống và dữ liệu người dùng."
       }
     ]
   },
   "features": [
     {
-      "title": "Thư viện Tuyển chọn Đa lĩnh vực",
-      "description": "Hàng trăm prompt chuẩn hóa cho lập trình viên (Code Review, Refactor, Debug), Marketing, SEO và Nghiên cứu.",
+      "title": "Thư Viện Prompt & Khám Phá Xu Hướng",
+      "description": "Giao diện chính cho phép người dùng lướt xem các prompt nổi bật nhất. Hỗ trợ tính năng tìm kiếm, phân loại theo danh mục và bảng xếp hạng 'Top 20' prompt đang thịnh hành.",
       "technicalHighlights": [
-        "Hệ thống thẻ tag và phân loại danh mục khoa học.",
-        "Tính năng sao chép 1-click kèm nội dung đã điền biến đầy đủ."
+        "Hỗ trợ giao diện đa ngôn ngữ (vd: Tiếng Nhật).",
+        "Thao tác xem trước hình ảnh và sao chép prompt tức thì."
       ]
     },
     {
-      "title": "Trình Điền Biến Động Trực quan",
-      "description": "Người dùng chỉ cần nhập giá trị vào các ô input trên màn hình, prompt sẽ tự động hoàn thiện chính xác.",
+      "title": "Admin Dashboard & Quản Lý Lưu Lượng",
+      "description": "Trung tâm điều khiển dành riêng cho quản trị viên, cung cấp các số liệu thực tế về hoạt động của trang.",
       "technicalHighlights": [
-        "Regex engine phân giải cú pháp giữ nguyên cấu trúc định dạng markdown.",
-        "Lưu lịch sử prompt gần đây trực tiếp trên LocalStorage của trình duyệt."
+        "Biểu đồ phân tích Pageviews và thống kê tỷ lệ sao chép (Copy rate).",
+        "Theo dõi lượt truy cập theo quốc gia (Singapore, UK, Canada,...)."
+      ]
+    },
+    {
+      "title": "Tích Hợp Công Cụ Affiliate (Monetization)",
+      "description": "Hệ thống cho phép tạo và quản lý các quảng cáo tiếp thị liên kết một cách linh hoạt mà không ảnh hưởng đến SEO hay trải nghiệm người dùng.",
+      "technicalHighlights": [
+        "Tùy chỉnh thẻ Affiliate ở thanh bên (Sidebar) hoặc bên dưới Prompt.",
+        "Thiết lập Bật/Tắt chế độ kiếm tiền trên toàn hệ thống chỉ với một thao tác."
       ]
     }
   ],
   "metrics": [
     {
-      "label": "Tốc độ Tải trang (LCP)",
+      "label": "Tốc độ tải trang",
       "value": "< 0.8s",
-      "change": "Điểm Lighthouse 98"
+      "change": "Lighthouse 98"
     },
     {
-      "label": "Số lượng Prompt Tuyển chọn",
-      "value": "500+",
-      "change": "Cập nhật liên tục"
+      "label": "Tỷ lệ tương tác",
+      "value": "Thực tế",
+      "change": "Đo lường Copy Rate"
     },
     {
-      "label": "Người dùng Hàng tháng",
-      "value": "10,000+",
-      "change": "Organic Growth"
+      "label": "Hệ thống Quản trị",
+      "value": "Toàn diện",
+      "change": "Dashboard tích hợp"
     }
   ],
   "gallery": [
     {
-      "title": "Giao diện Thư viện WindPrompt",
-      "caption": "Màn hình danh mục prompt với bộ lọc đa chiều và giao diện trực quan tại windprompt.com.",
-      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop"
+      "title": "Trang Chủ - Hiển Thị Xu Hướng",
+      "caption": "Giao diện trang chủ bắt mắt, làm nổi bật các prompt tạo ảnh AI đang được quan tâm nhất hiện nay.",
+      "image": "/imgs/windprompt/home.png"
+    },
+    {
+      "title": "Thư Viện Prompt",
+      "caption": "Nơi người dùng có thể tìm kiếm, lọc theo danh mục và khám phá hàng loạt các ý tưởng prompt sáng tạo.",
+      "image": "/imgs/windprompt/library.png"
+    },
+    {
+      "title": "Bảng Xếp Hạng Top 20",
+      "caption": "Trang hiển thị danh sách 20 prompt phổ biến nhất kèm theo tính năng quét nhanh (Quick Scan) xu hướng.",
+      "image": "/imgs/windprompt/trending.png"
+    },
+    {
+      "title": "Bảng Điều Khiển Quản Trị (Admin Dashboard)",
+      "caption": "Giao diện dành cho quản trị viên cung cấp cái nhìn tổng quan về số lượng truy cập, tỷ lệ copy prompt, và phân bố lưu lượng theo quốc gia.",
+      "image": "/imgs/windprompt/admin.png"
+    },
+    {
+      "title": "Cài Đặt Hệ Thống Kiếm Tiền (Monetization)",
+      "caption": "Trang thiết lập cho phép quản trị viên thêm và tùy chỉnh các thẻ Affiliate hoặc quảng cáo một cách linh hoạt.",
+      "image": "/imgs/windprompt/settings.png"
     }
   ],
   "takeaways": [
-    "Một công cụ tốt phải giảm thiểu tối đa số bước thao tác của người dùng: từ tìm kiếm đến sao chép chỉ trong vòng 3 giây.",
-    "Prompt chuẩn hóa giúp nâng cao năng suất lập trình và tương tác với AI lên gấp nhiều lần."
+    "Việc xây dựng một nền tảng chia sẻ nội dung đòi hỏi sự cân bằng giữa trải nghiệm người dùng cuối (mượt mà, dễ dùng) và công cụ cho quản trị viên (chi tiết, dễ cấu hình).",
+    "Tích hợp hệ thống phân tích và các công cụ monetization ngay từ đầu giúp dự án có khả năng tự duy trì và định hướng mở rộng tốt trong tương lai."
   ]
 }

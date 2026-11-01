@@ -1,16 +1,15 @@
 {
-  "name": "タイン・グエン",
-  "nativeName": "Win Nguyen",
-  "avatar": "/avatar.png",
-  "headline": "シニアフルスタックエンジニア（バックエンド専門 & AI統合）",
-  "bio": "バックエンド出身のシニアフルスタックエンジニア（実務経験6年以上）。現在はデジタルヘルスケア企業のプロダクト開発を担当し、大規模バイオメトリクスデータの処理、スマートウォッチ・ウェアラブル機器連携（Huawei Health、Google Fit、Google Health Connect等）、企業向けOIDC/OAuth2認証基盤の構築、および実用的なAIサービス統合を主導しています。",
-  "email": "thang.nguyen@example.com",
-  "location": "ベトナム・ホーチミン市",
+  "name": "ヴォ・フー・タン",
+  "nativeName": "Vo Huu Thang (huuthangvo)",
+  "avatar": "/avatar.jpg",
+  "headline": "フルスタックエンジニア（バックエンド専門 & データ基盤）",
+  "bio": "バックエンド開発を強みとするフルスタックエンジニア（実務経験4年）。Grandm.vnにおけるデジタルヘルスケアプラットフォームの開発に従事し、スマートウェアラブル機器（Huawei Health、Google Fit、Apple HealthKit）からの大規模ヘルスケアデータ連携、企業標準のOIDC認証基盤構築、業務管理ポータル開発、および実用的なAI自動化機能の統合を担当しています。",
+  "email": "huuthang28.work@gmail.com",
+  "location": "ベトナム・カインホア省ニャチャン",
   "links": {
-    "github": "https://github.com/win-dev",
+    "github": "https://github.com/huuthangvo",
+    "facebook": "https://facebook.com/thangreal.1368",
     "linkedin": "https://linkedin.com",
-    "resume": "/resume.pdf",
-    "wechat": "win_developer",
-    "twitter": "https://twitter.com"
+    "resume": "/resume.pdf"
   }
 }

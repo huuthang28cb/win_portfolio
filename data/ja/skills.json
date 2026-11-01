@@ -1,22 +1,22 @@
 [
   {
     "category": "バックエンド & データベース工学",
-    "skills": ["PHP", "Laravel", "Python", "PostgreSQL", "Redis", "MySQL", "Eloquent ORM", "SQLAlchemy", "クエリチューニング", "テーブルパーティショニング"]
+    "skills": ["PHP", "Laravel", "Python", "Node.js", "PostgreSQL", "MySQL", "Redis", "RESTful API設計", "SQLクエリ最適化"]
   },
   {
-    "category": "フロントエンド & Webアーキテクチャ",
-    "skills": ["ReactJS", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript (ES6+)", "状態管理設計", "レスポンシブUI/UX", "RESTful / GraphQL"]
+    "category": "フロントエンド & Webアプリケーション",
+    "skills": ["Next.js", "ReactJS", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "企業向けポータル開発", "管理ダッシュボード", "状態管理"]
   },
   {
-    "category": "応用AI & メディア処理システム",
-    "skills": ["プロンプトエンジニアリング", "Whisper AI (音声認識)", "Kokoro TTS (音声合成)", "RAGシステム", "OpenAI API", "ベクトル検索"]
+    "category": "セキュリティ、IoT & CI/CD自動化",
+    "skills": ["Jenkins (CI/CD)", "Docker", "Docker Compose", "OpenID Connect (OIDC)", "OAuth 2.0 SSO", "ウェアラブル端末連携 (Huawei Health, Google Fit)", "Linuxサーバー運用"]
   },
   {
-    "category": "DevOps、セキュリティ & IoT統合",
-    "skills": ["Docker", "Docker Compose", "OpenID Connect (OIDC)", "OAuth 2.0 SSO", "Huawei Health API", "Google Health Connect", "Linux Server", "Git / CI-CD"]
+    "category": "実用AI & 業務自動化",
+    "skills": ["AIモデル統合 (OpenAI, LLM)", "プロンプトエンジニアリング", "RAGシステム", "定型レポート自動化"]
   },
   {
-    "category": "語学力 & シニア専門能力",
-    "skills": ["ビジネスレベル英語", "システムアーキテクチャ設計", "海外API仕様書の読解・実装", "自律的課題解決力", "Agile / Scrum"]
+    "category": "語学力 & 開発実践スキル",
+    "skills": ["技術英語（ドキュメント読解 & API仕様調査）", "課題解決力", "チーム開発 & 自律的推進", "Gitバージョン管理", "Agile開発手法"]
   }
 ]

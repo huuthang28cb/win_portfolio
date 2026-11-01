@@ -12,6 +12,7 @@ export interface ProfileData {
     linkedin?: string;
     resume?: string;
     twitter?: string;
+    facebook?: string;
     wechat?: string;
     contact?: string;
   };

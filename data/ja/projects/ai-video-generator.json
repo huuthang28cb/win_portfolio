@@ -1,146 +1,146 @@
 {
-  "title": "Visionary - AI自動動画制作・ノンリニア編集スタジオ",
+  "title": "AI Video Subtitle Studio - 吹き替え＆字幕プラットフォーム",
   "slug": "ai-video-generator",
   "featured": true,
-  "status": "本番稼働中",
+  "status": "展開・運用中",
   "year": 2025,
-  "client": "クリエイティブメディア各社 & 広告代理店",
-  "teamSize": 4,
-  "role": "AI & 動画システムアーキテクト",
-  "duration": "5ヶ月",
-  "category": "人工知能 & メディア処理",
-  "type": "エンタープライズSaaS",
-  "thumbnail": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "テキスト脚本からシネマティックな4K動画を自動生成し、WebCodecsによるハードウェアアクセラレーションを活用したブラウザ完結型動画編集スタジオ。",
+  "client": "個人 / コンテンツクリエイターチーム",
+  "teamSize": 1,
+  "role": "フルスタック＆AIエンジニア",
+  "duration": "1ヶ月",
+  "category": "人工知能＆メディア処理",
+  "type": "Webアプリケーション",
+  "thumbnail": "/imgs/video-screenshot_1.png",
+  "cover": "/imgs/video-screenshot_1.png",
+  "shortDescription": "ブラウザ上で直接、音声認識（Whisper）、多言語翻訳、AI音声吹き替え（TTS）を自動化するシステム。字幕編集や正確な音声同期をサポートします。",
   "tags": [
-    "Next.js 15",
+    "Vite",
+    "React",
+    "FastAPI",
     "Python",
-    "WebCodecs API",
-    "FFmpeg WASM",
-    "Diffusion Models",
-    "CUDA",
+    "Whisper",
+    "ElevenLabs",
     "Tailwind CSS"
   ],
   "links": {
-    "website": "https://visionary-video-demo.vercel.app",
-    "github": "https://github.com/win-dev/ai-video-synthesis",
-    "demo": "https://visionary-video-demo.vercel.app"
+    "website": "https://github.com/huuthang",
+    "github": "https://github.com/huuthang",
+    "demo": "http://localhost:1420"
   },
   "overview": {
-    "summary": "Visionaryは、クリエイターがスクリプトを入力するだけで、シーン生成、動的字幕、音声合成、演出効果を60秒以内に自動合成できる次世代AI動画編集基盤です。",
-    "background": "従来の動画制作では、60秒の短尺動画であっても構成作成、素材切り出し、音声調整、レンダリングに2〜4日を要していました。"
+    "summary": "AI Video Subtitle Studioは、字幕の抽出、言語の翻訳、各動画セグメントの人工音声（Voice Dubbing）の生成プロセスを迅速かつ正確に自動化するスマートな動画編集ツールです。",
+    "background": "従来の字幕作成や吹き替えには、文字起こしからタイミングの調整、録音に至るまで多くの時間がかかります。このソリューションは、コンテンツクリエイターが多言語処理の時間を、特に短いコンテンツ（Shorts、Reels）において最小限に抑えるのに役立ちます。"
   },
   "challenge": {
-    "title": "ブラウザ描画のボトルネックと音声・映像の完全同期",
-    "problem": "高解像度動画の複数トラック（映像、音声、動的字幕、エフェクト）をブラウザ上で遅延なくリアルタイム再生しつつ、クラウドアセット生成のGPUコストを最小化すること。",
+    "title": "精度と多言語同期の課題",
+    "problem": "多様な動画に対する正確な音声認識の処理、翻訳時のコンテキストの維持、そして特にインターフェースを遅延させることなく、新しいAI音声（TTS）のタイミングを元の動画とシームレスに同期させること。",
     "bottlenecks": [
-      "標準のHTML5 `<video>` タグでは高ビットレート再生時にメモリリークが発生。",
-      "プレビュー確認のためにクラウドGPUで中間動画を書き出す運用が高コスト化。",
-      "AI生成音声（TTS）とシーン切り替えタイミングのズレ（ドリフト）。"
+      "Speech-to-Textプロセスには、ミリ秒単位での高い精度と正確な時間分離（タイムスタンプ）が求められます。",
+      "Text-to-Speechの処理と動画への統合には、フロントエンドでの複雑な状態管理が必要です。",
+      "AIモデルを直接実行すると、適切に設定および最適化されていない場合、リソースを消費する可能性があります。"
     ]
   },
   "solution": {
-    "title": "WebCodecsとWorker並列化によるハイブリッドブラウザエンジン",
-    "approach": "クライアント端末のハードウェアデコーダ（WebCodecs API）とWebAssembly FFmpegを活用してプレビュー時のサーバー負荷をゼロ化し、本番4K出力のみ分散GPUクラスタで実行。",
+    "title": "FastAPIバックエンドとローカルAIモデルを使用した最適化されたアーキテクチャ",
+    "approach": "強力なAIタスクを処理するバックエンドとしてFastAPIを使用し、タスクキュー（Hueyワーカー）と組み合わせ、APIを介してReactフロントエンドと通信します。ローカルモデル（Local Whisper）またはクラウドサービス（OpenAI、ElevenLabs）を柔軟に選択できます。",
     "keyInnovations": [
-      "WebCodecs VideoDecoderにより、GPUハードウェアでフレームを直接展開し、滑らかな60 FPSプレビューを実現。",
-      "音声波形をリアルタイム解析し、ミリ秒単位でビートに同期したシーン転換を実現する自動アライメント機構。",
-      "タイムラインのシーク時に再バッファリングを発生させないチャンク型フレームキャッシュ。"
+      "ユーザーのハードウェアを最適化するために、複数の構成オプション（Tiny、Base、Small）を備えたローカル実行のfaster-whisperモデルを統合。",
+      "エラー修正、音声生成、即時プレビューを可能にする直感的なセグメント管理（Segment Management）インターフェース。",
+      "LLM翻訳や高度な音声生成サービスのための安全なAPIキー設定システムと柔軟な構成。"
     ]
   },
   "architecture": {
-    "overview": "ブラウザ側の超軽量編集エンジンとクラウド側の生成AIクラスタを組み合わせたハイブリッド構成。",
+    "overview": "スムーズなReact/ViteフロントエンドUIと、AI推論を提供する強力なPython FastAPIバックエンドを備えたクライアントサーバーアーキテクチャ。",
     "layers": [
       {
-        "layer": "クライアントNLE編集層",
-        "tech": "Next.js 15, WebCodecs API, Web Audio API, Canvas WebGL",
-        "detail": "ブラウザ上でノンリニア動画編集を実行。マルチトラック合成、リアルタイムカラーグレーディングを担当。"
+        "layer": "フロントエンドUI (React/Vite)",
+        "tech": "React, Vite, Tailwind CSS",
+        "detail": "直感的な動画プレーヤー、リアルタイム同期された字幕セグメントリスト、翻訳と吹き替えの状態管理。"
       },
       {
-        "layer": "絵コンテ・脚本解析層",
-        "tech": "Python, LLM Prompt Chains, 音素抽出",
-        "detail": "スクリプトをシーン単位に分割し、視覚的プロンプトの抽出とカット尺の自動計算を実施。"
+        "layer": "バックエンドAPI＆タスクキュー",
+        "tech": "Python, FastAPI, Huey",
+        "detail": "フロントエンドからのリクエストを処理し、サーバーのブロックを防ぐために重いタスク（音声認識、音声生成など）のキューを管理します。"
       },
       {
-        "layer": "生成メディア & GPUクラスタ",
-        "tech": "PyTorch, CUDA, Stable Video Diffusion, Whisper, vLLM",
-        "detail": "分散GPUプールにより、高品質映像、カメラワーク、表現力豊かな多言語音声を生成。"
+        "layer": "AIモデル＆サービス (STT, TTS, LLM)",
+        "tech": "faster-whisper, ElevenLabs API, OpenAI API, Kokoro (ローカルTTS)",
+        "detail": "音声認識（STT）、コンテキスト翻訳、スタジオ品質の音声合成（TTS）を実行します。"
       },
       {
-        "layer": "エンコード・エクスポート層",
-        "tech": "FFmpeg WASM (Client) & C++ NVENC (Cloud)",
-        "detail": "ブラウザ上での1080p高速書き出しと、クラウドでの4K ProRes高品質マスタリングに対応。"
+        "layer": "オーディオ/ビデオ処理",
+        "tech": "FFmpeg",
+        "detail": "オーディオの分割、結合、ミキシングを処理し、吹き替え後の最終的な動画ファイルをエクスポートします。"
       }
     ]
   },
   "features": [
     {
-      "title": "ブラウザ完結型ノンリニア動画編集機能 (NLE)",
-      "description": "ドラッグ＆ドロップで複数レイヤーのトリミング、トランジション適用、BGM自動音量調整をリアルタイム実行。",
+      "title": "スマートな字幕セグメント管理",
+      "description": "セグメントリストインターフェースを使用すると、ユーザーはタイムスタンプ、元のコンテンツ、翻訳されたコンテンツを表示および編集し、個別の音声を生成できます。",
       "technicalHighlights": [
-        "WebCodecs VideoDecoderから直接WebGLキャンバスへフレームを展開。",
-        "Web Audio APIによる自動音声コンプレッサーおよびダッキング処理。"
+        "動画プレーヤーとセグメントリスト間のリアルタイム同期。",
+        "各字幕行の音声生成（TTS）ステータスを個別に抽出して表示します。"
       ]
     },
     {
-      "title": "スクリプトからの絵コンテ自動生成 (Auto Storyboarding)",
-      "description": "記事テキストを貼り付けるだけで、文脈に即したシネマティックなカメラアングルと映像カットを自動生成。",
+      "title": "柔軟なAIおよびAPI構成",
+      "description": "コストを節約するために複数のオプションを持つローカルWhisperの実行をサポートし、翻訳と音声生成のためにAPIを柔軟に接続します。",
       "technicalHighlights": [
-        "文章の意味の区切りを捉えるセマンティックチャンキングアルゴリズム。",
-        "自然なイントネーションとリップシンクを備えた多言語AI音声合成。"
+        "完全オフラインのfaster-whisper（Tiny、Base、Small、Medium）をサポート。",
+        "安全なAPIキーストレージメカニズムにより、ElevenLabsおよびOpenAIと統合します。"
       ]
     },
     {
-      "title": "単語単位で光るカラオケ風動的字幕エフェクト",
-      "description": "発話タイミングに合わせて1単語ずつポップし色が変化するキネティックタイポグラフィを自動付与。",
+      "title": "直感的な動画上編集ツール",
+      "description": "カスタマイズ可能な表示機能（色、フォントサイズ、位置）と迅速な操作のための便利なショートカットを備えた動画プレーヤーを統合します。",
       "technicalHighlights": [
-        "Whisperによるミリ秒精度のタイムスタンプ抽出。",
-        "サーバー負荷ゼロで描画する60 FPSベクターキャンバス字幕レンダラー。"
+        "動画の元の字幕を隠すための「字幕マスキング（Masking）」機能。",
+        "ドラッグアンドドロップによる字幕の配置や、クリックによる素早い動画のスキップをサポートします。"
       ]
     }
   ],
   "metrics": [
     {
-      "label": "動画制作完了までの時間",
-      "value": "< 45秒",
-      "change": "80倍高速化"
+      "label": "認識精度",
+      "value": "95%以上",
+      "change": "Whisper Smallを使用"
     },
     {
-      "label": "生成された総動画本数",
-      "value": "15,000本+",
-      "change": "ベータ期間中"
+      "label": "STT処理速度",
+      "value": "10秒未満",
+      "change": "1分間の動画あたり"
     },
     {
-      "label": "クラウドインフラ費用の削減",
-      "value": "68%削減",
-      "change": "WebCodecs活用"
+      "label": "言語と音声のオプション",
+      "value": "多様",
+      "change": "LLMおよびElevenLabs経由"
     },
     {
-      "label": "視聴維持率（リテンション）",
-      "value": "+42%向上",
-      "change": "動的字幕効果"
+      "label": "オフライン機能",
+      "value": "100%",
+      "change": "STTおよびローカルTTS向け"
     }
   ],
   "gallery": [
     {
-      "title": "ブラウザNLEタイムラインスタジオ",
-      "caption": "WebCodecsを活用し、リアルタイムでプレビューが可能な本格的編集インターフェース。",
-      "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop"
+      "title": "セグメント管理と動画スタジオのインターフェース",
+      "caption": "メインインターフェースでは、動画のプレビュー、字幕表示のカスタマイズ、および吹き替え対象のセグメントの管理が可能です。",
+      "image": "/imgs/video-screenshot_1.png"
     },
     {
-      "title": "脚本解析と自動シーン生成",
-      "caption": "AIがテキストを解析し、絵コンテ構成と動画プロンプトを自動作成。",
-      "image": "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2070&auto=format&fit=crop"
+      "title": "AIシステムとサービスの設定",
+      "caption": "音声認識モデル（ローカルWhisper）と、翻訳およびText-to-Speech用のAPIの柔軟な構成。",
+      "image": "/imgs/video-screenshot_2.png"
     },
     {
-      "title": "動的字幕スタイリングとカラーコレクション",
-      "caption": "プリセットから即座に選択可能なアニメーションタイポグラフィとシネマカラーLUT。",
-      "image": "https://images.unsplash.com/photo-1574717024553-78858a742142?q=80&w=2070&auto=format&fit=crop"
+      "title": "インタラクションガイドとショートカット",
+      "caption": "システムは、動画の早送り、テキストの配置、音声の迅速な生成など、直感的なマウス操作とショートカットを提供します。",
+      "image": "/imgs/video-screenshot_3.png"
     }
   ],
   "takeaways": [
-    "動画デコードや音声ミキシングをWebCodecsを通じてクライアント側で処理することで、インフラ運用費を劇的に削減できる。",
-    "AI生成動画において視聴者を惹きつける最大の要因は、音声と映像カットのミリ秒単位の完全同期である。"
+    "ローカルAI（コスト削減、安全）とクラウドAPI（高品質）を組み合わせたアプリケーションを構築することで、ユーザーに最適な体験をもたらします。",
+    "フロントエンドでの複雑な状態管理（state management）は、スムーズで直感的な編集ツール（Studio）を作成するための鍵です。"
   ]
 }

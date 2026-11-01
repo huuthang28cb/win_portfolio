@@ -1,132 +1,139 @@
 {
-  "title": "大規模ヘルスケアデータ処理基盤 & ウェアラブル同期プラットフォーム",
+  "title": "大規模ヘルスデータ処理 & ウェアラブル端末連携プラットフォーム",
   "slug": "health-sync-platform",
   "featured": true,
-  "status": "本番稼働中",
+  "status": "本番運用中",
   "year": 2026,
-  "client": "Digital HealthTech Product Company",
-  "teamSize": 6,
-  "role": "バックエンドアーキテクト & データリード",
-  "duration": "12ヶ月",
+  "client": "日本企業クライアント（Grandm.vn）",
+  "teamSize": 15,
+  "role": "フルスタックエンジニア（バックエンド主力）",
+  "duration": "2022年 - 現在（自社中核プロダクト）",
   "category": "ビッグデータ & ヘルスケアIoT",
   "type": "企業中核プロダクト基盤",
-  "thumbnail": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
-  "cover": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
-  "shortDescription": "Huawei Health、Google Fit、Google Health Connect、Apple HealthKitと自動連携し、数十万人分の生体データをリアルタイム収集・解析する中核データ基盤。",
+  "thumbnail": "/imgs/japanese-smartwatch-health-1.jpg",
+  "cover": "/imgs/japanese-smartwatch-health-1.jpg",
+  "shortDescription": "Grandm.vnにおいて日本市場向けに自社開発している中核ヘルスケアプラットフォーム。Huawei Health、Google Fit、Google Health Connect、Apple HealthKitと連携し、実稼働5万人以上のユーザーから収集した累計約10億件のヘルスデータを安定処理。",
   "tags": [
     "PHP",
     "Laravel",
     "Python",
     "PostgreSQL",
+    "MySQL",
     "Redis",
+    "Next.js",
     "Docker",
+    "Jenkins",
     "Huawei Health API",
-    "Google Health Connect",
-    "TimescaleDB"
+    "Google Health Connect"
   ],
   "links": {
     "website": "https://health-platform-demo.vercel.app",
-    "github": "https://github.com/win-dev/health-telemetry-engine",
+    "github": "https://github.com/huuthangvo/health-telemetry-engine",
     "demo": "https://health-platform-demo.vercel.app"
   },
   "overview": {
-    "summary": "デジタルヘルスケアプロダクトのデータコアとして機能し、スマートデバイスから継続的に送信される生体情報の収集、パース、正規化、およびトレンド分析を一手に担います。",
-    "background": "各スマートウォッチベンダー（Huawei、Google、Apple）は異なるデータ構造と計測周期を採用しています。統一されたデータ連携基盤がない状態では、同期遅延や不整合が発生し、正確な健康分析の妨げとなっていました。"
+    "summary": "Grandm.vnが日本の提携先企業および法人顧客向けに提供するヘルスケアプロダクトのデータ基盤です。従業員やユーザーが装着するスマートウォッチから送信される心拍数、歩数、睡眠などの健康データをリアルタイムに収集・正規化・蓄積します。",
+    "background": "日本企業では従業員の健康経営やウェルネス推進が重視されています。しかし、利用デバイス（Huawei、Google、Apple）によってデータ形式や通信周期が大きく異なります。本プラットフォームはそれらの差異を吸収し、正確な集計レポートを一元管理するために構築されました。"
   },
   "challenge": {
-    "title": "膨大なイベント流量の処理と絶対的な高可用性",
-    "problem": "毎日数千万件に及ぶ心拍・活動量データをリアルタイムに処理しつつ、厳格な医療データセキュリティ基準を遵守し、データベース負荷を低減すること。",
+    "title": "膨大なデータ流量の安定処理と高いシステム堅牢性の確保",
+    "problem": "5万人超のユーザーから送信される日次数百〜数千万件の生体イベントを遅延なく処理し、累計約10億件に迫るデータをPostgreSQLとMySQLで破綻なく安定運用すること。",
     "bottlenecks": [
-      "朝の起床時や運動直後など、特定時間帯に集中する急激な同期アクセススパイク。",
-      "数億件の生ログデータ蓄積に伴うPostgreSQLテーブルの肥大化とインデックス劣化。",
-      "重複Webhook配信に対する冪等性（Idempotency）の担保。"
+      "出勤前や就業後の運動時間帯など、特定時間帯にアクセスが集中するスパイク負荷。",
+      "約10億件規模のヘルスデータ蓄積に伴うデータベース肥大化と検索性能の低下。",
+      "モバイルネットワークの切断や再送に伴う重複データの排除と耐障害性。"
     ]
   },
   "solution": {
-    "title": "PostgreSQLパーティショニングとRedisバッファによる階層型パイプライン",
-    "approach": "PHP/LaravelおよびPythonによる非同期ワーカーモデルを採用し、Redisによるバッファリングと月次パーティショニングされたPostgreSQL時系列テーブルへの永続化を実現。",
+    "title": "PostgreSQLパーティショニング、MySQL、およびRedisを活用した分散アーキテクチャ",
+    "approach": "PHP/LaravelおよびPythonによる非同期ワーカーモデルを採用。Redisを一時バッファおよびキューとして活用し、時系列ヘルスデータはPostgreSQLパーティションテーブルに、業務データはMySQLに効率よく分離格納。",
     "keyInnovations": [
-      "Huawei、Google Fit、Health Connectの独自形式を共通リレーショナルスキーマへ変換する統合アダプター層の構築。",
-      "PostgreSQLのタイムレンジ・パーティショニングによる、30ms未満の高速グラフ集計クエリの維持。",
-      "生体異常値（不整脈傾向など）を3秒以内に自動検知・通知する統計アルゴリズムの実装。"
+      "統一ヘルスデータモデル（Unified Health Telemetry Schema）による複数ベンダー仕様の吸収。",
+      "PostgreSQLの月別時間範囲パーティショニングにより、累計10億件規模でも集計クエリの安定したレスポンスを維持。",
+      "自動リトライと履歴データのバックフィル同期機構による高い耐障害性の実現。"
     ]
   },
   "architecture": {
-    "overview": "プライマリDBを保護する低遅延イベント駆動型アーキテクチャ。",
+    "overview": "低レイテンシのイベント駆動型アーキテクチャにより中核DBを保護。",
     "layers": [
       {
-        "layer": "インジェスチョン・ゲートウェイ & Webhook",
+        "layer": "受信ゲートウェイ & Webhook層",
         "tech": "PHP / Laravel, REST APIs, OAuth2 Token Management",
-        "detail": "Huawei HealthおよびGoogle Cloudとのセキュアな通信とOAuth2リフレッシュトークンの自動更新を制御。"
+        "detail": "Huawei Health KitやGoogle CloudサーバーとのセキュアなOAuth2認証およびトークン自動更新。"
       },
       {
         "layer": "キュー & 正規化ワーカー層",
-        "tech": "Redis Queue, Python Workers, Celery",
-        "detail": "ペイロードの解凍、重複排除、および総合健康指標（睡眠ステージ、アクティブ時間）の事前集計を実行。"
+        "tech": "Redis Queue, Python Workers, Background Jobs",
+        "detail": "ペイロードの展開、重複排除、および総合指標（心拍数、歩数、睡眠深度、カロリー）の計算処理。"
       },
       {
-        "layer": "ヘルスデータストア",
-        "tech": "PostgreSQL, Timescale Partitioning, Docker",
-        "detail": "BRINおよびB-Treeインデックスを最適化した時系列データストレージにより、長期履歴レンジスキャンを高速化。"
+        "layer": "複合データベース層",
+        "tech": "PostgreSQL（時系列パーティショニング）, MySQL, Docker",
+        "detail": "約10億件のヘルスデータを最適化されたPostgreSQLに格納し、企業・ユーザー情報はMySQLで管理。"
       },
       {
-        "layer": "分析Webアプリ & ポータル",
-        "tech": "ReactJS, Next.js, Chart.js, Tailwind CSS",
-        "detail": "ユーザーおよび専門アドバイザー向けに24時間の生理指標推移を直感的に可視化するダッシュボード。"
+        "layer": "B2B企業向けポータル & レポート層",
+        "tech": "Next.js, ReactJS, Tailwind CSS, Chart.js",
+        "detail": "日本企業向けに直感的な操作性と視認性を備えた従業員健康管理ダッシュボードを提供。"
       }
     ]
   },
   "features": [
     {
-      "title": "マルチエコシステム・スマートデバイス連携",
-      "description": "一度の同意でHuawei Health Kit、Google Fit API、Google Health Connect、Apple HealthKitとのシームレスな同期を実現。",
+      "title": "主要ウェアラブルエコシステムの包括的連携",
+      "description": "一度の連携同意でHuawei Health Kit、Google Fit API、Google Health Connect、Apple HealthKitとのシームレスな同期を実現。",
       "technicalHighlights": [
         "バックグラウンドでのアクセストークン自動更新による認証切れ防止。",
         "端末変更時における過去履歴データの差分バックフィル同期。"
       ]
     },
     {
-      "title": "詳細バイオメトリクス分析ダッシュボード",
-      "description": "心拍変動、レム/ノンレム睡眠サイクル、日次消費カロリーをインタラクティブなチャートで可視化。",
+      "title": "日本企業向けB2B健康管理ポータル & 定期レポート",
+      "description": "心拍トレンド、睡眠リズム、日次運動量をグラフィカルに可視化し、健康経営の推進をサポート。",
       "technicalHighlights": [
-        "並行集計クエリにより、ダッシュボード表示時間を2.4秒から180msへ短縮。",
-        "任意期間フィルタリングと医療標準PDFレポートの自動出力機能。"
+        "従業員の健康状況を多角的に把握できる管理者向けダッシュボード。",
+        "日次・週次・月次の任意集計と定期出力レポート機能。"
       ]
     }
   ],
   "metrics": [
     {
-      "label": "日次処理バイオメトリクス件数",
-      "value": "25,000,000+",
-      "change": "+340% スループット向上"
+      "label": "累計ヘルスケア蓄積レコード数",
+      "value": "約10億件",
+      "change": "9.5億件以上の累計ログ"
     },
     {
-      "label": "集計クエリ平均応答時間",
-      "value": "< 30ms",
-      "change": "8倍高速化"
+      "label": "システム可用性・稼働率",
+      "value": "99.9%",
+      "change": "24時間365日安定運用"
     },
     {
-      "label": "データ配信信頼性SLA",
-      "value": "99.98%",
-      "change": "データ欠損ゼロ"
+      "label": "データ同期成功率",
+      "value": "99.8%",
+      "change": "自動リトライ & 耐障害設計"
+    },
+    {
+      "label": "実稼働アクティブユーザー数",
+      "value": "50,000+",
+      "change": "実運用ユーザー"
     }
   ],
   "visuals": [
     {
-      "title": "テレメトリパイプライン全体図",
-      "description": "ウェアラブル端末から正規化PostgreSQL時系列DBまでのデータフロー。",
+      "title": "スマートウォッチを活用する日本国内のユーザー",
+      "description": "日常生活や運動時にスマートウォッチを着用し、心拍数や歩数などの健康指標を笑顔で日常管理。",
       "type": "architecture",
-      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+      "url": "/imgs/japanese-smartwatch-health-1.jpg"
     },
     {
-      "title": "生体データ分析ダッシュボード",
-      "description": "Next.jsとChart.jsで構築された高密度マルチ指標グラフ画面。",
+      "title": "日本企業の健康経営・ウェルネス推進プログラム",
+      "description": "ビジネスパーソンが日々の運動目標や生体ログを自動連携し、職場での健康増進を実践。",
       "type": "screenshot",
-      "url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop"
+      "url": "/imgs/japanese-smartwatch-health-2.jpg"
     }
   ],
   "takeaways": [
-    "PostgreSQLのパーティショニングとRedisキューの組み合わせにより、専用NoSQLクラスタを導入することなく膨大なIoTデータを安定処理できる。",
-    "サードパーティ製ヘルスAPIを統一内部モデルに抽象化することで、外部仕様変更の影響を最小限に抑えられた。"
+    "PostgreSQLの時系列テーブル分割とRedisキューの連携により、約10億件規模のデータを過度な複雑さなしに安定処理できる。",
+    "外部ヘルスケアAPIを自社統一スキーマに正規化することで、外部の仕様変更にも柔軟に対応できる強固なシステムを実現。"
   ]
 }

@@ -1,16 +1,15 @@
 {
-  "name": "Nguyễn Thắng",
-  "nativeName": "Win Nguyen",
-  "avatar": "/avatar.png",
-  "headline": "Senior Full Stack Engineer (Backend Specialist & AI Systems)",
-  "bio": "Kỹ sư Full Stack xuất thân từ Backend với hơn 6 năm kinh nghiệm thực chiến. Hiện đang phát triển nền tảng công nghệ sức khỏe (Digital HealthTech), chuyên sâu về xử lý dữ liệu lớn sinh trắc học, kết nối hệ sinh thái thiết bị đeo thông minh (Huawei Health, Google Fit, Google Health Connect), xây dựng hệ thống định danh OIDC chuẩn doanh nghiệp và tích hợp các giải pháp AI tự động hóa.",
-  "email": "thang.nguyen@example.com",
-  "location": "TP. Hồ Chí Minh, Việt Nam",
+  "name": "Võ Hữu Thắng",
+  "nativeName": "huuthangvo",
+  "avatar": "/avatar.jpg",
+  "headline": "Lập trình viên Full Stack (Thế mạnh Backend & Hệ thống Dữ liệu)",
+  "bio": "Lập trình viên Full Stack xuất thân từ Backend với 4 năm kinh nghiệm thực chiến. Chuyên sâu phát triển nền tảng công nghệ sức khỏe tại Grandm.vn (Digital HealthTech Platform), xử lý dữ liệu lớn từ hệ sinh thái thiết bị đeo thông minh (Huawei Health, Google Fit, Apple HealthKit), xây dựng hệ thống định danh OIDC chuẩn doanh nghiệp, phát triển các cổng quản trị portal và tích hợp các giải pháp AI tự động hóa.",
+  "email": "huuthang28.work@gmail.com",
+  "location": "Nha Trang, Khánh Hòa, Việt Nam",
   "links": {
-    "github": "https://github.com/win-dev",
+    "github": "https://github.com/huuthangvo",
+    "facebook": "https://facebook.com/thangreal.1368",
     "linkedin": "https://linkedin.com",
-    "resume": "/resume.pdf",
-    "wechat": "win_developer",
-    "twitter": "https://twitter.com"
+    "resume": "/resume.pdf"
   }
 }

@@ -1,47 +1,35 @@
 [
   {
-    "id": "healthtech-product",
-    "organization": "デジタルヘルスケア プラットフォーム",
-    "role": "シニアフルスタック & AIシステムエンジニア",
-    "period": "2022 - 現在",
-    "location": "ベトナム・ホーチミン市",
+    "id": "healthtech-grandm",
+    "organization": "Grandm.vn（デジタルヘルスケア プラットフォーム）",
+    "role": "フルスタックエンジニア（バックエンド主力）",
+    "period": "2022年 - 現在",
+    "location": "ベトナム・カインホア省ニャチャン",
     "type": "work",
-    "description": "数十万人規模のアクティブユーザーを抱える企業向けヘルスケアプロダクトにおいて、バックエンド基盤、生体データ処理、およびAIサービスの開発を主導。",
+    "description": "デジタルヘルスケアプラットフォーム（Digital HealthTech）のコア開発を担当。バックエンド基盤、スマートウェアラブル機器からの大規模データ収集パイプライン、企業向けOIDC認証基盤、業務管理ポータルのフロントエンド、AI自動化モジュールの連携まで幅広く従事。",
     "highlights": [
-      "主要ウェアラブル機器（Huawei Health、Google Fit、Google Health Connect、Apple HealthKit）からのリアルタイムデータ連携パイプラインを構築。",
-      "全Web/モバイルアプリのシングルサインオン（SSO）を統括する企業標準のOIDC（OpenID Connect / OAuth2）認証基盤を設計・実装。",
-      "心拍数、睡眠段階、活動量など1日あたり数千万件規模のバイオメトリクスデータを効率処理するため、PostgreSQLの時系列パーティショニングを最適化。",
-      "医療従事者およびユーザー向けの定期ヘルスケアレポート自動生成AIマイクロサービスを統合。"
+      "主要スマートウェアラブル機器（Huawei Health、Google Fit、Google Health Connect、Apple HealthKit）からの心拍数・歩数・睡眠・SpO2・消費カロリー等のヘルスデータをリアルタイムに収集・正規化するパイプラインを構築。",
+      "Redis Queueとバックグラウンドワーカーを活用し、日次数百万件規模のテレメトリデータを遅延なく安定処理する仕組みを確立。",
+      "時系列パーティショニングを施したPostgreSQLと業務トランザクション向けMySQLを最適構成。インデックス調整およびRedisキャッシュにより、管理ダッシュボードAPIの応答速度50ms以内を維持。",
+      "OpenID ConnectおよびOAuth 2.0（PKCE付き認可コードフロー）に準拠したIDプロバイダ（IdP）を構築し、全Web・モバイルアプリ・企業ポータルにおけるセキュアなシングルサインオン（SSO）を実現。",
+      "Next.jsおよびReactJSを用いて企業向けB2Bヘルスケアポータルおよびシステム管理画面を開発。従業員の健康状況の可視化や分析レポートの出力機能を実装。",
+      "AIモデルおよび大規模言語モデル（LLM）を統合し、ヘルスデータの自動集計、医療・健康レポートの定型生成、および自動応答サポートを自動化。",
+      "JenkinsによるCI/CD自動化パイプラインの構築とDockerコンテナ化を推進し、テストから本番デプロイまでの効率化と安定運用を実現。"
     ],
-    "techStack": ["PHP", "Laravel", "Python", "ReactJS", "Next.js", "PostgreSQL", "Docker", "Redis", "OIDC"]
+    "techStack": ["PHP", "Laravel", "Python", "Node.js", "Next.js", "ReactJS", "PostgreSQL", "MySQL", "Redis", "Jenkins", "Docker", "OIDC"]
   },
   {
-    "id": "enterprise-backend",
-    "organization": "Nexus Software Solutions",
-    "role": "バックエンド & フルスタックエンジニア",
-    "period": "2019 - 2022",
-    "location": "ベトナム・ホーチミン市",
-    "type": "work",
-    "description": "企業向けスケーラブルWeb API、決済ゲートウェイ連携、およびデータ管理Webアプリケーションの開発に従事。",
-    "highlights": [
-      "PHP/Laravel および Python を用いた堅牢なRESTful/GraphQL APIの設計。",
-      "PostgreSQLのクエリ最適化とインデックスチューニングにより、集計レポートの生成時間を70%削減。",
-      "Docker による開発・本番環境のコンテナ化およびCI/CDパイプラインの構築。"
-    ],
-    "techStack": ["PHP", "Laravel", "Python", "PostgreSQL", "Docker", "ReactJS", "Redis", "GitLab CI"]
-  },
-  {
-    "id": "university-it",
-    "organization": "ベトナム国家大学 工科大学 (VNU)",
-    "role": "情報技術学士（ソフトウェア工学専攻）",
-    "period": "2015 - 2019",
-    "location": "ベトナム・ホーチミン市",
+    "id": "university-ntu",
+    "organization": "ニャチャン大学（Nha Trang University - NTU）",
+    "role": "情報技術学士",
+    "period": "2019年 - 2022年",
+    "location": "ベトナム・カインホア省ニャチャン",
     "type": "education",
-    "description": "データ構造とアルゴリズム、リレーショナルデータベース設計、オブジェクト指向プログラミングの強固な基礎を習得。",
+    "description": "情報技術専攻の正規学士課程を修了。コンピュータサイエンス、データ構造とアルゴリズム、リレーショナルデータベース設計（SQL）、オブジェクト指向プログラミング（OOP）、およびコンピュータネットワークの基礎を習得。",
     "highlights": [
-      "卒業研究：サービス指向分散Webアプリケーションアーキテクチャの設計と実装。",
-      "プログラミングコミュニティおよびOSS研究活動に参加。"
+      "PHP、Laravel、Node.js、MySQLを活用した実践的なWebシステムおよびAPIの開発に取り組み、体系的なソフトウェア開発プロセスを習得。",
+      "規定の年限内に学士課程を優秀な成績で修了し、自律的な技術探究力と問題解決能力を培う。"
     ],
-    "techStack": ["Software Architecture", "Database Design", "OOP", "Linux", "Data Structures"]
+    "techStack": ["Computer Science", "Algorithms", "Database Design", "OOP", "PHP", "Laravel", "MySQL", "JavaScript", "Linux"]
   }
 ]

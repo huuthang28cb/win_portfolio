@@ -5,6 +5,17 @@ import { ArrowRight, Folder, ArrowLeft } from "lucide-react"
 import { getCategories, getAllProjects } from "@/lib/data"
 import { getDictionary } from "@/lib/i18n"
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  if (locale === "vi") return { title: "Danh mục Chuyên môn" }
+  if (locale === "ja") return { title: "専門カテゴリ一覧" }
+  return { title: "Categories & Domains" }
+}
+
 export default async function CategoriesPage({
   params,
 }: {
