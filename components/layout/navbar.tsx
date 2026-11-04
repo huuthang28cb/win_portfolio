@@ -14,7 +14,7 @@ import {
   X,
 } from "lucide-react"
 
-import { cn } from "@/lib/utils"
+import { cn, getAssetUrl } from "@/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Logo } from "@/components/logo"
 import { Button } from "@/components/ui/button"
@@ -60,8 +60,15 @@ export function Navbar({ locale, dict }: { locale: string; dict: any }) {
   ]
 
   const switchLanguage = (newLocale: string) => {
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`)
-    window.location.href = newPath
+    const segments = pathname.split("/").filter(Boolean)
+    if (segments.length > 0 && (segments[0] === "vi" || segments[0] === "en" || segments[0] === "ja")) {
+      segments[0] = newLocale
+    } else {
+      segments.unshift(newLocale)
+    }
+    const newPath = `/${segments.join("/")}`
+    const hash = typeof window !== "undefined" ? window.location.hash : ""
+    window.location.href = `${getAssetUrl(newPath)}${hash}`
   }
 
   const currentLangLabel =

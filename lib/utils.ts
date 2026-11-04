@@ -14,7 +14,23 @@ export function getAssetUrl(path?: string): string {
   ) {
     return path;
   }
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  let basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  // Client-side fallback detection for GitHub Pages subfolder
+  if (!basePath && typeof window !== "undefined") {
+    const match = window.location.pathname.match(/^(\/[^\/]+)\/(?:vi|en|ja)(?:\/|$)/);
+    if (match) {
+      basePath = match[1];
+    }
+  }
+
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
+
+  // Prevent duplicate basePath prefixing
+  if (basePath && cleanPath.startsWith(basePath)) {
+    return cleanPath;
+  }
+
   return `${basePath}${cleanPath}`;
 }
